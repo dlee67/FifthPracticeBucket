@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<!--Notice how the below attribute th is also being used in <h2 th:text ... -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello, World!</title>
+</head>
+<body>
+<!--The "bang" in the below line of code is coming from the Model object in HelloController. -->
+    <h2 th:text="'Hello, ' + ${user} + '!'"></h2>
+</body>
+</html>
