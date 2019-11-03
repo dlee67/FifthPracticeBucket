@@ -12,6 +12,8 @@ public class HelloController {
     @GetMapping("/hello")
     public String sayHello(
             // required = false enables the users to not pass in any arguments.
+            // To use the param below, the URL would look like ...
+            // http://localhost:8080/hello?name=Wing%20Stop
             @RequestParam(defaultValue = "world", required = false) String name,
             Model model) {
         model.addAttribute("user", name); // Essentially, a map.
