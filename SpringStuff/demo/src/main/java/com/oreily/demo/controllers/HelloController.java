@@ -14,9 +14,9 @@ public class HelloController {
             // required = false enables the users to not pass in any arguments.
             // To use the param below, the URL would look like ...
             // http://localhost:8080/hello?name=Wing%20Stop
-            @RequestParam(defaultValue = "world", required = false) String name,
-            Model model) {
-        model.addAttribute("user", name); // Essentially, a map.
+            @RequestParam(defaultValue = "World", required = false) String name, // In order to do anything with the argument "name"
+            Model model) { // Model object supplies the rendering views.
+        model.addAttribute("user", name); // where the model here will be supplied to hello.html.
         return "hello"; // The left won't actually return the string hello, but the hello.html in templates.
     }
 }
