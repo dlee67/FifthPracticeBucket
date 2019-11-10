@@ -1,3 +1,22 @@
-<div>
-  Software Craftmanship
-</div>
+<html>
+  <script src="https://cdn.plyr.io/2.0.15/plyr.js"></script>
+  <div class="main-hero__youtube__video">
+    <div data-type="vimeo" data-video-id="143418951"></div>
+  </div>
+  <!-- https://jsfiddle.net/z3rnqpo1/5/ -->
+  <!-- Something like the beneath is suppose to achieve what we want,
+   but I just can't get it working for my files. -->
+  <script>
+    var plyr_options = {
+	    autoplay: true,
+	    clickToPlay: false,
+	    showPosterOnEnd: true,
+	    controls: ['fullscreen']
+    };
+    var players = plyr.setup(plyr_options);
+    players[0].on('ended', function(event) {
+      players[0].restart();
+       players[0].play();
+	  });
+  </script>
+</html>
