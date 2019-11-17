@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>C_Prac</RootNamespace>
+    <!-- If you have the below on, null values only throw warning. -->
+    <!-- <Nullable>warnings</Nullable> -->
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/bin/Debug/netcoreapp3.0/C#Prac
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/bin/Debug/netcoreapp3.0/C#Prac.deps.json
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/bin/Debug/netcoreapp3.0/C#Prac.runtimeconfig.json
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/bin/Debug/netcoreapp3.0/C#Prac.runtimeconfig.dev.json
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/bin/Debug/netcoreapp3.0/C#Prac.dll
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/bin/Debug/netcoreapp3.0/C#Prac.pdb
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/obj/Debug/netcoreapp3.0/C#Prac.csprojAssemblyReference.cache
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/obj/Debug/netcoreapp3.0/C#Prac.AssemblyInfoInputs.cache
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/obj/Debug/netcoreapp3.0/C#Prac.AssemblyInfo.cs
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/obj/Debug/netcoreapp3.0/C#Prac.dll
+/home/bob/Desktop/FifthPracticeBucket/C#Prac/obj/Debug/netcoreapp3.0/C#Prac.pdb
