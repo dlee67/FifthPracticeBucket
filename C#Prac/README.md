@@ -17,3 +17,6 @@ switch (shape)
 ```
 
 The above is pretty neat. They call the above concept a pattern.
+
+After skimming the above mentioned book, I was trying to write stuff for Xamarin, but
+I got blocked by the fact that I need Windows for the job.
