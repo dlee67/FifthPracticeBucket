@@ -1,0 +1,22 @@
+# Now I understand why professionals say doing things in shell is faster. 
+# It's because you can automate things.
+
+# Something like the below:
+
+az resource list \
+    --resource-group learn-aef0f515-db8d-4f02-9e22-f872460dbf64 \
+    --resource-type Microsoft.Web/sites
+
+# Will return the list of resources associated with the account/group.
+
+# List of groups or users can be found via:
+
+az account list --output table
+
+az group list --output table
+
+# With the acquired info from the above, I can do stuff like the below:
+
+az webapp stop \
+    --resource-group learn-aef0f515-db8d-4f02-9e22-f872460dbf64 \
+    --name <web app name>

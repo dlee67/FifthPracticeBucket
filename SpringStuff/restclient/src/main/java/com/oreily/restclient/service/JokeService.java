@@ -23,7 +23,6 @@ public class JokeService {
         String output = "";
         if(response != null) {
             output = response.getValue().getJoke();
-
         }
         return output;
     }
