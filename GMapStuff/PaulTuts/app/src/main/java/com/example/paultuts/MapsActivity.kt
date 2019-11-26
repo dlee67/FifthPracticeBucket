@@ -8,18 +8,26 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.android.gms.location.*
 
+import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import android.text.method.TextKeyListener.clear
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         GoogleMap.OnMyLocationButtonClickListener,
-                        GoogleMap.OnMyLocationClickListener {
+                        GoogleMap.OnMyLocationClickListener,
+                        GoogleMap.OnMapClickListener {
 
     private lateinit var mMap: GoogleMap
     private val LOCATION_PERMISSION = 42
@@ -29,14 +37,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+        // Creates a new instance of FusedLocationProviderClient, which is a basic location API.
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         // Like the beneath the lines suggests, that where activity_maps.xml is used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this) // Once the map is loaded, onMapReady is automatically called.
+        // Notice how this entire activity inherits OnMapReadyCallback.
+        // https://developers.google.com/android/reference/com/google/android/gms/maps/OnMapReadyCallback.html
+        // And notice how Paul's overriding functions like onMapReady.
+        mapFragment.getMapAsync(this)
     }
 
+    // https://developers.google.com/android/reference/com/google/android/gms/maps/OnMapReadyCallback.html#onMapReady(com.google.android.gms.maps.GoogleMap)
     override fun onMapReady(googleMap: GoogleMap) {
+        // https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap.html
         mMap = googleMap
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -67,6 +81,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         }
     }
 
+    override fun onMapClick(p0: LatLng?) {
+        if (p0 != null) {
+            // Creating a marker
+            val markerOptions = MarkerOptions()
+
+            // Setting the position for the marker
+            markerOptions.position(p0)
+
+            // Setting the title for the marker.
+            // This will be displayed on taping the marker
+            markerOptions.title(p0.latitude.toString() + " : " + p0.longitude)
+
+            // Clears the previously touched position
+            mMap.clear()
+
+            // Animating to the touched position
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
+
+            // Placing a marker on the touched position
+            mMap.addMarker(markerOptions)
+        }
+    }
+
     override fun onMyLocationButtonClick(): Boolean {
         Toast.makeText(this, "my location button click", Toast.LENGTH_LONG).show()
         return false
@@ -90,20 +127,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private fun initMap() {
         mMap.isMyLocationEnabled = true
-        mMap.setOnMyLocationButtonClickListener(this)
-        mMap.setOnMyLocationClickListener(this)
+        mMap.setOnMyLocationButtonClickListener(this) // Invokes onMyLocationButtonClick in this activity.
+        mMap.setOnMyLocationClickListener(this) // Invokes onMyLocationClick in this activity.
+        mMap.setOnMapClickListener(this)
         initLocationTracking();
     }
 
-    private fun updateMapLocation(location: Location?) {
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(
-            location?.latitude ?: 0.0,
-            location?.longitude ?: 0.0)))
-
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(15.0f))
-    }
-
     private fun initLocationTracking() {
+        // https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult?) {
                 locationResult ?: return
@@ -117,5 +148,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             LocationRequest(),
             locationCallback,
             null)
+    }
+
+    private fun updateMapLocation(location: Location?) {
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(
+            location?.latitude ?: 0.0,
+            location?.longitude ?: 0.0)))
+
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(15.0f))
     }
 }
