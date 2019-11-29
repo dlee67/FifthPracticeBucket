@@ -27,7 +27,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private val LOCATION_PERMISSION = 42
     private val firebaseDatabaseManager = FirebaseDatabaseManager(this)
-    private var listOfMarkers: ArrayList<Marker> = ArrayList();
+    private var listOfMarkers: ArrayList<Marker> = ArrayList()
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
@@ -97,13 +97,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
 
             // Placing a marker on the touched position
-            var newMarker = mMap.addMarker(markerOptions)
+            val newMarker = mMap.addMarker(markerOptions)
             listOfMarkers.add(newMarker)
             // addMarker() returns a Marker object, which can be used to remember the touched positions.
 
             firebaseDatabaseManager.addMarker(newMarker)
 // updating the markerCode deliberately will assign nextCode in getValue() with null ...
-//            firebaseDatabaseManager.updateMarkerCode()
+            firebaseDatabaseManager.updateMarkerCode()
         }
     }
 
@@ -133,7 +133,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         mMap.setOnMyLocationButtonClickListener(this) // Invokes onMyLocationButtonClick in this activity.
         mMap.setOnMyLocationClickListener(this) // Invokes onMyLocationClick in this activity.
         mMap.setOnMapClickListener(this)
-        initLocationTracking();
+        initLocationTracking()
     }
 
     private fun initLocationTracking() {
