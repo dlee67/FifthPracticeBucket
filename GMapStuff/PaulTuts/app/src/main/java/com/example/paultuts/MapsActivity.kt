@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.paultuts.database.FirebaseDatabaseManager
 
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -15,13 +16,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import android.text.method.TextKeyListener.clear
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.GoogleMap.OnMapClickListener
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import com.google.android.gms.maps.model.Marker
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
@@ -29,8 +25,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         GoogleMap.OnMyLocationClickListener,
                         GoogleMap.OnMapClickListener {
 
-    private lateinit var mMap: GoogleMap
     private val LOCATION_PERMISSION = 42
+    private val firebaseDatabaseManager = FirebaseDatabaseManager(this)
+    private var listOfMarkers: ArrayList<Marker> = ArrayList();
+    private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
 
@@ -93,14 +91,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             // This will be displayed on taping the marker
             markerOptions.title(p0.latitude.toString() + " : " + p0.longitude)
 
-            // Clears the previously touched position
-            mMap.clear()
-
             // Animating to the touched position
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
 
+
+
             // Placing a marker on the touched position
-            mMap.addMarker(markerOptions)
+            var newMarker = mMap.addMarker(markerOptions)
+            listOfMarkers.add(newMarker)
+            // addMarker() returns a Marker object, which can be used to remember the touched positions.
+
+            firebaseDatabaseManager.addMarker(newMarker)
+// updating the markerCode deliberately will assign nextCode in getValue() with null ...
+//            firebaseDatabaseManager.updateMarkerCode()
         }
     }
 
