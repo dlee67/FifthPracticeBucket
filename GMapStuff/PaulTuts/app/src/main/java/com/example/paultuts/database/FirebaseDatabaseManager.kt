@@ -15,27 +15,36 @@ import com.google.firebase.database.ValueEventListener
 internal class FirebaseDatabaseManager {
 
     var database = FirebaseDatabase.getInstance()
-    private var nextMarkerCode: Long = -1
     private var markerRef: DatabaseReference
     private var markerCodeRef: DatabaseReference
+    private var currentMarkerCode: Long = 0
 
     init {
         database = FirebaseDatabase.getInstance()
         markerRef = database.getReference(MARKER_ROOT_DIR)
         markerCodeRef = database.getReference(NEXT_MARKER_CODE)
+        markerCodeRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                currentMarkerCode = dataSnapshot.getValue(Long::class.java)!!
+                Log.i("dhl", "currentMarkerCode at: " + currentMarkerCode);
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("dhl", "loadPost:onCancelled", databaseError.toException())
+            }
+        });
     }
 
     fun addMarker(marker: Marker) {
+        Log.i("dhl", "Within the addMarker(), with currentMarkerCode at: " + currentMarkerCode);
         markerCodeRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
                 var markerCode = mutableData.getValue(Long::class.java)
                 if (markerCode == null) {
-                    nextMarkerCode = INITIAL_MARKER_CODE
-                    mutableData.value = nextMarkerCode
+                    mutableData.value = INITIAL_MARKER_CODE
                     Log.i("dhl", "In the if block of markerCodeRef transaction.");
                 } else {
                     mutableData.value = markerCode + 1
-                    nextMarkerCode = markerCode + 1
                 }
                 return Transaction.success(mutableData)
             }
@@ -48,7 +57,6 @@ internal class FirebaseDatabaseManager {
 
     companion object {
         private val MARKER_ROOT_DIR = "markers"
-        private val MARKER_PREFIX = "marker"
         private val INITIAL_MARKER_CODE: Long = 1
         private val NEXT_MARKER_CODE = "next_marker_code"
     }
