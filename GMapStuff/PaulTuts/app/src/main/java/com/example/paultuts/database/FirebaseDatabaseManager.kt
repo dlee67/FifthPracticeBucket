@@ -36,8 +36,6 @@ internal class FirebaseDatabaseManager {
                 } else {
                     mutableData.value = markerCode + 1
                     nextMarkerCode = markerCode + 1
-                    markerRef.child(MARKER_PREFIX + ":" + nextMarkerCode).setValue(marker)
-                    Log.i("dhl", "nextMarkerCode at: " + nextMarkerCode);
                 }
                 return Transaction.success(mutableData)
             }
