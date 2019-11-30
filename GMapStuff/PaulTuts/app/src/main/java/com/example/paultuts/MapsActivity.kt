@@ -26,7 +26,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         GoogleMap.OnMapClickListener {
 
     private val LOCATION_PERMISSION = 42
-    private val firebaseDatabaseManager = FirebaseDatabaseManager(this)
+    private val firebaseDatabaseManager = FirebaseDatabaseManager()
     private var listOfMarkers: ArrayList<Marker> = ArrayList()
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -100,7 +100,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             // addMarker() returns a Marker object, which can be used to remember the touched positions.
 
             firebaseDatabaseManager.addMarker(newMarker)
-            firebaseDatabaseManager.updateMarkerCode()
         }
     }
 

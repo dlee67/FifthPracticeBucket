@@ -12,21 +12,12 @@ import com.google.firebase.database.MutableData
 import com.google.firebase.database.Transaction
 import com.google.firebase.database.ValueEventListener
 
-internal class FirebaseDatabaseManager(context: Context) {
+internal class FirebaseDatabaseManager {
 
     var database = FirebaseDatabase.getInstance()
     private var nextMarkerCode: Long = -1
     private var markerRef: DatabaseReference
     private var markerCodeRef: DatabaseReference
-    private var firebaseReader = object : ValueEventListener {
-        override fun onDataChange(dataSnapshot: DataSnapshot) {
-            return dataSnapshot.getValue() as Unit;
-        }
-
-        override fun onCancelled(error: DatabaseError) {
-            Log.e("dhl", error.toString());
-        }
-    }
 
     init {
         database = FirebaseDatabase.getInstance()
@@ -35,28 +26,18 @@ internal class FirebaseDatabaseManager(context: Context) {
     }
 
     fun addMarker(marker: Marker) {
-        var newMarkerCode = getValue().toString()
-        var newMarker: HashMap<String, Marker> = HashMap()
-        newMarker.put(newMarkerCode, marker)
-        markerRef.child(MARKER_PREFIX + ":" + newMarkerCode).setValue(newMarker)
-    }
-
-    fun getValue(): Long {
-        // They named the function as "onDataChange," but it will fetch you the data,
-        // even without any deliberate changes from my side.
-        markerCodeRef.addValueEventListener(firebaseReader)
-        markerCodeRef.removeEventListener(firebaseReader) // If I don't do this, the application crashes.
-        return nextMarkerCode
-    }
-
-    fun updateMarkerCode() {
         markerCodeRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
                 var markerCode = mutableData.getValue(Long::class.java)
                 if (markerCode == null) {
-                    markerCode = INITIAL_MARKER_CODE
+                    nextMarkerCode = INITIAL_MARKER_CODE
+                    mutableData.value = nextMarkerCode
+                    Log.i("dhl", "In the if block of markerCodeRef transaction.");
                 } else {
                     mutableData.value = markerCode + 1
+                    nextMarkerCode = markerCode + 1
+                    markerRef.child(MARKER_PREFIX + ":" + nextMarkerCode).setValue(marker)
+                    Log.i("dhl", "nextMarkerCode at: " + nextMarkerCode);
                 }
                 return Transaction.success(mutableData)
             }
