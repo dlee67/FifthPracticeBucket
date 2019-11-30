@@ -94,15 +94,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             // Animating to the touched position
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
 
-
-
             // Placing a marker on the touched position
             val newMarker = mMap.addMarker(markerOptions)
             listOfMarkers.add(newMarker)
             // addMarker() returns a Marker object, which can be used to remember the touched positions.
 
             firebaseDatabaseManager.addMarker(newMarker)
-// updating the markerCode deliberately will assign nextCode in getValue() with null ...
             firebaseDatabaseManager.updateMarkerCode()
         }
     }
