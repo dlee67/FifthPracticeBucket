@@ -37,6 +37,7 @@ internal class FirebaseDatabaseManager {
 
     fun addMarker(marker: Marker) {
         Log.i("dhl", "Within the addMarker(), with currentMarkerCode at: " + currentMarkerCode);
+        markerRef.child(MARKER_PREFIX + currentMarkerCode.toString()).setValue(marker)
         markerCodeRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
                 var markerCode = mutableData.getValue(Long::class.java)
@@ -56,7 +57,8 @@ internal class FirebaseDatabaseManager {
     }
 
     companion object {
-        private val MARKER_ROOT_DIR = "markers"
+        private val MARKER_ROOT_DIR = "markers_root"
+        private val MARKER_PREFIX = "marker:"
         private val INITIAL_MARKER_CODE: Long = 1
         private val NEXT_MARKER_CODE = "next_marker_code"
     }
