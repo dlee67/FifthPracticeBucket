@@ -27,7 +27,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private val LOCATION_PERMISSION = 42
     private val firebaseDatabaseManager = FirebaseDatabaseManager()
-    private var listOfMarkers: ArrayList<Marker> = ArrayList()
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
@@ -83,23 +82,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         if (p0 != null) {
             // Creating a marker
             val markerOptions = MarkerOptions()
-
             // Setting the position for the marker
             markerOptions.position(p0)
-
             // Setting the title for the marker.
             // This will be displayed on taping the marker
             markerOptions.title(p0.latitude.toString() + " : " + p0.longitude)
-
             // Animating to the touched position
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
-
             // Placing a marker on the touched position
-            val newMarker = mMap.addMarker(markerOptions)
-            listOfMarkers.add(newMarker)
-            // addMarker() returns a Marker object, which can be used to remember the touched positions.
-
-            firebaseDatabaseManager.addMarker(newMarker)
+            mMap.addMarker(markerOptions)
+            firebaseDatabaseManager.addMarker(markerOptions)
         }
     }
 

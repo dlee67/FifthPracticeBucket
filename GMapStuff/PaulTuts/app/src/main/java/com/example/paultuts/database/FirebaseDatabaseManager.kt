@@ -1,9 +1,7 @@
 package com.example.paultuts.database
 
-import android.content.Context
 import android.util.Log
-import com.google.android.gms.maps.model.Marker
-import com.google.firebase.FirebaseApp
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -14,7 +12,7 @@ import com.google.firebase.database.ValueEventListener
 
 internal class FirebaseDatabaseManager {
 
-    var database = FirebaseDatabase.getInstance()
+    private var database = FirebaseDatabase.getInstance()
     private var markerRef: DatabaseReference
     private var markerCodeRef: DatabaseReference
     private var currentMarkerCode: Long = 0
@@ -23,6 +21,15 @@ internal class FirebaseDatabaseManager {
         database = FirebaseDatabase.getInstance()
         markerRef = database.getReference(MARKER_ROOT_DIR)
         markerCodeRef = database.getReference(NEXT_MARKER_CODE)
+        markerRef.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                Log.i("dhl", "children count at: " + dataSnapshot.childrenCount)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("dhl", databaseError.toException().toString());
+            }
+        });
         markerCodeRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 currentMarkerCode = dataSnapshot.getValue(Long::class.java)!!
@@ -35,7 +42,7 @@ internal class FirebaseDatabaseManager {
         });
     }
 
-    fun addMarker(marker: Marker) {
+    fun addMarker(marker: MarkerOptions) {
         Log.i("dhl", "Within the addMarker(), with currentMarkerCode at: " + currentMarkerCode);
         markerRef.child(MARKER_PREFIX + currentMarkerCode.toString()).setValue(marker)
         markerCodeRef.runTransaction(object : Transaction.Handler {
