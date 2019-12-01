@@ -91,7 +91,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
             // Placing a marker on the touched position
             mMap.addMarker(markerOptions)
-            firebaseDatabaseManager.addMarker(markerOptions)
+            firebaseDatabaseManager.addLatLong(markerOptions)
         }
     }
 
