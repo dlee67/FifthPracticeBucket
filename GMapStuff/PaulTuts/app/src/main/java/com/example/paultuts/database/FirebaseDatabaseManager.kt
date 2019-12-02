@@ -1,6 +1,7 @@
 package com.example.paultuts.database
 
 import android.util.Log
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.DataSnapshot
@@ -12,7 +13,7 @@ import com.google.firebase.database.Transaction
 import com.google.firebase.database.ValueEventListener
 import org.json.JSONObject
 
-internal class FirebaseDatabaseManager {
+class FirebaseDatabaseManager(googleMap: GoogleMap) {
 
     private var database = FirebaseDatabase.getInstance()
     private var markerRef: DatabaseReference
@@ -27,8 +28,9 @@ internal class FirebaseDatabaseManager {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 Log.i("dhl", "children count at: " + dataSnapshot.childrenCount)
                 for (snapshot in dataSnapshot.children) {
-                    Log.i("dhl", JSONObject(snapshot.value.toString()).get("latitude").toString());
-                    Log.i("dhl", JSONObject(snapshot.value.toString()).get("longitude").toString());
+                    var lat = JSONObject(snapshot.value.toString()).get("latitude").toString().toDouble()
+                    var long = JSONObject(snapshot.value.toString()).get("longitude").toString().toDouble()
+                    googleMap.addMarker(MarkerOptions().position(LatLng(lat, long)))
                 }
             }
 

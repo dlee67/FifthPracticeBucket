@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -25,8 +26,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         GoogleMap.OnMyLocationClickListener,
                         GoogleMap.OnMapClickListener {
 
+    lateinit var firebaseDatabaseManager: FirebaseDatabaseManager
+
     private val LOCATION_PERMISSION = 42
-    private val firebaseDatabaseManager = FirebaseDatabaseManager()
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
@@ -49,6 +51,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     override fun onMapReady(googleMap: GoogleMap) {
         // https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap.html
         mMap = googleMap
+
+        firebaseDatabaseManager = FirebaseDatabaseManager(mMap)
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
