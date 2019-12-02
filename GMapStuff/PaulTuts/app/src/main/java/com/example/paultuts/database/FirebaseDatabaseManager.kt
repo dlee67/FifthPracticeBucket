@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.MutableData
 import com.google.firebase.database.Transaction
 import com.google.firebase.database.ValueEventListener
+import org.json.JSONObject
 
 internal class FirebaseDatabaseManager {
 
@@ -25,7 +26,9 @@ internal class FirebaseDatabaseManager {
         markerRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 Log.i("dhl", "children count at: " + dataSnapshot.childrenCount)
-                for (snapShot in dataSnapshot.children) {
+                for (snapshot in dataSnapshot.children) {
+                    Log.i("dhl", JSONObject(snapshot.value.toString()).get("latitude").toString());
+                    Log.i("dhl", JSONObject(snapshot.value.toString()).get("longitude").toString());
                 }
             }
 
