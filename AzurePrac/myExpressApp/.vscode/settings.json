@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/8a815b68-f631-4d93-b860-a20ca36c69c2/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/lecture-notes",
+    "appService.deploySubpath": ""
+}

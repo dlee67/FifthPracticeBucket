@@ -1,5 +1,6 @@
 package com.example.paultuts.database
 
+import android.graphics.Bitmap
 import android.util.Log
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
@@ -13,6 +14,13 @@ import com.google.firebase.database.Transaction
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import org.json.JSONObject
+import java.io.ByteArrayOutputStream
+import com.google.firebase.storage.UploadTask
+import com.google.android.gms.tasks.OnSuccessListener
+import androidx.annotation.NonNull
+import com.google.android.gms.tasks.OnFailureListener
+
+
 
 class FirebaseDatabaseManager(googleMap: GoogleMap) {
 
@@ -73,8 +81,19 @@ class FirebaseDatabaseManager(googleMap: GoogleMap) {
         })
     }
 
-    fun storePicture() {
-
+    //https://stackoverflow.com/questions/40885860/how-to-save-bitmap-to-firebase
+    fun storePicture(markerTitle: String, imageBitmap: Bitmap) {
+        var rootRef = storage.reference
+        var childRef = rootRef.child("images/" + markerTitle)
+        var baos = ByteArrayOutputStream()
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        var data: ByteArray = baos.toByteArray()
+        var uploadTask = childRef.putBytes(data)
+        uploadTask.addOnFailureListener {
+            throw it
+        }.addOnSuccessListener {
+            Log.i("dhl", "Image uploaded successfully.");
+        }
     }
 
     companion object {

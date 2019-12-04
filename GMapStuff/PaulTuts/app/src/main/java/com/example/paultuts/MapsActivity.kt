@@ -29,6 +29,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     lateinit var firebaseDatabaseManager: FirebaseDatabaseManager
 
+    private var markerTitle: String = ""
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
@@ -91,8 +92,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     override fun onMapClick(p0: LatLng?) {
         if (p0 != null) {
             val markerOptions = MarkerOptions()
+            markerTitle = p0.latitude.toString() + " : " + p0.longitude
             markerOptions.position(p0)
-            markerOptions.title(p0.latitude.toString() + " : " + p0.longitude)
+            markerOptions.title(markerTitle)
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
             mMap.addMarker(markerOptions)
             firebaseDatabaseManager.addLatLong(markerOptions)
@@ -166,6 +168,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
+            firebaseDatabaseManager.storePicture(markerTitle, imageBitmap)
         }
     }
 
