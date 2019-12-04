@@ -11,10 +11,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.MutableData
 import com.google.firebase.database.Transaction
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import org.json.JSONObject
 
 class FirebaseDatabaseManager(googleMap: GoogleMap) {
 
+    private var storage = FirebaseStorage.getInstance()
     private var database = FirebaseDatabase.getInstance()
     private var markerRef: DatabaseReference
     private var latlongCodeRef: DatabaseReference
@@ -69,6 +71,10 @@ class FirebaseDatabaseManager(googleMap: GoogleMap) {
                 Log.i("dhl", "updateMarkerCode() complete.")
             }
         })
+    }
+
+    fun storePicture() {
+
     }
 
     companion object {

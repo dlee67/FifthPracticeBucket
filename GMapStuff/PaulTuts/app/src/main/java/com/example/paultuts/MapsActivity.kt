@@ -1,11 +1,13 @@
 package com.example.paultuts
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.provider.MediaStore
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -18,7 +20,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.Marker
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
@@ -28,7 +29,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     lateinit var firebaseDatabaseManager: FirebaseDatabaseManager
 
-    private val LOCATION_PERMISSION = 42
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
@@ -54,12 +54,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
         firebaseDatabaseManager = FirebaseDatabaseManager(mMap)
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-            == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+            ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
+            ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             initMap()
         } else {
             ActivityCompat.requestPermissions(this,
-                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.CAMERA),
                 LOCATION_PERMISSION)
         }
     }
@@ -84,18 +90,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onMapClick(p0: LatLng?) {
         if (p0 != null) {
-            // Creating a marker
             val markerOptions = MarkerOptions()
-            // Setting the position for the marker
             markerOptions.position(p0)
-            // Setting the title for the marker.
-            // This will be displayed on taping the marker
             markerOptions.title(p0.latitude.toString() + " : " + p0.longitude)
-            // Animating to the touched position
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
-            // Placing a marker on the touched position
             mMap.addMarker(markerOptions)
             firebaseDatabaseManager.addLatLong(markerOptions)
+            takePicture()
         }
     }
 
@@ -151,5 +152,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             location?.longitude ?: 0.0)))
 
         mMap.moveCamera(CameraUpdateFactory.zoomTo(15.0f))
+    }
+
+    private fun takePicture() {
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+            takePictureIntent.resolveActivity(packageManager)?.also {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+        }
+    }
+
+    companion object {
+        private val REQUEST_IMAGE_CAPTURE = 41
+        private val LOCATION_PERMISSION = 42
     }
 }
