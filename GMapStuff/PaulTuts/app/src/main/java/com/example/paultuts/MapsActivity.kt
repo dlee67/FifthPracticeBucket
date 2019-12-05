@@ -4,10 +4,12 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -19,13 +21,15 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         GoogleMap.OnMyLocationButtonClickListener,
                         GoogleMap.OnMyLocationClickListener,
-                        GoogleMap.OnMapClickListener {
+                        GoogleMap.OnMapClickListener,
+                        GoogleMap.OnMarkerClickListener{
 
     lateinit var firebaseDatabaseManager: FirebaseDatabaseManager
 
@@ -96,7 +100,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             markerOptions.position(p0)
             markerOptions.title(markerTitle)
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
-            mMap.addMarker(markerOptions)
+            mMap.addMarker(markerOptions).title = markerTitle
             firebaseDatabaseManager.addLatLong(markerOptions)
             takePicture()
         }
@@ -109,6 +113,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onMyLocationClick(location: Location) {
         Toast.makeText(this, "my location click", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onMarkerClick(marker: Marker): Boolean {
+        Log.i("dhl", "Within onMarkerClick of MapsActivity.")
+        var imageName = "images/" + marker.title
+        var image = firebaseDatabaseManager.storage.reference.child(imageName)
+        Log.i("dhl", "ImageName at: " + imageName)
+        image.getBytes(ONE_MEGABYTE.toLong()).addOnSuccessListener {
+            var bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
+            // So ... that above there needs to be chucked into something that can display an image.
+            var showImage = Intent(this, ShowImageActivity::class.java)
+            showImage.putExtra("bitmap", bitmap)
+            startActivity(showImage)
+        }.addOnFailureListener {
+            throw it
+        }
+        return true
     }
 
     override fun onResume() {
@@ -128,6 +149,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         mMap.setOnMyLocationButtonClickListener(this) // Invokes onMyLocationButtonClick in this activity.
         mMap.setOnMyLocationClickListener(this) // Invokes onMyLocationClick in this activity.
         mMap.setOnMapClickListener(this)
+        mMap.setOnMarkerClickListener(this)
         initLocationTracking()
     }
 
@@ -173,6 +195,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     companion object {
+        private val ONE_MEGABYTE = 1024 * 1024
         private val REQUEST_IMAGE_CAPTURE = 41
         private val LOCATION_PERMISSION = 42
     }

@@ -1,6 +1,7 @@
 package com.example.paultuts.database
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.util.Log
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
@@ -15,16 +16,11 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
-import com.google.firebase.storage.UploadTask
-import com.google.android.gms.tasks.OnSuccessListener
-import androidx.annotation.NonNull
-import com.google.android.gms.tasks.OnFailureListener
-
-
+import com.google.android.gms.maps.model.Marker
 
 class FirebaseDatabaseManager(googleMap: GoogleMap) {
 
-    private var storage = FirebaseStorage.getInstance()
+    var storage = FirebaseStorage.getInstance()
     private var database = FirebaseDatabase.getInstance()
     private var markerRef: DatabaseReference
     private var latlongCodeRef: DatabaseReference
@@ -92,7 +88,7 @@ class FirebaseDatabaseManager(googleMap: GoogleMap) {
         uploadTask.addOnFailureListener {
             throw it
         }.addOnSuccessListener {
-            Log.i("dhl", "Image uploaded successfully.");
+            Log.i("dhl", "Image uploaded successfully.")
         }
     }
 

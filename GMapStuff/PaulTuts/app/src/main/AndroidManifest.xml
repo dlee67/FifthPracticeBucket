@@ -39,7 +39,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
         </activity>
-
+        <activity android:name=".ShowImageActivity"
+            android:label="Image"/>
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 
