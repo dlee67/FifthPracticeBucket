@@ -96,7 +96,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     override fun onMapClick(p0: LatLng?) {
         if (p0 != null) {
             val markerOptions = MarkerOptions()
-            markerTitle = p0.latitude.toString() + " : " + p0.longitude
+            markerTitle = p0.latitude.toString() + ":" + p0.longitude.toString()
             markerOptions.position(p0)
             markerOptions.title(markerTitle)
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
