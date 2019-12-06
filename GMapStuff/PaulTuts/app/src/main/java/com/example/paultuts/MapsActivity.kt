@@ -100,7 +100,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             markerOptions.position(p0)
             markerOptions.title(markerTitle)
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
-            mMap.addMarker(markerOptions).title = markerTitle
+            mMap.addMarker(markerOptions)
             firebaseDatabaseManager.addLatLong(markerOptions)
             takePicture()
         }
@@ -117,7 +117,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onMarkerClick(marker: Marker): Boolean {
         Log.i("dhl", "Within onMarkerClick of MapsActivity.")
-        var imageName = "images/" + marker.title
+        var latLng = marker.position
+        var imageName = "images/" + latLng.latitude + ":" + latLng.longitude
         var image = firebaseDatabaseManager.storage.reference.child(imageName)
         Log.i("dhl", "ImageName at: " + imageName)
         image.getBytes(ONE_MEGABYTE.toLong()).addOnSuccessListener {
