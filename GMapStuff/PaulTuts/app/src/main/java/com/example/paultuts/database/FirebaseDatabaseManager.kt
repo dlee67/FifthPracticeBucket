@@ -36,7 +36,9 @@ class FirebaseDatabaseManager(googleMap: GoogleMap) {
                 for (snapshot in dataSnapshot.children) {
                     var lat = JSONObject(snapshot.value.toString()).get("latitude").toString().toDouble()
                     var long = JSONObject(snapshot.value.toString()).get("longitude").toString().toDouble()
-                    googleMap.addMarker(MarkerOptions().position(LatLng(lat, long)))
+                    var markerOption = MarkerOptions()
+                    markerOption.position(LatLng(lat, long))
+                    googleMap.addMarker(markerOption)
                 }
             }
 
