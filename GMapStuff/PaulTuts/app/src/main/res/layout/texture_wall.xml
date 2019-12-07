@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/texture_wall"
+    android:layout_width="300dp"
+    android:layout_height="500dp"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@android:color/white">
+    <LinearLayout
+        android:layout_weight="2"
+        android:weightSum="10"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <ImageView
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/paint_brush"/>
+        <TextView
+            android:layout_weight="7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:paddingTop="20dp"
+            android:textSize="24dp"
+            android:text="Geometric Vinyl Wall"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:weightSum="10"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:padding="20dp"
+            android:text="Accented wall breaks up the sterile, structural elements of the room without adding color as a distraction. Although constructability and achromatic palettes are tools to a designer’s creativity, this relief in the structure provides a calming and focusing effect.
+Art mounting equipment allows CSU to display the work of students on the walls, focusing more on student work than on the school’s or teachers’ works or art."/>
+        <Button
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:text="\?"/>
+    </LinearLayout>
+</LinearLayout>

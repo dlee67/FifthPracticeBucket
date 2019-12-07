@@ -1,4 +1,4 @@
-package com.example.paultuts
+package com.example.paultuts.activity
 
 import android.Manifest
 import android.content.Intent
@@ -13,7 +13,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.paultuts.database.FirebaseDatabaseManager
+import com.example.paultuts.R
+import com.example.paultuts.database.FirebaseLocationManager
 
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -31,7 +32,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         GoogleMap.OnMapClickListener,
                         GoogleMap.OnMarkerClickListener{
 
-    lateinit var firebaseDatabaseManager: FirebaseDatabaseManager
+    lateinit var firebaseLocationManager: FirebaseLocationManager
 
     private var markerTitle: String = ""
     private lateinit var mMap: GoogleMap
@@ -57,7 +58,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         // https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap.html
         mMap = googleMap
 
-        firebaseDatabaseManager = FirebaseDatabaseManager(mMap)
+        firebaseLocationManager = FirebaseLocationManager(mMap)
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
@@ -71,7 +72,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     Manifest.permission.CAMERA),
-                LOCATION_PERMISSION)
+                LOCATION_PERMISSION
+            )
         }
     }
 
@@ -101,7 +103,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             markerOptions.title(markerTitle)
             mMap.animateCamera(CameraUpdateFactory.newLatLng(p0))
             mMap.addMarker(markerOptions)
-            firebaseDatabaseManager.addLatLong(markerOptions)
+            firebaseLocationManager.addLatLong(markerOptions)
             takePicture()
         }
     }
@@ -119,7 +121,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         Log.i("dhl", "Within onMarkerClick of MapsActivity.")
         var latLng = marker.position
         var imageName = "images/" + latLng.latitude + ":" + latLng.longitude
-        var image = firebaseDatabaseManager.storage.reference.child(imageName)
+        var image = firebaseLocationManager.storage.reference.child(imageName)
         Log.i("dhl", "ImageName at: " + imageName)
         image.getBytes(ONE_MEGABYTE.toLong()).addOnSuccessListener {
             var bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
@@ -182,7 +184,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     private fun takePicture() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                startActivityForResult(takePictureIntent,
+                    REQUEST_IMAGE_CAPTURE
+                )
             }
         }
     }
@@ -191,7 +195,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            firebaseDatabaseManager.storePicture(markerTitle, imageBitmap)
+            firebaseLocationManager.storePicture(markerTitle, imageBitmap)
         }
     }
 
