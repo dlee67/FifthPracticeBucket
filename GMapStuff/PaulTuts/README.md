@@ -1,4 +1,6 @@
-##Fetching the markers can perhaps be done by promising that the amount of markers will be 0 to (amount of markers).
+# Dec 7th, 2019, LHD
 
-If this promise in the application is held, then, marker:n can be iterated, where n is the index of the marker
-being iterated over.
+Whatever me and David were discussing is now there.
+
+![Image description](GMapStuff/PaulTuts/Screenshot_20191207-171427.png)
+![Image description](GMapStuff/PaulTuts/Screenshot_20191207-171643.png)
