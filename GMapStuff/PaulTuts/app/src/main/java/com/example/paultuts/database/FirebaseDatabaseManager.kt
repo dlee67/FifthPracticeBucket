@@ -1,11 +1,8 @@
 package com.example.paultuts.database
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.content.Context
 import android.util.Log
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -13,91 +10,98 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.MutableData
 import com.google.firebase.database.Transaction
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.FirebaseStorage
-import org.json.JSONObject
-import java.io.ByteArrayOutputStream
-import com.google.android.gms.maps.model.Marker
 
-class FirebaseDatabaseManager(googleMap: GoogleMap) {
+/** Helper class for Firebase storage of cloud anchor IDs.  */
+internal class FirebaseDatabaseManager(context: Context) {
+    private val rootRef: DatabaseReference
 
-    var storage = FirebaseStorage.getInstance()
-    private var database = FirebaseDatabase.getInstance()
-    private var markerRef: DatabaseReference
-    private var latlongCodeRef: DatabaseReference
-    private var currentLatLongCode: Long = 0
+    /** Listener for a new Cloud Anchor ID from the Firebase Database.  */
+    internal interface CloudAnchorIdListener {
+        fun onCloudAnchorIdAvailable(dataSnapshot: DataSnapshot?)
+    }
+
+    /** Listener for a new short code from the Firebase Database.  */
+    internal interface ShortCodeListener {
+        fun onShortCodeAvailable(shortCode: Int?)
+    }
 
     init {
-        database = FirebaseDatabase.getInstance()
-        markerRef = database.getReference(MARKER_ROOT_DIR)
-        latlongCodeRef = database.getReference(NEXT_LATLONG_CODE)
-        markerRef.addValueEventListener(object: ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                Log.i("dhl", "children count at: " + dataSnapshot.childrenCount)
-                for (snapshot in dataSnapshot.children) {
-                    var lat = JSONObject(snapshot.value.toString()).get("latitude").toString().toDouble()
-                    var long = JSONObject(snapshot.value.toString()).get("longitude").toString().toDouble()
-                    var markerOption = MarkerOptions()
-                    markerOption.position(LatLng(lat, long))
-                    googleMap.addMarker(markerOption)
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("dhl", databaseError.toException().toString());
-            }
-        });
-        latlongCodeRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                currentLatLongCode = dataSnapshot.getValue(Long::class.java)!!
-                Log.i("dhl", "currentMarkerCode at: " + currentLatLongCode);
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("dhl", "loadPost:onCancelled", databaseError.toException())
-            }
-        });
+        val firebaseApp = FirebaseApp.initializeApp(context)
+        rootRef = FirebaseDatabase.getInstance(firebaseApp!!).reference.child(KEY_ROOT_DIR)
+        DatabaseReference.goOnline()
     }
 
-    fun addLatLong(marker: MarkerOptions) {
-        Log.i("dhl", "Within the addMarker(), with currentMarkerCode at: " + currentLatLongCode)
-        markerRef.child(LATLONG_PREFIX + currentLatLongCode.toString()).setValue(marker.position)
-        latlongCodeRef.runTransaction(object : Transaction.Handler {
-            override fun doTransaction(mutableData: MutableData): Transaction.Result {
-                var markerCode = mutableData.getValue(Long::class.java)
-                if (markerCode == null) {
-                    mutableData.value = INITIAL_LATLONG_CODE
-                    Log.i("dhl", "In the if block of markerCodeRef transaction.");
-                } else {
-                    mutableData.value = markerCode + 1
-                }
-                return Transaction.success(mutableData)
-            }
+    /** Gets a new short code that can be used to store the anchor ID.  */
+    fun nextShortCode(listener: ShortCodeListener) {
+        // Run a transaction on the node containing the next short code available. This increments the
+        // value in the database and retrieves it in one atomic all-or-nothing operation.
+        rootRef
+            .child(KEY_NEXT_SHORT_CODE)
+            .runTransaction(
+                object : Transaction.Handler {
+                    override fun doTransaction(currentData: MutableData): Transaction.Result {
+                        var shortCode = currentData.getValue(Int::class.java)
+                        if (shortCode == null) {
+                            shortCode = INITIAL_SHORT_CODE - 1
+                        }
+                        currentData.value = shortCode + 1
+                        return Transaction.success(currentData)
+                    }
 
-            override fun onComplete(error: DatabaseError?, committed: Boolean, currentData: DataSnapshot?) {
-                Log.i("dhl", "updateMarkerCode() complete.")
-            }
-        })
+                    override fun onComplete(
+                        error: DatabaseError?, committed: Boolean, currentData: DataSnapshot?
+                    ) {
+                        if (!committed) {
+                            Log.e(TAG, "Firebase Error", error!!.toException())
+                            listener.onShortCodeAvailable(null)
+                        } else {
+                            listener.onShortCodeAvailable(currentData?.getValue(Int::class.java))
+                        }
+                    }
+                })
     }
 
-    //https://stackoverflow.com/questions/40885860/how-to-save-bitmap-to-firebase
-    fun storePicture(markerTitle: String, imageBitmap: Bitmap) {
-        var rootRef = storage.reference
-        var childRef = rootRef.child("images/" + markerTitle)
-        var baos = ByteArrayOutputStream()
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        var data: ByteArray = baos.toByteArray()
-        var uploadTask = childRef.putBytes(data)
-        uploadTask.addOnFailureListener {
-            throw it
-        }.addOnSuccessListener {
-            Log.i("dhl", "Image uploaded successfully.")
-        }
+    /** Stores the cloud anchor ID in the configured Firebase Database.  */
+    fun storeUsingShortCode(cloudAnchorId: String,
+                            siteName: String,
+                            siteDescription: String,
+                            siteCreationDate: String) {
+        var newRef = rootRef.child(siteName);
+        newRef.child(siteName).setValue(siteName);
+        newRef.child("siteDescription").setValue(siteDescription);
+        newRef.child("siteCreationDate").setValue(siteCreationDate);
+        newRef.child("id").setValue(cloudAnchorId);
+    }
+
+    /**
+     * Retrieves the cloud anchor ID using a short code. Returns an empty string if a cloud anchor ID
+     * was not stored for this short code.
+     */
+    fun getCloudAnchorID(siteName: String, listener: CloudAnchorIdListener) {
+        rootRef
+            .child(siteName)
+            .addListenerForSingleValueEvent(
+                object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        Log.i("dhl", "\n\n\ndataSnapshot at: " + dataSnapshot.child("siteCreationDate").value.toString());
+                        listener.onCloudAnchorIdAvailable(dataSnapshot)
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Log.e(
+                            TAG, "The database operation for getCloudAnchorID was cancelled.",
+                            error.toException()
+                        )
+                        listener.onCloudAnchorIdAvailable(null)
+                    }
+                })
     }
 
     companion object {
-        private val MARKER_ROOT_DIR = "markers_root"
-        private val LATLONG_PREFIX = "latlong:"
-        private val INITIAL_LATLONG_CODE: Long = 1
-        private val NEXT_LATLONG_CODE = "next_latlong_code"
+
+        private val TAG = FirebaseDatabaseManager::class.java.name
+        private val KEY_ROOT_DIR = "shared_anchor_codelab_root"
+        private val KEY_NEXT_SHORT_CODE = "next_short_code"
+        private val INITIAL_SHORT_CODE = 142
     }
 }

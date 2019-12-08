@@ -1,9 +1,10 @@
-package com.example.paultuts
+package com.example.paultuts.activity
 
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.paultuts.R
 
 class ShowImageActivity: AppCompatActivity() {
 
