@@ -47,6 +47,10 @@ class ArCoreActivity : AppCompatActivity() {
     private var siteDescription: String = "";
     private var siteCreationDate: String = "";
 
+    var anchorHolder: Anchor? = null
+    private lateinit var renderableHolder: ViewRenderable
+    private lateinit var arFragment: ArFragment
+
     private enum class AppAnchorState {
         NONE,
         HOSTING,
@@ -117,24 +121,18 @@ class ArCoreActivity : AppCompatActivity() {
     }
 
     fun resolveAnchor(dialogValue: String) {
-
         val siteName = dialogValue
-
         firebaseDatabaseManager?.getCloudAnchorID(siteName, object :
             FirebaseDatabaseManager.CloudAnchorIdListener {
             override fun onCloudAnchorIdAvailable(snapshot: DataSnapshot?) {
-
                 val resolvedAnchor = arCoreFragment?.arSceneView?.session?.
                     resolveCloudAnchor(snapshot?.child("id")?.value.toString())
                 setCloudAnchor(resolvedAnchor)
                 showMessage("Now Resolving Anchor...")
-
                 arCoreFragment?.let { placeObject(it, cloudAnchor, false, snapshot) }
                 appAnchorState = AppAnchorState.RESOLVING
             }
-
         })
-
     }
 
     fun showMessage(message: String) {
@@ -191,7 +189,7 @@ class ArCoreActivity : AppCompatActivity() {
                     appAnchorState = AppAnchorState.NONE
                 } else if (it == Anchor.CloudAnchorState.SUCCESS) {
                     Toast.makeText(this, "Anchor resolved successfully", Toast.LENGTH_LONG).show()
-
+                    addNodeToScene(arFragment, anchorHolder, renderableHolder)
                     appAnchorState = AppAnchorState.RESOLVED
                 }
             }
@@ -234,6 +232,8 @@ class ArCoreActivity : AppCompatActivity() {
                 }
         } else {
             var view: View?;
+            arFragment = fragment
+            anchorHolder = anchor
             view = layoutInflater.inflate(R.layout.location_layout, null);
             view.findViewById<TextView>(R.id.location_name)
                 .setText(snapshot?.key.toString());
@@ -244,7 +244,8 @@ class ArCoreActivity : AppCompatActivity() {
             ViewRenderable.builder()
                 .setView(fragment.context, view)
                 .build()
-                .thenAccept { renderable -> addNodeToScene(fragment, anchor, renderable) }
+//                .thenAccept { renderable -> addNodeToScene(fragment, anchor, renderable) }
+                .thenAccept { renderable -> renderableHolder = renderable }
                 .exceptionally { throwable ->
                     val builder = android.app.AlertDialog.Builder(this)
                     builder.setMessage(throwable.message)
