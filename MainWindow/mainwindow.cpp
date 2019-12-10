@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent) // base class of all user interface obje
     ui->setupUi(this); // Arrow operator dereferences the object, and grabs the member in it.
     // Specifies which signal is linked to which slot.
     // ui_mainwindow.h is the ui I made in the mainwindow.ui.
-    connect(ui->addTaskButton, &QPushButton::clicked, // Since, setupUi is like the setContentView, I am grabbing the only &QPushButton there is.
-        QApplication::instance(), &QApplication::quit); // Similar case with the above.
+    connect(ui->addTaskButton, &QPushButton::clicked, //&QPushButton::clicked is like the event name?
+        QApplication::instance(), &QApplication::quit); //Same for the &QApplication::quit
 }
 
 MainWindow::~MainWindow()
