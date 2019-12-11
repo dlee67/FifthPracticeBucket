@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h" // Enables me to call setupUi()
 
 #include <QDebug> // It's, like, the logcat from Android.
+#include <QInputDialog>
 
 //https://doc.qt.io/qt-5/qwidget.html
 MainWindow::MainWindow(QWidget *parent) // base class of all user interface object, QWidget inherits QObject, enabling this class to call connect.
@@ -12,8 +13,8 @@ MainWindow::MainWindow(QWidget *parent) // base class of all user interface obje
     ui->setupUi(this); // Arrow operator dereferences the object, and grabs the member in it.
     // Specifies which signal is linked to which slot.
     // ui_mainwindow.h is the ui I made in the mainwindow.ui.
-    connect(ui->addTaskButton, &QPushButton::clicked, //&QPushButton::clicked is like the event name?
-        QApplication::instance(), &QApplication::quit); //Same for the &QApplication::quit
+    connect(ui->addTaskButton, &QPushButton::clicked,
+        this, &MainWindow::addTask);
 }
 
 MainWindow::~MainWindow()
@@ -25,5 +26,16 @@ MainWindow::~MainWindow()
 // Wait, but there is only one addTask()?
 void MainWindow::addTask()
 {
-    qDebug() << "User clicked on the button!";
+    bool ok;
+    QString name = QInputDialog::getText(this,
+        tr("Add task"),
+        tr("Task name"),
+        QLineEdit::Normal,
+        tr("Untitled task"),               &ok);
+    if (ok && !name.isEmpty()) {
+        qDebug() << "Adding new task";
+        Task* task = new Task(name);
+        mTasks.append(task);
+        ui->tasksLayout->addWidget(task);
+    }
 }

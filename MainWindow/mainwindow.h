@@ -6,6 +6,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QVector>
+
+#include "task.h"
 
 // QT_BEGIN_NAMESPACE is their safe guard mechanism for their namespace.
 QT_BEGIN_NAMESPACE
@@ -30,6 +33,7 @@ public slots:
 
 private:
     Ui::MainWindow *ui; //Windows are essentially activities in Qt, through the left variable, I can interact with the window's contents (widgets).
+    QVector<Task*> mTasks;
 };
 #endif // Ends the #ifndef scope.
 // MAINWINDOW_H

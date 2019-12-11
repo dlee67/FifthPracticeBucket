@@ -11,11 +11,14 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,8 +27,13 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *toolbarLayout;
     QLabel *statusLabel;
+    QSpacerItem *horizontalSpacer;
     QPushButton *addTaskButton;
+    QVBoxLayout *tasksLayout;
+    QSpacerItem *verticalSpacer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,12 +44,36 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        toolbarLayout = new QHBoxLayout();
+        toolbarLayout->setObjectName(QString::fromUtf8("toolbarLayout"));
         statusLabel = new QLabel(centralwidget);
         statusLabel->setObjectName(QString::fromUtf8("statusLabel"));
-        statusLabel->setGeometry(QRect(10, 20, 161, 17));
+
+        toolbarLayout->addWidget(statusLabel);
+
+        horizontalSpacer = new QSpacerItem(779, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        toolbarLayout->addItem(horizontalSpacer);
+
         addTaskButton = new QPushButton(centralwidget);
         addTaskButton->setObjectName(QString::fromUtf8("addTaskButton"));
-        addTaskButton->setGeometry(QRect(380, 20, 89, 25));
+
+        toolbarLayout->addWidget(addTaskButton);
+
+
+        verticalLayout->addLayout(toolbarLayout);
+
+        tasksLayout = new QVBoxLayout();
+        tasksLayout->setObjectName(QString::fromUtf8("tasksLayout"));
+
+        verticalLayout->addLayout(tasksLayout);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
