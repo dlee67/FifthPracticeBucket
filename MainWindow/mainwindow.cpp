@@ -7,7 +7,8 @@
 //https://doc.qt.io/qt-5/qwidget.html
 MainWindow::MainWindow(QWidget *parent) // base class of all user interface object, QWidget inherits QObject, enabling this class to call connect.
     : QMainWindow(parent) // Provides the main application window, it's like the activity from Android.
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::MainWindow),
+    mTasks()
 {
     //setupUi() creates actual instances of widgets; meaning, it's like the setContentView
     ui->setupUi(this); // Arrow operator dereferences the object, and grabs the member in it.
@@ -15,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) // base class of all user interface obje
     // ui_mainwindow.h is the ui I made in the mainwindow.ui.
     connect(ui->addTaskButton, &QPushButton::clicked,
         this, &MainWindow::addTask);
+    updateStatus();
 }
 
 MainWindow::~MainWindow()
@@ -35,7 +37,40 @@ void MainWindow::addTask()
     if (ok && !name.isEmpty()) {
         qDebug() << "Adding new task";
         Task* task = new Task(name);
+        connect(task, &Task::removed,
+               this, &MainWindow::removeTask);
+        connect(task, &Task::statusChanged, this,
+                       &MainWindow::taskStatusChanged);
         mTasks.append(task);
         ui->tasksLayout->addWidget(task);
+        updateStatus();
     }
+}
+
+void MainWindow::removeTask(Task* task)
+{
+    mTasks.removeOne(task);
+    ui->tasksLayout->removeWidget(task);
+    delete task;
+    updateStatus();
+}
+
+void MainWindow::taskStatusChanged(Task* /*task*/)
+{
+    updateStatus();
+}
+
+void MainWindow::updateStatus()
+{
+    int completedCount = 0;
+    for(auto t : mTasks)  { // Appearantly, for each is relatively new in C++ because it came out in C++11.
+        if (t->isCompleted()) {
+            completedCount++;
+        }
+    }
+    int todoCount = mTasks.size() - completedCount;
+
+    ui->statusLabel->setText(QString("Status: %1 todo / %2 completed")
+                             .arg(todoCount)
+                             .arg(completedCount));
 }

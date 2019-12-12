@@ -1,6 +1,7 @@
 #include "task.h"
 #include "ui_task.h"
 
+#include <QDebug>
 #include <QInputDialog>
 
 Task::Task(const QString& name, QWidget *parent) :
@@ -10,6 +11,22 @@ Task::Task(const QString& name, QWidget *parent) :
     ui->setupUi(this);
     setName(name);
     connect(ui->editButton, &QPushButton::clicked, this, &Task::rename);
+    connect(ui->removeButton, &QPushButton::clicked,
+    // The below is how lambdas are implemented in C++,
+    // which is the anonymous inline function.
+          [this] { // [] Defines what variables will be visible inside the lambda scope.
+            emit removed(this); // emit is a Qt macro that will trigger the connected slot.
+          });
+    connect(ui->checkbox, &QCheckBox::toggled,
+        this, &Task::checked);
+// Lambda is powerful enough to a point that they can be directly be fed into stdin.
+//    connect(ui->removeButton, &QPushButton::clicked, [this, name] {
+//        qDebug() << "Trying to remove" <<
+//            [] (const QString& taskName) -> QString {
+//                return "-------- " + taskName.toUpper();
+//        }(name);
+//        emit removed(this);
+//    });
 }
 
 Task::~Task()
@@ -42,4 +59,12 @@ void Task::rename()
     if (ok && !value.isEmpty()) {
         setName(value);
     }
+}
+
+void Task::checked(bool checked)
+{
+    QFont font(ui->checkbox->font());
+    font.setStrikeOut(checked);
+    ui->checkbox->setFont(font);
+    emit statusChanged(this);
 }

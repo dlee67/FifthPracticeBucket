@@ -14,4 +14,8 @@ router.get('/links', function(req, res, next) {
   res.render('links');
 });
 
+router.get('/devops', function(req, res, next) {
+  res.render('devops');
+});
+
 module.exports = router;

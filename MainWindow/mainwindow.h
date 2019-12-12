@@ -23,6 +23,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr); // Widgets are like Android's view ... why didn't Andy Rubin name views widgets?
+    void updateStatus();
     ~MainWindow(); //Squigly represents the deconstructor, and this particular deconstructor is implemented in mainwindow.cpp.
 
 // slot is a function that will be called when the signal is triggered,
@@ -30,6 +31,8 @@ public:
 // The below is specfic to Qt, public keyword doesn't normally gets used with slots keyword.
 public slots:
     void addTask();
+    void removeTask(Task* task);
+    void taskStatusChanged(Task* task);
 
 private:
     Ui::MainWindow *ui; //Windows are essentially activities in Qt, through the left variable, I can interact with the window's contents (widgets).
