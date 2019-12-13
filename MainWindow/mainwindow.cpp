@@ -6,8 +6,8 @@
 
 //https://doc.qt.io/qt-5/qwidget.html
 MainWindow::MainWindow(QWidget *parent) // base class of all user interface object, QWidget inherits QObject, enabling this class to call connect.
-    : QMainWindow(parent) // Provides the main application window, it's like the activity from Android.
-    , ui(new Ui::MainWindow),
+    : QMainWindow(parent), // Provides the main application window, it's like the activity from Android.
+    ui(new Ui::MainWindow),
     mTasks()
 {
     //setupUi() creates actual instances of widgets; meaning, it's like the setContentView
@@ -33,7 +33,7 @@ void MainWindow::addTask()
         tr("Add task"),
         tr("Task name"),
         QLineEdit::Normal,
-        tr("Untitled task"),               &ok);
+        tr("Untitled task"), &ok);
     if (ok && !name.isEmpty()) {
         qDebug() << "Adding new task";
         Task* task = new Task(name);

@@ -13,12 +13,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     // Some errors won't go away if I don't build because the ui_MainWindow
     // only gets populated with addional widgets after build.
-    connect(ui->saySomething, &QPushButton::clicked,
-      QApplication::instance(), &QApplication::quit); // QApplication::instance() is grabbing me the QApplication object main.cpp.
+//    connect(ui->saySomething, &QPushButton::clicked,
+//      QApplication::instance(), &QApplication::quit); // QApplication::instance() is grabbing me the QApplication object main.cpp.
     //  https://doc.qt.io/qt-5/qobject.html#connect-4
     // connect() has many different overloaded parameters.
     connect(ui->saySomething, &QPushButton::clicked,
-      QApplication::instance(), &QApplication::quit);
+      this, &MainWindow::saySomething);
 }
 
 MainWindow::~MainWindow()
@@ -27,5 +27,5 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow:: saySomething() {
-    cout << "Bye.";
+    qDebug() << "Something";
 }
