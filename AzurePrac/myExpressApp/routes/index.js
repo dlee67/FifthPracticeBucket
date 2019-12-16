@@ -18,4 +18,12 @@ router.get('/devops', function(req, res, next) {
   res.render('devops');
 });
 
+router.get('/cppagain', function(req, res, next) {
+  res.render('cppagain');
+});
+
+router.get('/githubtut', function(req, res, next) {
+  res.render('./ForDoncey/githubtut');
+});
+
 module.exports = router;

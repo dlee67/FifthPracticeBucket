@@ -1,9 +1,13 @@
+#include <iostream>
+#include "mypair.h" // "" marks signifise relative directories.
+
+using namespace std;
+
 template <class T>
-class mypair {
-    T values [2];
-  public:
-    mypair (T first, T second)
-    {
-      values[0]=first; values[1]=second;
-    }
-};
+//void MyPair::comparePair(T a, T b) <- That will break things.
+T mypair<T>::getmax ()
+{
+  T retval;
+  retval = a>b? a : b;
+  return retval;
+}

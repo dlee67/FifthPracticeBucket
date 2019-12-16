@@ -1,7 +1,8 @@
 #include <cstdio>
 #include <iostream> // <> uses include directories.
-#include "myheader.h" // "" marks signifise relative directories.
-#include "moreheader.h"
+#include "mypair.h" // "" marks signifise relative directories.
+#include "moreclass.h"
+
 using namespace std;
 
 class Rectangle {
@@ -30,17 +31,18 @@ void Rectangle::sayBye (string personName) {
   cout << "Bye, " << personName << endl;
 }
 
-void MoreClass::sayClass () {
-  cout << "CLASS!" << endl;
-}
-
 int main() {
-    Rectangle rect;
-    MoreClass moreClass;
-    rect.set_values(3,4);
-    cout << "area: " << rect.area() << endl;
-    rect.sayHello();
-    rect.sayBye("Sekiro");
-    moreClass.sayClass(); // Is this really how people do OO in C++?
-    return 0;
+  // int i=5, j=6, k;
+  // Rectangle rect;
+  // MoreClass moreClass;
+  // mypair<int> myObject (100, 75);
+  // rect.set_values(3,4);
+  // cout << "area: " << rect.area() << endl;
+  // rect.sayHello();
+  // rect.sayBye("Sekiro");
+  // moreClass.sayClass(); 
+  // cout << myObject.getmax() << endl;
+  mypair <int> myobject (100, 75);
+  cout << myobject.getmax();
+  return 0;
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <h1>
+        I still remember when this man told me only way to go faster is to go slower, <br/>
+        and I still remember John telling me that to save time is to waste time. <br/><br/>
+
+        Here we go, again. <br/><br/>
+    </h1>
+    <h1 style="color:red">Preprocessor</h1>
+    <p> 
+        It performs basic code manipulation.<br/><br/>
+
+        Directives like #include "cstio" instructs the preprocessor to include information about the cstdio.
+    </p>
+    <h1 style="color:red">Compilers</h1>
+    <p> 
+        Compilers generate object file, but object files themselves are not executable. 
+    </p>
+    <h1 style="color:red">Linkers</h1>
+    <p> 
+        Linkers are what generates the executable, which is responsible to finding the libraries those are required, <br/>
+    </p>
+    <h1>::</h1>
+    <p>
+        Those are called scope operators, in the below: <br/><br/>
+        
+        class Rectangle { <br/>
+            int width, height; <br/>
+          public: <br/>
+            int area() {return width*height;} <br/>
+            void set_values (int,int); <br/>
+            void sayHello() { <br/>
+                cout << "Hello!" << "\n"; <br/>
+            } <br/>
+            void sayHello(string name) { <br/> // As you can see, all the polymorphism concepts from Java can apply here too.
+                cout << "Hello! " << name; <br/>
+            }
+        };<br/><br/> 
+        
+        // The :: is something called scope operator.<br/>
+        void Rectangle::set_values (int x, int y) {<br/>
+          width = x;<br/>
+          height = y;<br/>
+        }<br/><br/>
+
+        scope operator is being used to defined a method outside of the Rectangle's scope. <br/>
+        However, in order use this technique, the method must be forward declared beforehand. <br/><br/>
+    </p>
+    <h1>
+        How do I import files in C++?
+    </h1>
+    <p>
+        The answer is: <h4> you don't.</h4> <br/><br/>
+        <a href="https://stackoverflow.com/questions/4940489/include-c-file-to-another-c-file">
+            it's a better practice to link files via header files.
+        </a><br/><br/>
+
+        It's generally a best practice to include directives to prevent header files being read twice.<br/><br/>
+        
+        <a href="https://www.tutorialspoint.com/cprogramming/c_header_files.htm">
+            header files Tutorialpoint
+        </a><br/><br/>
+
+        By looking at Ben's Github repo:<br/>
+        <a href="https://github.com/loetus/3Brothers/blob/master/three.cpp">3Brothers</a> <br/><br/>
+
+        OOP seems to be done like this ... (and I can't believe the redundancy).<br/>
+        Header file with forward declarations is created ------> Cpp file with the definitions is created, let's call this file A -----> Cpp file that actually contains the logic uses A.<br/><br/>
+        
+        Any other C++ files trying to utilize an "object" as we know it in Java must be done this way.<br/>
+        In a way, since, it obligates structures, I like it in theory, but not so sure about it in practice. <br/>
+        The above might be the reason why I am seeing bunch of scope operators popping up left and right ...
+    </p>
+</html>

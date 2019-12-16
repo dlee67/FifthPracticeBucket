@@ -5,6 +5,7 @@ class MoreClass {
 
     public:
         void sayClass();
+        
 };
 
 #endif

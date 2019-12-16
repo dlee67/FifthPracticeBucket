@@ -1,12 +1,8 @@
 #include <iostream>
+#include "moreclass.h"
 
 using namespace std;
 
-class MoreClass {
-
-    public:
-        void sayClass() {
-            cout << "Class!" << endl;
-        };
-
+void MoreClass::sayClass() {
+    cout << "Class!" << endl;
 };
