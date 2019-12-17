@@ -26,4 +26,8 @@ router.get('/githubtut', function(req, res, next) {
   res.render('./ForDoncey/githubtut');
 });
 
+router.get('/aiedge', function(req, res, next) {
+  res.render('./aiedge');
+});
+
 module.exports = router;
