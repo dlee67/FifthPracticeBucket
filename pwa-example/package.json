@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod",
     "heroku-postbuild": "ng build --prod"
   },
   "private": true,
@@ -22,6 +23,7 @@
     "@angular/pwa": "^0.803.20",
     "@angular/router": "~8.2.13",
     "@angular/service-worker": "~8.2.13",
+    "express": "^4.17.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
