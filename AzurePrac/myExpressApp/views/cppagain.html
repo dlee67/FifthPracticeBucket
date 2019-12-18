@@ -87,4 +87,29 @@
         <a href="https://stackoverflow.com/questions/25260193/c-undefined-reference-to-template-method">over</a> <br/>
         <a href="https://stackoverflow.com/questions/10632251/undefined-reference-to-template-function">flow</a> <br/>
     </p>
+    <h1>
+        It's interesting how I am learning what static is from Java via C++.
+    </h1>
+    <p>
+        Static object (object as in anything that's in your machine's memory) is declared <br/>
+        using the static or extern in C++.<br/><br/>
+
+        Static objects are allocated when the program starts and deallocated when the program stops.<br/><br/>
+
+        Things can get super weird with this static thing in C++ with local static variable. <br/>
+        Their life time begins upon the invocation of the function that they are in happens, and ends when<br/>
+        the app dies.<br/><br/>
+
+        The whole allocation and dellocation begins with this thing called dynamic storage duration is present.<br/>
+        These are just objects in Java, without the GC.<br/><br/>
+
+        Because it's C++ ...<br/>
+        int* my_int_ptr = new int;<br/><br/>
+
+        To deallocate the above ... <br/>
+        delete my_int_ptr; <br/><br/>
+
+        Say I have: int* my_int_array_ptr = new int[100]; <br/>
+        delete[] my_int_array_ptr;<br/>
+    </p>
 </html>
