@@ -1,25 +1,16 @@
 #include <iostream>
+#include "Vehicle.h"
+#include "Car.h"
 
 using namespace std;
 
-// Base class
-class Vehicle {
-  public:
-    string brand = "Ford";
-    void honk() {
-      cout << "Tuut, tuut! \n" ;
-    }
-};
-
-// Derived class
-class Car: public Vehicle {
-  public:
-    string model = "Mustang";
-};
+void Vehicle::honk() {
+  cout << "HONK! HONK!" << endl;
+}
 
 int main() {
   Car myCar;
   myCar.honk();
-  cout << myCar.brand + " " + myCar.model;
+  cout << myCar.brand + " " + myCar.model << endl;
   return 0;
 }
