@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -24,6 +25,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QPushButton *saySomething;
+    QLabel *counter;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,7 +38,10 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         saySomething = new QPushButton(centralwidget);
         saySomething->setObjectName(QString::fromUtf8("saySomething"));
-        saySomething->setGeometry(QRect(268, 120, 141, 25));
+        saySomething->setGeometry(QRect(20, 30, 141, 25));
+        counter = new QLabel(centralwidget);
+        counter->setObjectName(QString::fromUtf8("counter"));
+        counter->setGeometry(QRect(220, 10, 131, 71));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -54,7 +59,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        saySomething->setText(QApplication::translate("MainWindow", "saySomething", nullptr));
+        saySomething->setText(QApplication::translate("MainWindow", "Increment", nullptr));
+        counter->setText(QApplication::translate("MainWindow", "0", nullptr));
     } // retranslateUi
 
 };

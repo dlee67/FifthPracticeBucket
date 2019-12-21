@@ -63,8 +63,20 @@
         mock - is a fake that simulates the real object and keeps track of when it’s called and what arguments it receives. <br/><br/>
         
         stub - is a simple fake with no logic, and it always returns the same value. <br/><br/>
-
+        
         However, the above concepts are not specific to Angular, it's a general concepts in testing.<br/><br/>
+
+        fakeAsync - Using fakeAsync ensure that all asynchronous tasks are completed before executing the assertions.<br/><br/>
+
+        It's done like ... <br/><br/>
+
+        describe('loadContact() test', () => {<br/>
+            it('should load contact', fakeAsync(() => { <br/>
+              component.isLoading = false; <br/>
+              component.loadContact(); <br/>
+              fixture.detectChanges(); <br/>
+            }));<br/>
+          });<br/><br/>
 
         declarations section - that's where I can list the components that the components I am testing need.<br/><br/>
 
@@ -121,4 +133,8 @@
 
         The above demonstrates on how one can tests Observables and asynchronous behaviors in Angular.
     </p>
+    <h4>
+        Just finished skimming Ch 7 today, <br/>
+        and I can't help but to feel that I should actually go learn more about Angular.
+    </h4>
 </html>

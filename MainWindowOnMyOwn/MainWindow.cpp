@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     // https://doc.qt.io/qt-5/qobject.html#connect-4
     // connect() has many different overloaded parameters.
     connect(ui->saySomething, &QPushButton::clicked,
-      this, &MainWindow::saySomething);
+      this, &MainWindow::incrementCounter);
 }
 
 MainWindow::~MainWindow()
@@ -26,4 +26,9 @@ MainWindow::~MainWindow()
 
 void MainWindow:: saySomething() {
     qDebug() << "Something";
+}
+
+void MainWindow::incrementCounter() {
+    // ui is the entity that holds everything in *.ui file.
+    ui->counter->setText(QString("%1").arg(++MainWindow::count));
 }

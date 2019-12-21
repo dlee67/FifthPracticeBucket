@@ -1051,7 +1051,8 @@ MainWindow.o: ../MainWindowOnMyOwn/MainWindow.cpp ../MainWindowOnMyOwn/MainWindo
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qicon.h \
-		ui_MainWindow.h
+		ui_MainWindow.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../MainWindowOnMyOwn/MainWindow.cpp
 
 moc_MainWindow.o: moc_MainWindow.cpp 

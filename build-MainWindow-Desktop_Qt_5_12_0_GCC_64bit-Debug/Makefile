@@ -808,6 +808,10 @@ moc_mainwindow.cpp: ../../../../Qt/5.12.0/gcc_64/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QVector \
+		../MainWindow/task.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QString \
 		../MainWindow/mainwindow.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.0/gcc_64/bin/moc
@@ -1054,6 +1058,10 @@ main.o: ../MainWindow/main.cpp ../MainWindow/mainwindow.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QVector \
+		../MainWindow/task.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QString \
 		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1170,7 +1178,21 @@ mainwindow.o: ../MainWindow/mainwindow.cpp ../MainWindow/mainwindow.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QVector \
+		../MainWindow/task.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QString \
+		ui_mainwindow.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/QInputDialog \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qinputdialog.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtextcursor.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtextformat.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qpen.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtextoption.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../MainWindow/mainwindow.cpp
 
 task.o: ../MainWindow/task.cpp ../MainWindow/task.h \
@@ -1278,7 +1300,17 @@ task.o: ../MainWindow/task.cpp ../MainWindow/task.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.12.0/gcc_64/include/QtCore/QString \
-		ui_task.h
+		ui_task.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/QInputDialog \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qinputdialog.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qlineedit.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtextcursor.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtextformat.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qpen.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtGui/qtextoption.h \
+		../../../../Qt/5.12.0/gcc_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o task.o ../MainWindow/task.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

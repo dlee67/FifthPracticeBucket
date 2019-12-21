@@ -11,11 +11,14 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    int count = 0;
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 public slots:
     void saySomething();
+    void incrementCounter();
 
 private:
     Ui::MainWindow *ui;
