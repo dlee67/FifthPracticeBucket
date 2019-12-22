@@ -2,6 +2,7 @@
 #include "ui_MainWindow.h"
 
 #include <QDebug>
+#include <QInputDialog>
 
 #include <iostream>
 using namespace std;
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     // connect() has many different overloaded parameters.
     connect(ui->saySomething, &QPushButton::clicked,
       this, &MainWindow::incrementCounter);
+    connect(ui->changeNumber, &QPushButton::clicked, this, &MainWindow::changeNumber);
 }
 
 MainWindow::~MainWindow()
@@ -26,6 +28,14 @@ MainWindow::~MainWindow()
 
 void MainWindow:: saySomething() {
     qDebug() << "Something";
+}
+
+void MainWindow:: changeNumber() {
+    bool ok;
+    QString newNumber = QInputDialog::getText(this, "Input the number to change with",
+                          "Number val: ", QLineEdit::Normal, "", &ok);
+    ui->counter->setText(newNumber);
+    MainWindow::count = newNumber.toInt();
 }
 
 void MainWindow::incrementCounter() {

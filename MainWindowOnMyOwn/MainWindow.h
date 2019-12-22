@@ -19,6 +19,7 @@ public:
 public slots:
     void saySomething();
     void incrementCounter();
+    void changeNumber();
 
 private:
     Ui::MainWindow *ui;

@@ -18,6 +18,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,11 +27,15 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *horizontalLayoutWidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *saySomething;
     QSpacerItem *horizontalSpacer;
     QLabel *counter;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *changeNumber;
+    QSpacerItem *horizontalSpacer_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -41,13 +46,15 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        horizontalLayoutWidget = new QWidget(centralwidget);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(50, 20, 331, 80));
-        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget);
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(60, 10, 391, 86));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        saySomething = new QPushButton(horizontalLayoutWidget);
+        saySomething = new QPushButton(verticalLayoutWidget);
         saySomething->setObjectName(QString::fromUtf8("saySomething"));
 
         horizontalLayout_2->addWidget(saySomething);
@@ -56,10 +63,27 @@ public:
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
-        counter = new QLabel(horizontalLayoutWidget);
+        counter = new QLabel(verticalLayoutWidget);
         counter->setObjectName(QString::fromUtf8("counter"));
 
         horizontalLayout_2->addWidget(counter);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        changeNumber = new QPushButton(verticalLayoutWidget);
+        changeNumber->setObjectName(QString::fromUtf8("changeNumber"));
+
+        horizontalLayout->addWidget(changeNumber);
+
+        horizontalSpacer_2 = new QSpacerItem(88, 36, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -80,6 +104,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         saySomething->setText(QApplication::translate("MainWindow", "Increment", nullptr));
         counter->setText(QApplication::translate("MainWindow", "0", nullptr));
+        changeNumber->setText(QApplication::translate("MainWindow", "changeNumber", nullptr));
     } // retranslateUi
 
 };
