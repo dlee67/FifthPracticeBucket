@@ -11,10 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -24,7 +26,10 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_2;
     QPushButton *saySomething;
+    QSpacerItem *horizontalSpacer;
     QLabel *counter;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -36,12 +41,26 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        saySomething = new QPushButton(centralwidget);
+        horizontalLayoutWidget = new QWidget(centralwidget);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(50, 20, 331, 80));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        saySomething = new QPushButton(horizontalLayoutWidget);
         saySomething->setObjectName(QString::fromUtf8("saySomething"));
-        saySomething->setGeometry(QRect(20, 30, 141, 25));
-        counter = new QLabel(centralwidget);
+
+        horizontalLayout_2->addWidget(saySomething);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer);
+
+        counter = new QLabel(horizontalLayoutWidget);
         counter->setObjectName(QString::fromUtf8("counter"));
-        counter->setGeometry(QRect(220, 10, 131, 71));
+
+        horizontalLayout_2->addWidget(counter);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
