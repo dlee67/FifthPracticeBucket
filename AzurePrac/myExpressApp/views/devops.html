@@ -174,4 +174,37 @@
 
         Non the less, it was a good book.
     </p>
+    <h1>
+        Was able to spin ng test in Jenkins, but ...
+    </h1>
+    <p>
+        Jenkins wasn't able to run any tests (in the console output) because the browser being used was Chrome.<br/><br/>
+        
+        After I swtiched the browser in karma.conf.js from Chrome to ChromeHeadless, Jenkins was able to run tests; <br/>
+        however, just like when I run ng test in console, Jasmine just spins indefinitly ...<br/>
+        <a href="https://github.com/angular/angular-cli/issues/10711">about the above</a><br/><br/>
+
+        However, build is still failing because ... <br/><br/>
+        ERROR: Step ‘Archive the artifacts’ failed: No artifacts are configured for archiving. <br/>
+        You probably forgot to set the file pattern, so please go back to the configuration and specify it.<br/>
+        If you really did mean to archive all the files in the workspace, please specify "**"<br/>
+        Recording test results<br/><br/>
+
+        Currently looking at:
+        <a href="https://stackoverflow.com/questions/22717187/connect-karma-runner-to-jenkins-ci">this stack overflow post.</a><br/><br/>
+
+        After spinning in the hamsterwheel for good 2 hours, I was able to get the succesful build. <br/><br/>
+
+        I think the key was to follow everything Testin Angular Application has, and chuck in:<br/>
+        require('karma-junit-reporter'), <br/>
+        and set up the junitReporter to make more sense, <br/>
+        and be sure to set <br/>
+        singleRun: true,<br/>
+        autoWatch: false,<br/><br/>
+
+        and setup the archives for Jenkins configuration to make more sense too, <br/>
+        which is underneath the Post-build Actions.<br/><br/>
+
+        Gonna have to brush up on everything that I did to make sure I understand the materials.
+    </p>
 </html>
