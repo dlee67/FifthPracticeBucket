@@ -56,8 +56,10 @@
         Angular
     </h3>
     <p>
-        fixture - Stores an instance of the ComponentFixture, which contains methods that help you debug and test a component <br/><br/>
-
+        fixture - Stores an instance of the ComponentFixture, which contains methods that help you debug and test a component <br/>
+        Essentially, fixture in testing frameworks provides everything that the unit needs to be tested. <br/>
+        <a href="https://en.wikipedia.org/wiki/Test_fixture"> Wiki on test fixtures</a> <br/><br/>
+    
         fake - is an object you use in a test to substitute for the real thing. <br/><br/>
 
         mock - is a fake that simulates the real object and keeps track of when it’s called and what arguments it receives. <br/><br/>
@@ -227,11 +229,147 @@
         --detached : Detached mode enables the docker container to run in the background. <br/>
         The interactive container can be existed via entering "exit"
 
-        --link : Use it to --link to link a container with a preferred alias.
+        --link : Use it to --link to link a container with a preferred alias.<br/><br/>
 
+        (--tty option doesn't work, -it option actually produced the result I wanted and using the below article <br/>
+        <a href='https://stackoverflow.com/questions/30172605/how-do-i-get-into-a-docker-containers-shell'>
+            here <br/>
+        </a> I was able to produce more result)
         --tty : Starts up a shell environment. This will enable me to pass something to the container that's spnning. <br/>
-        When you are in --tty mode, by pressing Ctrl+p+q, I can spin the container in detached mode.
+        When you are in --tty mode, by pressing Ctrl+p+q, I can spin the container in detached mode. <br/><br/>
 
-        --name : Use it to assign name 
+        --name : Use it to assign name <br/><br/>
+
+        docker exec : executes a command within a container. <br/><br/>
+
+        docker run --pid : Spins a container without any namespace. <br/><br/> 
+
+        docker save : <br/><br/>
+        
+        docker pull : <br/><br/>
+
+        docker build : builds an image from docker file. <br/><br/>
+
+        docker run --volumes-from : Mount volumes from the specified containers. <br/>
+                                    Just a fancy way to state that the option will copy the mount definition<br/>
+                                    from a pre-existing container.<br/>
+
+        Docker allows me to run multiple processes within the same container, <br/>
+        but it is recommended to give those processes a namespace <br/><br/>
+
+        What's the beauty behind it?<br/>
+        Assume that I have to spin 10 severs at once, and this could be hard to orchestrate, <br/>
+        but Docker can resolve this quite easily. <br/><br/>
+
+        docker run --detached --name webA nginx:latest <br/>
+        docker run --detached --name webB nginx:latest <br/>
+        docker run --detached --name webC nginx:latest <br/>
+        docker run --detached --name webD nginx:latest <br/>
+        So on and so forth ... <br/><br/>
+
+        After marinating myself in Docker in Action for a bit, <br/>
+        I think it's easier for my soul to think of containers as headless operating system.<br/><br/>
+
+        It's largely because containers have file hierarchies, enivronment varialbes, <br/> 
+        and everything else OS environment has; heck, they even haves things like ports and ip addresses. <br/>
+        They can sleep, lock, have a text editor spin in it (maybe not), etc ... <br/>
+        it's easier in my mind to think of them as super miniture OS. <br/><br/>
+
+        Docker has a restart policy. By using --restart, I can have a container restart <br/>
+        on certain conditions (like, attempt to restart when failure is detected). <br/>
+    </p>
+    <h1>
+        Images
+    </h1>
+    <p>
+        The previous paragraph sang about how Docker containers are easier to be thought of <br/>
+        as a super miniture operating system. <br/><br/>
+
+        This ability of containers being a super miniture os comes from this thing called images. <br/><br/>
+    </p>
+    <h1>
+        Layer
+    </h1>
+    <p>
+        Layer is like a parent concept to image because image is a layer, but layer is not an image. <br/>
+        Layer is set of files and file metadata, which is distributed atomically, <br/>
+        where image could be the file in a particular layer. <br/><br/>
+    </p>
+    <h1> Images vs Layer</h1>
+    <p>
+        Layer might be a parent concept to an image, <br/>
+        but image is an encapsulation of mutiple layers. <br/>
+    </p>
+    <h1>
+        Registries
+    </h1>
+    <p>
+        Docker has registries, and they are like repositories for Github.<br/><br/>
+
+        For example ... <br/>
+        docker pull quay.io/dockerinaction/ch3_hello_registry<br/>
+        the above will pull an image called ch3_hello_reigstry from the above URL. <br/><br/>
+    </p>
+    <h1>
+        Container file system
+    </h1>
+    <p>
+        Say, my container is spinning two web apps, and I am starting to think, <br/>
+        "where am I going to store all my logs? And how will they outlive their containers?" <br/><br/>
+
+        Image that a container is created from is mounted at that container's file tree root, which implies that <br/>
+        mount points in Docker containers can be played around with. <br/><br/>
+
+        Bind Mount: is a technique that utilizes this thing called bind mount points, <br/>
+        where user can attach a location on host filesystem to a specific point in a container file.
+    </p>
+    <h1>
+        Bind Mount
+    </h1>
+    <p>
+        A file, or directory, on a host machine is mounted into a container. <br/>
+        But you cannot use Docker CLI commands to directly manage the bind mounts.<br/>
+    </p>
+    <h1>
+        Docker Volumes
+    </h1>
+    <p>
+        Docker volumes are named filesystem trees managed by Docker. <br/>
+        Which is the preferred way of persisting a data generated and used by Docker containers.<br/>
+        The below is a good tutorial for this: <br/>
+        <a href="https://vexxhost.com/resources/tutorials/how-to-work-with-docker-data-volumes-on-ubuntu-14-04/">
+            How to work with Docker volumes
+        </a><br/><br/>
+
+        In the below command:<br/>
+        docker create -v /tmp --name newdatacontainer ubuntu <br/>
+        -v /tmp is telling docker that, "I want /tmp to be persistable within ubuntu, <br/>
+        even after the container has stopped spinning."<br/><br/>
+
+        Then, we ask out selves, "where is all the data persisting?"<br/>
+        <a href="https://4sysops.com/archives/introduction-to-docker-bind-mounts-and-volumes/">this</a><br/>
+        explains where they are.<br/><br/>
+
+        Lastly, there is a relevant option called --volumes-from <br>
+        which is an option for run command in Docker, and it creates a new container <br/>
+        that mounts the volume which is already being used.
+    </p>
+    <h1>
+        Dockefile
+    </h1>
+    <p>
+        docker build -t my_image ./ <br/>
+        The above command creates an image, with the repository name of my_image (-t option does that), <br/> 
+        where ./ tells Docker to find a Dockerfile within the current directory. <br/> 
+    </p>
+    <h1>
+        Just finished the CH 7, and it seems like rest of the book goes over the orchestration stuff with swarm.
+    </h1>
+    <h1>
+        Questions for the Angular experts
+    </h1>
+    <p>
+        Q: How to I detect changes of mutables in services and actions?
+        Q: What's the best way to dispatch NgRx stuff for testing?
     </p>
 </html>
