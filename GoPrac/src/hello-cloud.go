@@ -13,6 +13,7 @@ func main() {
 	// Passing in the function pointer.
 	http.HandleFunc("./echo", echo)
 	http.HandleFunc("./books", api.BooksHandleFunc)
+	http.HandleFunc("./books/", api.BooksHandleFunc)
 	http.ListenAndServe(port(), nil)
 }
 
@@ -26,7 +27,7 @@ func port() string {
 
 func index(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, "Hello Cloud Native Go.")
+	fmt.Fprintf(w, "Welcome to Cloud Native Go.")
 }
 
 func echo(w http.ResponseWriter, r *http.Request) {
