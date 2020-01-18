@@ -2,14 +2,14 @@ package api
 
 import (
 	"encoding/json"
-	"net/http"
 	"io/ioutil"
+	"net/http"
 )
 
 type Book struct {
-	Title string `json:"title"` // In a textual form, the memember would look like { "title": ... }
+	Title  string `json:"title"` // In a textual form, the memember would look like { "title": ... }
 	Author string `json:"author"`
-	ISBN string `json:"isbn"`
+	ISBN   string `json:"isbn"`
 }
 
 var Books = map[string]Book{
@@ -19,7 +19,7 @@ var Books = map[string]Book{
 
 // ToJSON to be used for marshalling of Book type
 func (b Book) ToJSON() []byte {
-	ToJSON, err := json.Marshal(b)
+	ToJSON, err := json.MarshalIndent(b, "", "   ")
 	if err != nil {
 		panic(err)
 	}
@@ -35,7 +35,6 @@ func FromJSON(data []byte) Book {
 	}
 	return book
 }
-
 
 // BooksHandleFunc to be used as http.HandleFunc for Book API
 func BooksHandleFunc(w http.ResponseWriter, r *http.Request) {
@@ -84,7 +83,7 @@ func AllBooks() []Book {
 }
 
 func writeJSON(w http.ResponseWriter, i interface{}) {
-	b, err := json.Marshal(i)
+	b, err := json.MarshalIndent(i, "", "   ")
 	if err != nil {
 		panic(err)
 	}
