@@ -15,6 +15,9 @@ type Book struct {
 var Books = map[string]Book{
 	"9781617293641": Book{Title: "Testing Angular Applications", Author: "Michael Giambalvo, Jesse Palmer, Craig Nishina, Corinna Cohn", ISBN: "9781617293641"},
 	"9781449308292": Book{Title: "Embedded Android", Author: "Karim Yaghmour", ISBN: "9781449308292"},
+	"9781617294761": Book{Title: "Docker in Action, Second Edition", Author: "Stephen Kuenzli, Jeffrey Nickoloff", ISBN: "9781617294761"},
+	"9781617296277": Book{Title: "Unit Testing Principles, Practices, and Patterns", Author: "Vladimir Khorikov", ISBN: "9781617296277"},
+	"9780596529680": Book{Title: "Building Embedded Linux Systems, 2nd Edition", Author: "Gilad Ben-Yossef, Jon Masters, Karim Yaghmour, Philippe Gerum", ISBN: "9780596529680"},
 }
 
 // ToJSON to be used for marshalling of Book type
