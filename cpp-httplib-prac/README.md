@@ -1,0 +1,3 @@
+g++ won't compile the programs unless I use the -pthread option like the below ...
+
+g++ hello.cpp httplib.h -pthread -o hello
