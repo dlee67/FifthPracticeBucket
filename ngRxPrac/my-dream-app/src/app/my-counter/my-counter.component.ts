@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, decrement, reset } from '../counter.actions';
+import {INCREMENT, DECREMENT, RESET} from "../counter.reducer";
  
 @Component({
   selector: 'app-my-counter',
@@ -12,18 +12,19 @@ export class MyCounterComponent {
   count$: Observable<number>;
  
   constructor(private store: Store<{ count: number }>) {
-    this.count$ = store.pipe(select('count'));
+    this.count$ = store.pipe(select('count')); // Specified that I want to pipe the values from counter reducer to count$.
   }
- 
+
   increment() {
-    this.store.dispatch(increment());
+    // The JSON object being passed in is THE action in this case.
+    this.store.dispatch({type: INCREMENT});
   }
  
   decrement() {
-    this.store.dispatch(decrement());
+    this.store.dispatch({type: DECREMENT});
   }
- 
+
   reset() {
-    this.store.dispatch(reset());
+    this.store.dispatch({type: RESET});
   }
 }

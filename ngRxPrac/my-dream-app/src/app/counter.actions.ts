@@ -1,5 +1,1 @@
-import { createAction } from '@ngrx/store';
-
-export const increment = createAction('[Counter Component] Increment');
-export const decrement = createAction('[Counter Component] Decrement');
-export const reset = createAction('[Counter Component] Reset');
+// With the approach I currently have, I don't need an action file.
