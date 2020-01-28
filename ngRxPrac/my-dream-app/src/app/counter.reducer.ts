@@ -1,10 +1,11 @@
-import {Action, createReducer, on } from '@ngrx/store';
+import {Action} from '@ngrx/store';
 
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 
 // Notice how the below function name is coupled with app.module.ts.
+// At our
 export function counterReducer(action: Action) {
   var state = 0;
   switch (action.type) {
