@@ -404,12 +404,10 @@
         Questions for the Angular experts
     </h1>
     <p>
-        Q: How to I detect changes of mutables in services and actions? <br/>
-        Q: What's the best way to dispatch NgRx stuff for testing? <br/>
-        Q: In the getting started of ngRx, I can see that the architecture expects me to save states like the below flow: <br/>
-        component ---> action ---> reducer ... <br/>
-        but I notice that many of the tutorials will instead use the below flow: <br/>
-        component ---> reducer ---> action ... <br/>
-        Should I be worried about this?
+        Q: For TestBed.get(), it's going to be deprecated and be replaced with TestBed.injected&ltCoolService&gt ; <br/>
+        for those functions to be converted automatically, we need to replace get() with get&ltCoolService&gt? 
+        Q: Classical vs London, which is the best way to isolate a unit in your opinion?<br/>
+        A: Depends, mocking for a unit that's very functional doesn't make any sense because that unit is already a pure function (or close to). <br/>
+        For very OO like unit, mock is recommended because, once again, we want to write tests if the cost of writing is worth it.
     </p>
 </html>
