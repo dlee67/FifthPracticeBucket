@@ -5,16 +5,15 @@ export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 
 // Notice how the below function name is coupled with app.module.ts.
-export function counterReducer(state = 0, action: Action) {
-  var state = 0;
+export function counterReducer(state, action: Action) {
   switch (action.type) {
     case INCREMENT:
       return state + 1;
     case DECREMENT:
       return state - 1;
     case RESET:
-      return state;
+      return 0;
     default:
-      return state;
+      return 0;
   }
 }
