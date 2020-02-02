@@ -2,6 +2,7 @@ import { createSelector } from '@ngrx/store';
 
 export interface AppState {
   count: number;
+  name: string;
 }
  
 export const selectFeature = (state: AppState) => {
@@ -11,6 +12,6 @@ export const selectFeature = (state: AppState) => {
 export const selectFeatureCount = createSelector(
   selectFeature,
   (state: AppState) => {
-    return state.count;
+    return state.count; // From the looks of things, this is what's being assigned to count$.
   }
 );
