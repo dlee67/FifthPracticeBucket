@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>Main.qml</file>
-        <file>MainForm.ui.qml</file>
-        <file>lockheed.png</file>
-    </qresource>
-</RCC>

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QtAnime LANGUAGES CXX)
+project(LoginPage LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -24,21 +24,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(Qt5 COMPONENTS Core Quick REQUIRED)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
-    add_library(QtAnime SHARED
-      main.cpp
-      qml.qrc
-    )
+  add_library(LoginPage SHARED
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+  )
 else()
-    add_executable(QtAnime
-      main.cpp
-      qml.qrc
-    )
+  add_executable(LoginPage
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+  )
 endif()
 
-target_compile_definitions(QtAnime
-  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(QtAnime
-  PRIVATE Qt5::Core Qt5::Quick)
+target_link_libraries(LoginPage PRIVATE Qt5::Widgets)

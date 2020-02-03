@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/LoginPage.dir/main.cpp.o CMakeFiles/LoginPage.dir/mainwindow.cpp.o CMakeFiles/LoginPage.dir/LoginPage_autogen/mocs_compilation.cpp.o  -o LoginPage -Wl,-rpath,/home/Qt/5.12.0/gcc_64/lib /home/Qt/5.12.0/gcc_64/lib/libQt5Widgets.so.5.12.0 /home/Qt/5.12.0/gcc_64/lib/libQt5Gui.so.5.12.0 /home/Qt/5.12.0/gcc_64/lib/libQt5Core.so.5.12.0 
