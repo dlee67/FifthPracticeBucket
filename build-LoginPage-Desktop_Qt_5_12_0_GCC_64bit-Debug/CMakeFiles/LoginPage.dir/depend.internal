@@ -319,12 +319,16 @@ CMakeFiles/LoginPage.dir/mainwindow.cpp.o
  /home/Qt/5.12.0/gcc_64/include/QtGui/qpaintdevice.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qpainterpath.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qpalette.h
+ /home/Qt/5.12.0/gcc_64/include/QtGui/qpen.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qpixelformat.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qpixmap.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qpolygon.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qregion.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qrgb.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qrgba64.h
+ /home/Qt/5.12.0/gcc_64/include/QtGui/qtextcursor.h
+ /home/Qt/5.12.0/gcc_64/include/QtGui/qtextformat.h
+ /home/Qt/5.12.0/gcc_64/include/QtGui/qtextoption.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qtgui-config.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qtguiglobal.h
  /home/Qt/5.12.0/gcc_64/include/QtGui/qtouchdevice.h
@@ -335,11 +339,13 @@ CMakeFiles/LoginPage.dir/mainwindow.cpp.o
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QApplication
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QHBoxLayout
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QLabel
+ /home/Qt/5.12.0/gcc_64/include/QtWidgets/QLineEdit
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QMainWindow
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QMenuBar
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QPushButton
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QSpacerItem
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QStatusBar
+ /home/Qt/5.12.0/gcc_64/include/QtWidgets/QVBoxLayout
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/QWidget
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qabstractbutton.h
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qaction.h
@@ -352,6 +358,7 @@ CMakeFiles/LoginPage.dir/mainwindow.cpp.o
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qlabel.h
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qlayout.h
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qlayoutitem.h
+ /home/Qt/5.12.0/gcc_64/include/QtWidgets/qlineedit.h
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qmainwindow.h
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qmenu.h
  /home/Qt/5.12.0/gcc_64/include/QtWidgets/qmenubar.h

@@ -928,6 +928,14 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
+/home/Qt/5.12.0/gcc_64/include/QtGui/qpen.h
+QtGui/qtguiglobal.h
+-
+QtGui/qcolor.h
+-
+QtGui/qbrush.h
+-
+
 /home/Qt/5.12.0/gcc_64/include/QtGui/qpixelformat.h
 QtGui/qtguiglobal.h
 -
@@ -982,6 +990,46 @@ QtCore/qprocessordetection.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
+-
+
+/home/Qt/5.12.0/gcc_64/include/QtGui/qtextcursor.h
+QtGui/qtguiglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qshareddata.h
+-
+QtGui/qtextformat.h
+-
+
+/home/Qt/5.12.0/gcc_64/include/QtGui/qtextformat.h
+QtGui/qtguiglobal.h
+-
+QtGui/qcolor.h
+-
+QtGui/qfont.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qvector.h
+-
+QtCore/qvariant.h
+-
+QtGui/qpen.h
+-
+QtGui/qbrush.h
+-
+QtGui/qtextoption.h
+-
+
+/home/Qt/5.12.0/gcc_64/include/QtGui/qtextoption.h
+QtGui/qtguiglobal.h
+-
+QtCore/qnamespace.h
+-
+QtCore/qchar.h
+-
+QtCore/qmetatype.h
 -
 
 /home/Qt/5.12.0/gcc_64/include/QtGui/qtgui-config.h
@@ -1052,6 +1100,10 @@ qboxlayout.h
 qlabel.h
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qlabel.h
 
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/QLineEdit
+qlineedit.h
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/qlineedit.h
+
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/QMainWindow
 qmainwindow.h
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qmainwindow.h
@@ -1071,6 +1123,10 @@ qlayoutitem.h
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/QStatusBar
 qstatusbar.h
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qstatusbar.h
+
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/QVBoxLayout
+qboxlayout.h
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/qboxlayout.h
 
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/QWidget
 qwidget.h
@@ -1194,6 +1250,18 @@ QtCore/qrect.h
 limits.h
 -
 
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/qlineedit.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qframe.h
+-
+QtGui/qtextcursor.h
+-
+QtCore/qstring.h
+-
+QtCore/qmargins.h
+-
+
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qmainwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1307,6 +1375,8 @@ QtWidgets/QHBoxLayout
 -
 QtWidgets/QLabel
 -
+QtWidgets/QLineEdit
+-
 QtWidgets/QMainWindow
 -
 QtWidgets/QMenuBar
@@ -1316,6 +1386,8 @@ QtWidgets/QPushButton
 QtWidgets/QSpacerItem
 -
 QtWidgets/QStatusBar
+-
+QtWidgets/QVBoxLayout
 -
 QtWidgets/QWidget
 -
