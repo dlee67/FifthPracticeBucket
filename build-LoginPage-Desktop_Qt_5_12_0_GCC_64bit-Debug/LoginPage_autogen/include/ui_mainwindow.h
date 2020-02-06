@@ -19,6 +19,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -34,36 +35,40 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *currentDateTime;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton;
+    QPushButton *restart;
+    QPushButton *power;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_2;
     QLabel *logo;
     QSpacerItem *horizontalSpacer_3;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_4;
-    QWidget *verticalWidget_3;
+    QWidget *loginForm;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_5;
-    QLabel *label;
+    QLabel *userName;
     QLineEdit *lineEdit;
     QHBoxLayout *horizontalLayout_6;
-    QLabel *label_2;
+    QLabel *password;
     QLineEdit *lineEdit_2;
     QPushButton *pushButton_3;
     QSpacerItem *horizontalSpacer_5;
     QSpacerItem *verticalSpacer;
     QStatusBar *statusbar;
     QMenuBar *menubar;
+    QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
+        MainWindow->setStyleSheet(QString::fromUtf8("QMainWindow#centralWidget { \n"
+"	background: rgba(32, 80, 96, 100); \n"
+"}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        centralwidget->setStyleSheet(QString::fromUtf8("#centralWidget { background: rgba(32, 80, 96, 100); }"));
+        centralwidget->setStyleSheet(QString::fromUtf8(""));
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(10, 10, 781, 627));
@@ -86,17 +91,28 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        pushButton_2 = new QPushButton(topPanel);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setMinimumSize(QSize(55, 55));
+        restart = new QPushButton(topPanel);
+        restart->setObjectName(QString::fromUtf8("restart"));
+        restart->setMinimumSize(QSize(55, 55));
+        restart->setStyleSheet(QString::fromUtf8("QPushButton#restart {\n"
+"	background-color: #27a9e3;\n"
+"}\n"
+"\n"
+"QPushButton:hover { background-color: #66c011; }\n"
+""));
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(restart);
 
-        pushButton = new QPushButton(topPanel);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setMinimumSize(QSize(55, 55));
+        power = new QPushButton(topPanel);
+        power->setObjectName(QString::fromUtf8("power"));
+        power->setMinimumSize(QSize(55, 55));
+        power->setStyleSheet(QString::fromUtf8("QPushButton#power {\n"
+"	background-color: #27a9e3;\n"
+"}\n"
+"\n"
+"QPushButton:hover { background-color: #66c011; }"));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(power);
 
 
         verticalLayout->addWidget(topPanel);
@@ -126,30 +142,34 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalLayout_4->setContentsMargins(-1, 25, -1, 25);
+        horizontalLayout_4->setContentsMargins(-1, 0, -1, 0);
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_4->addItem(horizontalSpacer_4);
 
-        verticalWidget_3 = new QWidget(verticalLayoutWidget);
-        verticalWidget_3->setObjectName(QString::fromUtf8("verticalWidget_3"));
-        verticalWidget_3->setStyleSheet(QString::fromUtf8("QWidget#loginForm { \n"
+        loginForm = new QWidget(verticalLayoutWidget);
+        loginForm->setObjectName(QString::fromUtf8("loginForm"));
+        loginForm->setMinimumSize(QSize(0, 0));
+        loginForm->setStyleSheet(QString::fromUtf8("QWidget#loginForm { \n"
 "	background: rgba(0, 0, 0, 80);	\n"
 "	border-radius: 8px;\n"
 "}"));
-        verticalLayout_3 = new QVBoxLayout(verticalWidget_3);
+        verticalLayout_3 = new QVBoxLayout(loginForm);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(20, 1, 20, 1);
+        verticalLayout_3->setContentsMargins(40, 50, 40, 50);
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, -1);
-        label = new QLabel(verticalWidget_3);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        userName = new QLabel(loginForm);
+        userName->setObjectName(QString::fromUtf8("userName"));
+        userName->setStyleSheet(QString::fromUtf8("QLabel#userName {\n"
+"	color: white;\n"
+"}"));
+        userName->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
-        horizontalLayout_5->addWidget(label);
+        horizontalLayout_5->addWidget(userName);
 
-        lineEdit = new QLineEdit(verticalWidget_3);
+        lineEdit = new QLineEdit(loginForm);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
         horizontalLayout_5->addWidget(lineEdit);
@@ -160,12 +180,16 @@ public:
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, -1);
-        label_2 = new QLabel(verticalWidget_3);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        password = new QLabel(loginForm);
+        password->setObjectName(QString::fromUtf8("password"));
+        password->setAutoFillBackground(false);
+        password->setStyleSheet(QString::fromUtf8("QLabel#password {\n"
+"	color: white;\n"
+"}"));
 
-        horizontalLayout_6->addWidget(label_2);
+        horizontalLayout_6->addWidget(password);
 
-        lineEdit_2 = new QLineEdit(verticalWidget_3);
+        lineEdit_2 = new QLineEdit(loginForm);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
 
         horizontalLayout_6->addWidget(lineEdit_2);
@@ -173,7 +197,7 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_6);
 
-        pushButton_3 = new QPushButton(verticalWidget_3);
+        pushButton_3 = new QPushButton(loginForm);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
         pushButton_3->setMinimumSize(QSize(50, 50));
         pushButton_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
@@ -190,7 +214,7 @@ public:
         verticalLayout_3->addWidget(pushButton_3);
 
 
-        horizontalLayout_4->addWidget(verticalWidget_3);
+        horizontalLayout_4->addWidget(loginForm);
 
         horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -211,6 +235,9 @@ public:
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 22));
         MainWindow->setMenuBar(menubar);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName(QString::fromUtf8("toolBar"));
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         retranslateUi(MainWindow);
 
@@ -221,12 +248,13 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         currentDateTime->setText(QApplication::translate("MainWindow", "Monday, 25-10-2015 3:14 PM", nullptr));
-        pushButton_2->setText(QString());
-        pushButton->setText(QString());
+        restart->setText(QString());
+        power->setText(QString());
         logo->setText(QString());
-        label->setText(QApplication::translate("MainWindow", "Username:", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "Password:", nullptr));
+        userName->setText(QApplication::translate("MainWindow", "Username:", nullptr));
+        password->setText(QApplication::translate("MainWindow", "Password:", nullptr));
         pushButton_3->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 
 };

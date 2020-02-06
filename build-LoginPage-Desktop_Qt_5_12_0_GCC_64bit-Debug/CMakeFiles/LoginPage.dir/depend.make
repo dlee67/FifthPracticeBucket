@@ -344,6 +344,7 @@ CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidg
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/QPushButton
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/QSpacerItem
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/QStatusBar
+CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/QToolBar
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/QVBoxLayout
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/QWidget
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qabstractbutton.h
@@ -365,6 +366,7 @@ CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidg
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qsizepolicy.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qstatusbar.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qtabwidget.h
+CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qtoolbar.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qtwidgets-config.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtWidgets/qwidget.h

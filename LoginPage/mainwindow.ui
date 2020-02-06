@@ -13,9 +13,14 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow#centralWidget { 
+	background: rgba(32, 80, 96, 100); 
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">#centralWidget { background: rgba(32, 80, 96, 100); }</string>
+    <string notr="true"/>
    </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -56,12 +61,20 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="restart">
           <property name="minimumSize">
            <size>
             <width>55</width>
             <height>55</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#restart {
+	background-color: #27a9e3;
+}
+
+QPushButton:hover { background-color: #66c011; }
+</string>
           </property>
           <property name="text">
            <string/>
@@ -69,12 +82,19 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="power">
           <property name="minimumSize">
            <size>
             <width>55</width>
             <height>55</height>
            </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#power {
+	background-color: #27a9e3;
+}
+
+QPushButton:hover { background-color: #66c011; }</string>
           </property>
           <property name="text">
            <string/>
@@ -141,10 +161,10 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <property name="topMargin">
-        <number>25</number>
+        <number>0</number>
        </property>
        <property name="bottomMargin">
-        <number>25</number>
+        <number>0</number>
        </property>
        <item>
         <spacer name="horizontalSpacer_4">
@@ -160,7 +180,13 @@
         </spacer>
        </item>
        <item>
-        <widget class="QWidget" name="verticalWidget_3" native="true">
+        <widget class="QWidget" name="loginForm" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">QWidget#loginForm { 
 	background: rgba(0, 0, 0, 80);	
@@ -169,16 +195,16 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <property name="leftMargin">
-           <number>20</number>
+           <number>40</number>
           </property>
           <property name="topMargin">
-           <number>1</number>
+           <number>50</number>
           </property>
           <property name="rightMargin">
-           <number>20</number>
+           <number>40</number>
           </property>
           <property name="bottomMargin">
-           <number>1</number>
+           <number>50</number>
           </property>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -192,7 +218,12 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="userName">
+              <property name="styleSheet">
+               <string notr="true">QLabel#userName {
+	color: white;
+}</string>
+              </property>
               <property name="text">
                <string>Username:</string>
               </property>
@@ -218,7 +249,15 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_2">
+             <widget class="QLabel" name="password">
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel#password {
+	color: white;
+}</string>
+              </property>
               <property name="text">
                <string>Password:</string>
               </property>
@@ -298,6 +337,17 @@ QPushButton:hover {
      <height>22</height>
     </rect>
    </property>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
   </widget>
  </widget>
  <resources/>

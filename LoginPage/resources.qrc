@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>Vist_Foundation_Logo.png</file>
+        <file>Plantain.jpg</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>login_bg.jpg</file>
+        <file>sky_island_wallpaper_background_27028.jpg</file>
+    </qresource>
+</RCC>

@@ -1124,6 +1124,10 @@ qlayoutitem.h
 qstatusbar.h
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qstatusbar.h
 
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/QToolBar
+qtoolbar.h
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/qtoolbar.h
+
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/QVBoxLayout
 qboxlayout.h
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qboxlayout.h
@@ -1316,6 +1320,14 @@ QtWidgets/qwidget.h
 QtGui/qicon.h
 -
 
+/home/Qt/5.12.0/gcc_64/include/QtWidgets/qtoolbar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qaction.h
+-
+QtWidgets/qwidget.h
+-
+
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qtwidgets-config.h
 
 /home/Qt/5.12.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h
@@ -1386,6 +1398,8 @@ QtWidgets/QPushButton
 QtWidgets/QSpacerItem
 -
 QtWidgets/QStatusBar
+-
+QtWidgets/QToolBar
 -
 QtWidgets/QVBoxLayout
 -
