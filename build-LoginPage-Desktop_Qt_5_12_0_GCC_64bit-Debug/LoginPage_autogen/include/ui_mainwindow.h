@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -100,6 +101,10 @@ public:
 "\n"
 "QPushButton:hover { background-color: #66c011; }\n"
 ""));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("Vist_Foundation_Logo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        restart->setIcon(icon);
+        restart->setIconSize(QSize(50, 50));
 
         horizontalLayout->addWidget(restart);
 
@@ -111,6 +116,10 @@ public:
 "}\n"
 "\n"
 "QPushButton:hover { background-color: #66c011; }"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8("login_bg.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        power->setIcon(icon1);
+        power->setIconSize(QSize(50, 50));
 
         horizontalLayout->addWidget(power);
 
@@ -130,6 +139,7 @@ public:
         logo->setStyleSheet(QString::fromUtf8("QLabel#logo {\n"
 "	border: 1px solid;\n"
 "}"));
+        logo->setPixmap(QPixmap(QString::fromUtf8("../../../Pictures/LockheedMartin.png")));
 
         horizontalLayout_3->addWidget(logo);
 
@@ -156,7 +166,7 @@ public:
 "}"));
         verticalLayout_3 = new QVBoxLayout(loginForm);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(40, 50, 40, 50);
+        verticalLayout_3->setContentsMargins(40, 50, 40, 40);
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, -1);

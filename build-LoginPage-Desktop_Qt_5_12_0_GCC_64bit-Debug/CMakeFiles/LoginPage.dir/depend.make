@@ -302,6 +302,7 @@ CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtCore
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtCore/qvarlengtharray.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtCore/qvector.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtCore/qversiontagging.h
+CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtGui/QIcon
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtGui/qbrush.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtGui/qcolor.h
 CMakeFiles/LoginPage.dir/mainwindow.cpp.o: /home/Qt/5.12.0/gcc_64/include/QtGui/qcursor.h
