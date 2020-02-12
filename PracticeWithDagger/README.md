@@ -1,0 +1,3 @@
+# Using/used ...
+http://mahmoudramadan.me/getting-started-to-dagger-2-with-kotlin-for-android-app-development/<br/>
+https://stackoverflow.com/questions/57670510/how-to-get-rid-of-incremental-annotation-processing-requested-warning<br/>
