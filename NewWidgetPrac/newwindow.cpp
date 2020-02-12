@@ -16,7 +16,7 @@ NewWindow::~NewWindow()
 
 void NewWindow::on_pushButton_clicked()
 {
-    hide();
+    close();
     MainWindow* mainWindow = new MainWindow();
     mainWindow->show();
 }

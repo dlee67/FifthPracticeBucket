@@ -1,0 +1,38 @@
+<html>
+    <p>
+        <a href="https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code">
+            Getting started with C# 
+        </a> <br/><br/>
+
+        The above got me set up for hello world. <br/><br/>
+
+        This stood out to me when learning about C#: <br/><br/>
+
+        switch (shape)<br/>
+        {<br/>
+            case (int w, int h) when w &lt; h: return "Portrait";<br/>
+            case (int w, int h) when w &gt; h: return "Landscape";<br/>
+            case (int _, int _): return "Square";<br/>
+            default: return "Unknown";<br/>
+        }<br/><br/>
+
+        //Taken from Programming C# 8.0<br/><br/>
+
+        The above is pretty neat. They call the above concept a pattern.<br/><br/>
+
+        After skimming the above mentioned book, I was trying to write stuff for Xamarin, but<br/>
+        I got blocked by the fact that I need Windows for the job.<br/>
+    </p>
+    <h1>
+        Conditional Compilation
+    </h1>
+    <p>
+        It seems to be similar to C++'s directives. <br/><br/>
+
+        [System.Diagnostics.Conditional("DEBUG")] <br/>
+        static void ShowDebugInfo(object o) <br/>
+        {<br/>
+            Console.WriteLine(o);<br/>
+        }<br/>
+    </p>
+</html>

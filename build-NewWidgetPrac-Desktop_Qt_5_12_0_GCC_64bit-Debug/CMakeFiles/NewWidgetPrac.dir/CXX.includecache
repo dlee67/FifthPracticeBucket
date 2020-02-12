@@ -1238,12 +1238,6 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-/home/bob/Desktop/FifthPracticeBucket/NewWidgetPrac/main.cpp
-mainwindow.h
-/home/bob/Desktop/FifthPracticeBucket/NewWidgetPrac/mainwindow.h
-QApplication
--
-
 /home/bob/Desktop/FifthPracticeBucket/NewWidgetPrac/mainwindow.cpp
 QDebug
 -
@@ -1271,28 +1265,6 @@ mainwindow.h
 /home/bob/Desktop/FifthPracticeBucket/NewWidgetPrac/newwindow.h
 QMainWindow
 -
-
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/EWIEGA46WW/moc_mainwindow.cpp
-../../../NewWidgetPrac/mainwindow.h
-/home/bob/Desktop/FifthPracticeBucket/NewWidgetPrac/mainwindow.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/EWIEGA46WW/moc_newwindow.cpp
-../../../NewWidgetPrac/newwindow.h
-/home/bob/Desktop/FifthPracticeBucket/NewWidgetPrac/newwindow.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_mainwindow.cpp
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/EWIEGA46WW/moc_mainwindow.cpp
-EWIEGA46WW/moc_newwindow.cpp
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/EWIEGA46WW/moc_newwindow.cpp
 
 NewWidgetPrac_autogen/include/./ui_mainwindow.h
 QtCore/QVariant

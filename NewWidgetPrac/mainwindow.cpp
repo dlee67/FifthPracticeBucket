@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     qDebug() << "on_pushButton_clicked";
-    hide();
+    close();
     NewWindow* newWindow = new NewWindow();
     newWindow->show();
 }
