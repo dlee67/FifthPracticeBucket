@@ -15,6 +15,6 @@ blurred = cv2.GaussianBlur(image, (5,5), 0)
 cv2.imshow("Gaussian blurr", blurred)
 cv2.waitKey(0)
 
-canny = cv2.canny(blurred, 30, 150)
+canny = cv2.Canny(blurred, 30, 150)
 cv2.imshow("Gaussian Blurr", canny)
 cv2.waitKey(0)
