@@ -10,6 +10,7 @@ import androidx.ui.core.setContent
 import androidx.ui.foundation.DrawImage
 import androidx.ui.layout.*
 import androidx.ui.res.imageResource
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
