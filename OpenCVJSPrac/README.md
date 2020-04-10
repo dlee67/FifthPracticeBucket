@@ -8,3 +8,5 @@ However, without sudo, I noticed that the I can't transpile anything.
 
 Something like ...:
 python ./opencv/platforms/js/build_js.py build_js --build_test --emscripten_dir /lol/lol/emsdk/fastcomp/emscripten
+
+Followed what's on the right: https://docs.opencv.org/master/d4/da1/tutorial_js_setup.html
