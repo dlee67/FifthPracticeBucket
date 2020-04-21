@@ -1,4 +1,4 @@
-# Dec 7th, 2019, LHD
+# Dec 7th, 2019, Local Hack Day
 
 Whatever me and David were discussing is now there.
 
