@@ -1,0 +1,254 @@
+Compilation failed:
+    source file: '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option  -pthread'
+===== BUILD LOG =====
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e6c8e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e6c8e.dir/build.make CMakeFiles/cmTC_e6c8e.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e6c8e.dir/src.cxx.o
+/home/bob/emsdk/fastcomp/emscripten/em++    -s USE_PTHREADS=0   -DNDEBUG -O2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -pthread -std=c++11 -o CMakeFiles/cmTC_e6c8e.dir/src.cxx.o -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+1 warning generated.
+Linking CXX executable cmTC_e6c8e.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e6c8e.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/em++  -s USE_PTHREADS=0   -DNDEBUG -O2    -O2 @CMakeFiles/cmTC_e6c8e.dir/objects1.rsp  -o cmTC_e6c8e.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+wasm-ld: error: 'atomics' feature is used by CMakeFiles/cmTC_e6c8e.dir/src.cxx.o, so --shared-memory must be used
+shared:ERROR: '/home/bob/emsdk/upstream/bin/wasm-ld -o /tmp/emscripten_temp_iZPFpX/cmTC_e6c8e.wasm --allow-undefined --import-memory --import-table --lto-O0 CMakeFiles/cmTC_e6c8e.dir/src.cxx.o /home/bob/.emscripten_cache/wasm-obj/libc.a /home/bob/.emscripten_cache/wasm-obj/libcompiler_rt.a /home/bob/.emscripten_cache/wasm-obj/libc-wasm.a /home/bob/.emscripten_cache/wasm-obj/libdlmalloc.a /home/bob/.emscripten_cache/wasm-obj/libpthreads_stub.a /home/bob/.emscripten_cache/wasm-obj/libcompiler_rt_wasm.a /home/bob/.emscripten_cache/wasm-obj/libc_rt_wasm.a -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --export __wasm_call_ctors --export __data_end --export main --export malloc --export free --export setThrew --export __errno_location -z stack-size=5242880 --initial-memory=16777216 --no-entry --max-memory=16777216 --global-base=1024' failed (1)
+CMakeFiles/cmTC_e6c8e.dir/build.make:98: recipe for target 'cmTC_e6c8e.js' failed
+make[1]: *** [cmTC_e6c8e.js] Error 1
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e6c8e/fast' failed
+make: *** [cmTC_e6c8e/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option  -pthread'
+===== BUILD LOG =====
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ae257/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ae257.dir/build.make CMakeFiles/cmTC_ae257.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae257.dir/src.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0   -DNDEBUG -O2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -pthread -o CMakeFiles/cmTC_ae257.dir/src.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.c:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+1 warning generated.
+Linking C executable cmTC_ae257.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae257.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0   -DNDEBUG -O2    -O2 @CMakeFiles/cmTC_ae257.dir/objects1.rsp  -o cmTC_ae257.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+wasm-ld: error: 'atomics' feature is used by CMakeFiles/cmTC_ae257.dir/src.c.o, so --shared-memory must be used
+shared:ERROR: '/home/bob/emsdk/upstream/bin/wasm-ld -o /tmp/emscripten_temp_oTR0oy/cmTC_ae257.wasm --allow-undefined --import-memory --import-table --lto-O0 CMakeFiles/cmTC_ae257.dir/src.c.o /home/bob/.emscripten_cache/wasm-obj/libc.a /home/bob/.emscripten_cache/wasm-obj/libcompiler_rt.a /home/bob/.emscripten_cache/wasm-obj/libc-wasm.a /home/bob/.emscripten_cache/wasm-obj/libdlmalloc.a /home/bob/.emscripten_cache/wasm-obj/libpthreads_stub.a /home/bob/.emscripten_cache/wasm-obj/libcompiler_rt_wasm.a /home/bob/.emscripten_cache/wasm-obj/libc_rt_wasm.a -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --export __wasm_call_ctors --export __data_end --export main --export malloc --export free --export setThrew --export __errno_location -z stack-size=5242880 --initial-memory=16777216 --no-entry --max-memory=16777216 --global-base=1024' failed (1)
+CMakeFiles/cmTC_ae257.dir/build.make:98: recipe for target 'cmTC_ae257.js' failed
+make[1]: *** [cmTC_ae257.js] Error 1
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ae257/fast' failed
+make: *** [cmTC_ae257/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections   -mfpmath=387'
+===== BUILD LOG =====
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_05777/fast"
+/usr/bin/make -f CMakeFiles/cmTC_05777.dir/build.make CMakeFiles/cmTC_05777.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_05777.dir/src.cxx.o
+/home/bob/emsdk/fastcomp/emscripten/em++    -s USE_PTHREADS=0   -DNDEBUG -O2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections -mfpmath=387 -std=c++11 -o CMakeFiles/cmTC_05777.dir/src.cxx.o -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+error: unknown FP unit '387'
+shared:ERROR: '/home/bob/emsdk/upstream/bin/clang++ -target wasm32-unknown-emscripten -D__EMSCRIPTEN_major__=1 -D__EMSCRIPTEN_minor__=38 -D__EMSCRIPTEN_tiny__=45 -D_LIBCPP_ABI_VERSION=2 -Dunix -D__unix -D__unix__ -Werror=implicit-function-declaration -Xclang -nostdsysteminc -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/libcxx -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/lib/libcxxabi/include -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/compat -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/libc -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/lib/libc/musl/arch/emscripten -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/local/include -DEMSCRIPTEN -DNDEBUG -O2 -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections -mfpmath=387 -std=c++11 -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/SDL -c -o CMakeFiles/cmTC_05777.dir/src.cxx.o -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr' failed (1)
+CMakeFiles/cmTC_05777.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_05777.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_05777.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_05777/fast' failed
+make: *** [cmTC_05777/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections   -mfpmath=387'
+===== BUILD LOG =====
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a9fcd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a9fcd.dir/build.make CMakeFiles/cmTC_a9fcd.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9fcd.dir/src.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0   -DNDEBUG -O2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections -mfpmath=387 -o CMakeFiles/cmTC_a9fcd.dir/src.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+error: unknown FP unit '387'
+shared:ERROR: '/home/bob/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -D__EMSCRIPTEN_major__=1 -D__EMSCRIPTEN_minor__=38 -D__EMSCRIPTEN_tiny__=45 -D_LIBCPP_ABI_VERSION=2 -Dunix -D__unix -D__unix__ -Werror=implicit-function-declaration -Xclang -nostdsysteminc -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/libcxx -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/lib/libcxxabi/include -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/compat -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/libc -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/lib/libc/musl/arch/emscripten -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/local/include -DEMSCRIPTEN -DNDEBUG -O2 -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections -mfpmath=387 -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.c -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/SDL -c -o CMakeFiles/cmTC_a9fcd.dir/src.c.o -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr' failed (1)
+CMakeFiles/cmTC_a9fcd.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a9fcd.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_a9fcd.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a9fcd/fast' failed
+make: *** [cmTC_a9fcd/fast] Error 2
+
+===== END =====
+
+Compilation failed:
+    source file: '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ''
+===== BUILD LOG =====
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_760ef/fast"
+/usr/bin/make -f CMakeFiles/cmTC_760ef.dir/build.make CMakeFiles/cmTC_760ef.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_760ef.dir/src.cxx.o
+/home/bob/emsdk/fastcomp/emscripten/em++    -s USE_PTHREADS=0   -DNDEBUG -O2   -std=c++11 -o CMakeFiles/cmTC_760ef.dir/src.cxx.o -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking CXX executable cmTC_760ef.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_760ef.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/em++  -s USE_PTHREADS=0   -DNDEBUG -O2   -Wl,--as-needed  -O2 @CMakeFiles/cmTC_760ef.dir/objects1.rsp  -o cmTC_760ef.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+wasm-ld: error: unknown argument: --as-needed
+shared:ERROR: '/home/bob/emsdk/upstream/bin/wasm-ld -o /tmp/emscripten_temp_d74EDy/cmTC_760ef.wasm --allow-undefined --import-memory --import-table --lto-O0 --as-needed CMakeFiles/cmTC_760ef.dir/src.cxx.o /home/bob/.emscripten_cache/wasm-obj/libc.a /home/bob/.emscripten_cache/wasm-obj/libcompiler_rt.a /home/bob/.emscripten_cache/wasm-obj/libc-wasm.a /home/bob/.emscripten_cache/wasm-obj/libdlmalloc.a /home/bob/.emscripten_cache/wasm-obj/libpthreads_stub.a /home/bob/.emscripten_cache/wasm-obj/libcompiler_rt_wasm.a /home/bob/.emscripten_cache/wasm-obj/libc_rt_wasm.a -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --export __wasm_call_ctors --export __data_end --export main --export malloc --export free --export setThrew --export __errno_location -z stack-size=5242880 --initial-memory=16777216 --no-entry --max-memory=16777216 --global-base=1024' failed (1)
+CMakeFiles/cmTC_760ef.dir/build.make:98: recipe for target 'cmTC_760ef.js' failed
+make[1]: *** [cmTC_760ef.js] Error 1
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_760ef/fast' failed
+make: *** [cmTC_760ef/fast] Error 2
+
+===== END =====
+
+Determining size of off64_t failed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a717e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a717e.dir/build.make CMakeFiles/cmTC_a717e.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a717e.dir/OFF64_T.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2   -o CMakeFiles/cmTC_a717e.dir/OFF64_T.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:19:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 10000)%10)),
+           ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:17:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:20:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 1000)%10)),
+           ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:17:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:21:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 100)%10)),
+           ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:17:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:22:12: error: use of undeclared identifier 'off64_t'
+  ('0' + ((SIZE / 10)%10)),
+           ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:17:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:23:12: error: use of undeclared identifier 'off64_t'
+  ('0' +  (SIZE    % 10)),
+           ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:17:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:39:10: error: use of undeclared identifier 'off64_t'
+  return SIZE;
+         ^
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:17:22: note: expanded from macro 'SIZE'
+#define SIZE (sizeof(off64_t))
+                     ^
+6 errors generated.
+shared:ERROR: '/home/bob/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -D__EMSCRIPTEN_major__=1 -D__EMSCRIPTEN_minor__=38 -D__EMSCRIPTEN_tiny__=45 -D_LIBCPP_ABI_VERSION=2 -Dunix -D__unix -D__unix__ -Werror=implicit-function-declaration -Xclang -nostdsysteminc -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/libcxx -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/lib/libcxxabi/include -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/compat -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/libc -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/lib/libc/musl/arch/emscripten -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/local/include -DEMSCRIPTEN -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections -fvisibility=hidden -fvisibility-inlines-hidden -DNDEBUG -O2 -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c -Xclang -isystem/home/bob/emsdk/fastcomp/emscripten/system/include/SDL -c -o CMakeFiles/cmTC_a717e.dir/OFF64_T.c.o -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr' failed (1)
+CMakeFiles/cmTC_a717e.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a717e.dir/OFF64_T.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_a717e.dir/OFF64_T.c.o] Error 1
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a717e/fast' failed
+make: *** [cmTC_a717e/fast] Error 2
+
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CheckTypeSize/OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#endif
+
+#define SIZE (sizeof(off64_t))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return SIZE;
+}
+
+
+Build output check failed:
+    Regex: 'unknown .*option'
+    Output line: 'warning: unknown warning option '-Wno-suggest-override', did you mean '-Wno-shift-overflow'? [-Wunknown-warning-option]'
+Compilation failed:
+    source file: '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-suggest-override'
+===== BUILD LOG =====
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2c0d1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2c0d1.dir/build.make CMakeFiles/cmTC_2c0d1.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2c0d1.dir/src.cxx.o
+/home/bob/emsdk/fastcomp/emscripten/em++    -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-deprecated -Wno-missing-prototypes -Wno-missing-declarations -Wno-shadow -Wno-unused-parameter -Wno-unused-local-typedefs -Wno-sign-compare -Wno-sign-promo -Wno-undef -Wno-tautological-undefined-compare -Wno-ignored-qualifiers -Wno-extra -Wno-unused-function -Wno-unused-const-variable -Wno-shorten-64-to-32 -Wno-invalid-offsetof -Wno-enum-compare-switch  -DNDEBUG -O2  -DNDEBUG   -Wno-suggest-override -std=c++11 -o CMakeFiles/cmTC_2c0d1.dir/src.cxx.o -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+warning: unknown warning option '-Wno-suggest-override'; did you mean '-Wno-shift-overflow'? [-Wunknown-warning-option]
+/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/src.cxx:1:8: warning: unknown pragma ignored [-Wunknown-pragmas]
+#pragma
+       ^
+2 warnings generated.
+Linking CXX executable cmTC_2c0d1.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c0d1.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/em++  -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wstrict-prototypes -Winit-self -Wpointer-arith -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -Wno-deprecated -Wno-missing-prototypes -Wno-missing-declarations -Wno-shadow -Wno-unused-parameter -Wno-unused-local-typedefs -Wno-sign-compare -Wno-sign-promo -Wno-undef -Wno-tautological-undefined-compare -Wno-ignored-qualifiers -Wno-extra -Wno-unused-function -Wno-unused-const-variable -Wno-shorten-64-to-32 -Wno-invalid-offsetof -Wno-enum-compare-switch  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_2c0d1.dir/objects1.rsp  -o cmTC_2c0d1.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+===== END =====
+

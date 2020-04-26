@@ -1,0 +1,177 @@
+The target system is: Emscripten - 1 - x86
+The host system is: Linux - 5.3.0-45-generic - x86_64
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5ae03/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5ae03.dir/build.make CMakeFiles/cmTC_5ae03.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5ae03.dir/CheckIncludeFile.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_5ae03.dir/CheckIncludeFile.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_5ae03.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ae03.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_5ae03.dir/objects1.rsp  -o cmTC_5ae03.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+
+Determining if the posix_memalign exist passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bf0eb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bf0eb.dir/build.make CMakeFiles/cmTC_bf0eb.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bf0eb.dir/CheckSymbolExists.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_bf0eb.dir/CheckSymbolExists.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_bf0eb.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf0eb.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_bf0eb.dir/objects1.rsp  -o cmTC_bf0eb.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+File /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_memalign
+  return ((int*)(&posix_memalign))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the include file malloc.h exists passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a33c8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a33c8.dir/build.make CMakeFiles/cmTC_a33c8.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a33c8.dir/CheckIncludeFile.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_a33c8.dir/CheckIncludeFile.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_a33c8.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a33c8.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_a33c8.dir/objects1.rsp  -o cmTC_a33c8.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+
+Determining if the memalign exist passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_816c9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_816c9.dir/build.make CMakeFiles/cmTC_816c9.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_816c9.dir/CheckSymbolExists.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_816c9.dir/CheckSymbolExists.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_816c9.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_816c9.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_816c9.dir/objects1.rsp  -o cmTC_816c9.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+File /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memalign
+  return ((int*)(&memalign))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function fseeko exists passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_70963/fast"
+/usr/bin/make -f CMakeFiles/cmTC_70963.dir/build.make CMakeFiles/cmTC_70963.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_70963.dir/CheckFunctionExists.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=fseeko -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_70963.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_70963.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_70963.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -DCHECK_FUNCTION_EXISTS=fseeko -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_70963.dir/objects1.rsp  -o cmTC_70963.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+wasm-ld: warning: function signature mismatch: fseeko
+>>> defined as () -> i32 in CMakeFiles/cmTC_70963.dir/CheckFunctionExists.c.o
+>>> defined as (i32, i64, i32) -> i32 in /home/bob/.emscripten_cache/wasm-obj/libc.a(fseek.c.o)
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1733b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1733b.dir/build.make CMakeFiles/cmTC_1733b.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1733b.dir/CheckIncludeFile.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_1733b.dir/CheckIncludeFile.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_1733b.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1733b.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_1733b.dir/objects1.rsp  -o cmTC_1733b.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_28e37/fast"
+/usr/bin/make -f CMakeFiles/cmTC_28e37.dir/build.make CMakeFiles/cmTC_28e37.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_28e37.dir/CheckIncludeFile.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_28e37.dir/CheckIncludeFile.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_28e37.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28e37.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_28e37.dir/objects1.rsp  -o cmTC_28e37.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a321e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a321e.dir/build.make CMakeFiles/cmTC_a321e.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a321e.dir/CheckIncludeFile.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_a321e.dir/CheckIncludeFile.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_a321e.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a321e.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_a321e.dir/objects1.rsp  -o cmTC_a321e.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ceacc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ceacc.dir/build.make CMakeFiles/cmTC_ceacc.dir/build
+make[1]: Entering directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ceacc.dir/CheckIncludeFile.c.o
+/home/bob/emsdk/fastcomp/emscripten/emcc   -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG   -o CMakeFiles/cmTC_ceacc.dir/CheckIncludeFile.c.o   -c /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+Linking C executable cmTC_ceacc.js
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ceacc.dir/link.txt --verbose=1
+/home/bob/emsdk/fastcomp/emscripten/emcc -s USE_PTHREADS=0    -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Winit-self -Winconsistent-missing-override -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -Wno-deprecated-enum-enum-conversion -Wno-deprecated-anon-enum-enum-conversion -fdiagnostics-show-option -Qunused-arguments -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden  -DNDEBUG -O2  -DNDEBUG    -Wl,--gc-sections  -O2 @CMakeFiles/cmTC_ceacc.dir/objects1.rsp  -o cmTC_ceacc.js 
+shared:WARNING: LLVM version appears incorrect (seeing "11.0", expected "10.0")
+make[1]: Leaving directory '/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/CMakeFiles/CMakeTmp'
+
+

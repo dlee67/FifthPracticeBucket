@@ -1,0 +1,1 @@
+/home/bob/emsdk/fastcomp/emscripten/emar rc ../../lib/libopencv_core.a  @CMakeFiles/opencv_core.dir/objects1.rsp

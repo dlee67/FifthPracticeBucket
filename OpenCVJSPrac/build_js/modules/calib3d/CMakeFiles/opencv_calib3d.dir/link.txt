@@ -1,0 +1,1 @@
+/home/bob/emsdk/fastcomp/emscripten/emar rc ../../lib/libopencv_calib3d.a  @CMakeFiles/opencv_calib3d.dir/objects1.rsp

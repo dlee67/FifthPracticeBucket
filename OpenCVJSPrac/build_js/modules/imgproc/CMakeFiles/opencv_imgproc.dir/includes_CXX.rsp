@@ -1,0 +1,1 @@
+-isystem /home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js -I/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/opencv/modules/imgproc/include -I/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/build_js/modules/imgproc -I/home/bob/Desktop/FifthPracticeBucket/OpenCVJSPrac/opencv/modules/core/include 
