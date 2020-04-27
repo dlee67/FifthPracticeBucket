@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:item_layout="@layout/list_item_layout"
-        app:divider="@drawable/list_divider"/>
+        app:divider="@drawable/list_divider"
+        app:behind_swiped_item_bg_color="@color/colorPrimary"
+        app:behind_swiped_item_icon="@drawable/ic_launcher_foreground"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
