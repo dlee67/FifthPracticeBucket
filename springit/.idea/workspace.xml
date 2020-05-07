@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:CloudFoundryPrac" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:CloudFoundryPrac" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:new-project" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:PreparingForNgNine" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:my-app" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ngRxPrac" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ngRxPrac" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:my-dream-app" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:pwa-example" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5c76c36f-2c33-4d84-bfbf-a616a420619f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/LoginPage_autogen/mocs_compilation.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/mainwindow.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/AutogenInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/AutogenOldSettings.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/LoginPage" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/LoginPage.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/LoginPage_autogen/EWIEGA46WW/moc_mainwindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/LoginPage_autogen/include/ui_mainwindow.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/LoginPage_autogen/moc_predefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/LoginPage_autogen/mocs_compilation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/.qmake.stash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/MainWindow" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/mainwindow.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_mainwindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_mainwindow.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_predefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_task.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_task.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/task.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/ui_mainwindow.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindow-Desktop_Qt_5_12_0_GCC_64bit-Debug/ui_task.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/.qmake.stash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/MainWindow.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/MainWindowOnMyOwn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_MainWindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_MainWindow.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_predefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-MainWindowOnMyOwn-Desktop_Qt_5_12_0_GCC_64bit-Debug/ui_MainWindow.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/NewWidgetPrac_autogen/mocs_compilation.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/mainwindow.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/newwindow.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/AutogenInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/AutogenOldSettings.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/EWIEGA46WW/moc_form.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/EWIEGA46WW/moc_mainwindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/EWIEGA46WW/moc_newwindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/include/ui_form.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/include/ui_mainwindow.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/include/ui_newwindow.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/moc_predefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/NewWidgetPrac_autogen/mocs_compilation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/3.13.4/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Progress/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Progress/5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/AutogenInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/AutogenOldSettings.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/QPainter_autogen.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/QPainter" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/QPainter.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/QPainter_autogen/EWIEGA46WW/moc_mainwindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/QPainter_autogen/include/ui_mainwindow.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/QPainter_autogen/moc_predefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/QPainter_autogen/mocs_compilation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-QPainter-Desktop_Qt_5_12_0_GCC_64bit-Debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/.qmake.stash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/hello.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/hello_world" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/main.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_hello.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_hello.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/moc_predefs.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build-hello_world-Desktop_Qt_5_12_0_GCC_64bit-Debug/ui_hello.h" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1aq6UpWNCWHO1OL0MVAOgu9wARj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringitApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.vega.springit.SpringitApplication" />
+      <module name="springit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vega.springit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SpringitApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c76c36f-2c33-4d84-bfbf-a616a420619f" name="Default Changelist" comment="" />
+      <created>1587450794727</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587450794727</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="524" y="100" width="553" height="593" key="#com.intellij.ide.util.MemberChooser" timestamp="1587605544094">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="524" y="100" width="553" height="593" key="#com.intellij.ide.util.MemberChooser/67.27.1299.741@67.27.1299.741" timestamp="1587605544094" />
+    <state x="435" y="109" width="542" height="576" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587539119284">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="435" y="109" width="542" height="576" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/67.27.1299.741@67.27.1299.741" timestamp="1587539119284" />
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587801421326">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1299.741@67.27.1299.741" timestamp="1587801421326" />
+    <state x="390" y="247" width="643" height="298" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587619230094">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="390" y="247" width="643" height="298" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/67.27.1299.741@67.27.1299.741" timestamp="1587619230094" />
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587867873843">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1587867873843" />
+    <state width="1253" height="464" key="GridCell.Tab.0.bottom" timestamp="1587867881753">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="464" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1587867881753" />
+    <state width="1253" height="464" key="GridCell.Tab.0.center" timestamp="1587867881752">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="464" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1587867881752" />
+    <state width="1253" height="464" key="GridCell.Tab.0.left" timestamp="1587867881752">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="464" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1587867881752" />
+    <state width="1253" height="464" key="GridCell.Tab.0.right" timestamp="1587867881752">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="464" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1587867881752" />
+    <state x="488" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587865921460">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="488" y="311" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1587865921460" />
+    <state x="426" y="27" width="620" height="741" key="find.popup" timestamp="1587801443081">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="426" y="27" width="620" height="741" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1587801443081" />
+  </component>
+</project>
