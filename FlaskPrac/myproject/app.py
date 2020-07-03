@@ -13,7 +13,7 @@ def index():
 @app.route('/home/<string:name>', methods=['POST', 'GET'])
 def home(name):
     session['name'] = name
-    return '<h1>Hello {}, you are on the home page!</h1>'.format(name)
+    return render_template('home.html', name=name, display=False, mylist=['one', 'two', 'three', 'four'], listofdictionaries=[{'name' : 'Zach'}, {'name':'Zoe'}])
 
 @app.route('/json')
 def json():
@@ -32,15 +32,9 @@ def query():
 @app.route('/theform', methods=['GET', 'POST'])
 def theform():
     if request.method == 'GET':
-        return '''<form method="POST" action="/process">
-                    <input type="text" name="name">
-                    <input type="text" name="location">
-                    <input type="submit" value="submit">
-                </form>'''
+        return render_template('form.html')
     else:
         name = request.form['name']
-        # location = request.form['location']
-        # return '<h1>Hello {}. You are from {}. You have submitted the form successfully!</h1>'.format(name, location)
         return redirect(url_for('home', name=name))                     
 
 @app.route('/process', methods=['POST'])
