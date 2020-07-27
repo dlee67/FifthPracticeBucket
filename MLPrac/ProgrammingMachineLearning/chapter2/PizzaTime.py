@@ -19,7 +19,7 @@ def loss(X, Y, w, b):
 # lr, each changes applied as a correction will be bigger.
 # lr stands for learning rate.
 def train(X, Y, iterations, lr):
-    # Turns out, the official name for those two in ML is "weight" and "bias.""
+    # Turns out, the official name for those two in ML is "weight" and "bias."
     w = b = 0
     for i in range(iterations):
         current_loss = loss(X, Y, w, b)
