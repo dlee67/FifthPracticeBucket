@@ -2,15 +2,21 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	"net/http"
+	"time"
+	"strings"
 )
 
-func Intn(n int) int {
-	fmt.Println("In the Intn function")
-	return n
-}
-
 func main() {
-	fmt.Println("hello world")
-	fmt.Println("Passing in: " + string(Intn(5)))
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		urlPathElements := strings.Split(r.URL.Path, "/")
+		fmt.Println("first element of split at: " + urlPathElements[0])
+	})
+	s := &http.Server{
+		Addr: ":8000",
+		ReadTimeout: 10 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
+	}
+	s.ListenAndServe()
 }
