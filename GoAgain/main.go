@@ -16,7 +16,7 @@ func ArticleHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// Create a new router
 	r := mux.NewRouter()
-	// Attach an elegant path with handler
+	// You can't pass in regex pattern into Go's vainlla HandleFun.
 	// https://stackoverflow.com/questions/6564558/wildcards-in-the-pattern-for-http-handlefunc
 	// But Gorillamux is different.
 	// https://godoc.org/github.com/gorilla/mux
