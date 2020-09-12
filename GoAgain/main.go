@@ -2,32 +2,18 @@ package main
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
-	"log"
 	"net/http"
-	"time"
 )
 
-func ArticleHandler(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, "valid request")
+func index(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "*")
+    w.Header().Set("Access-Control-Allow-Headers", "*")
+    w.Header().Set("Access-Control-Expose-Headers", "*")
+	fmt.Fprintf(w, "AmpRobotics")
 }
 
 func main() {
-	// Create a new router
-	r := mux.NewRouter()
-	// You can't pass in regex pattern into Go's vainlla HandleFun.
-	// https://stackoverflow.com/questions/6564558/wildcards-in-the-pattern-for-http-handlefunc
-	// But Gorillamux is different.
-	// https://godoc.org/github.com/gorilla/mux
-	// They explicitly state that I can pass in a regular expression.
-	r.HandleFunc("/products/{[0-9]+}", ArticleHandler)
-	srv := &http.Server{
-		Handler: r,
-		Addr:    "127.0.0.1:8080",
-		// Good practice: enforce timeouts for servers you create!
-		WriteTimeout: 15 * time.Second,
-		ReadTimeout:  15 * time.Second,
-	}
-	log.Fatal(srv.ListenAndServe())
+	http.HandleFunc("/", index)
+	http.ListenAndServe(":8080", nil)
 }
