@@ -2,26 +2,33 @@ package main
 
 import (
 	"fmt"
-	"net/http"
+	"time"
 )
 
-func index(w http.ResponseWriter, req *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-    w.Header().Set("Access-Control-Allow-Methods", "*")
-    w.Header().Set("Access-Control-Allow-Headers", "*")
-	w.Header().Set("Access-Control-Expose-Headers", "*")
-	// These three request headers are the characteristics you see
-	// in CORS request. The first CORS request will always
-	// be an OPTIONS pre-flight request.
-	if (*request).Method = "OPTIONS" && 
-		req.Header.Get("Origin") != "" && 
-		req.Header.Get("Access-Control-Request-Method") {
-		return
-	}
-	fmt.Fprintf(w, "AmpRobotics")
+func SendValue(c chan string, name string) {
+	c <- name
 }
 
 func main() {
-	http.HandleFunc("/", index)
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("Go channels Tutorial")
+
+	values := make(chan string, 3) // https://www.youtube.com/watch?v=e4bu9g-bYtg
+	defer close(values) // https://www.digitalocean.com/community/tutorials/understanding-defer-in-go
+						// https://gobyexample.com/closing-channels
+	go SendValue(values, "One")
+	go SendValue(values, "Two")
+	go SendValue(values, "Three")
+
+	value := <- values
+	fmt.Println(value)
+
+	time.Sleep(1 * time.Second)
+
+	secondValue := <- values
+	fmt.Println(secondValue)
+
+	time.Sleep(1 * time.Second)
+
+	thirdValue := <- values
+	fmt.Println(thirdValue)
 }
