@@ -18,6 +18,9 @@ func main() {
 	go SendValue(values, "One")
 	go SendValue(values, "Two")
 	go SendValue(values, "Three")
+	go func (c chan string, name string) { // https://www.geeksforgeeks.org/goroutines-concurrency-in-golang/
+		c <- name
+	}(values, "Infinity")
 
 	value := <- values
 	fmt.Println(value)
@@ -31,4 +34,7 @@ func main() {
 
 	thirdValue := <- values
 	fmt.Println(thirdValue)
+
+	fourthValue := <- values
+	fmt.Println(fourthValue)
 }
