@@ -51,7 +51,7 @@ func main() {
 
    http.HandleFunc("/token", func(w http.ResponseWriter, r *http.Request) {
 	  srv.HandleTokenRequest(w, r) // https://godoc.org/gopkg.in/oauth2.v3/server#Server.HandleTokenRequest
-								// Decodes all the necessary data from the payload
+								          // Decodes all the necessary data from the payload
 	// Must call the above REST API with URL like ...
 	// http://localhost:9096/token?grant_type=client_credentials&client_id=YOUR_CLIENT_ID&client_secret=YOUR_CLIENT_SECRET&scope=all															
    })
