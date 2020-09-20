@@ -1,4 +1,0 @@
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac.dir
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
-/home/bob/Desktop/FifthPracticeBucket/build-NewWidgetPrac-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/NewWidgetPrac_autogen.dir

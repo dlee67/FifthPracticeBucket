@@ -1,4 +1,0 @@
-/home/bob/Desktop/FifthPracticeBucket/build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
-/home/bob/Desktop/FifthPracticeBucket/build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage.dir
-/home/bob/Desktop/FifthPracticeBucket/build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
-/home/bob/Desktop/FifthPracticeBucket/build-LoginPage-Desktop_Qt_5_12_0_GCC_64bit-Debug/CMakeFiles/LoginPage_autogen.dir
