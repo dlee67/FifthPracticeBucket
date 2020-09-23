@@ -24,4 +24,7 @@ func main() {
     // If I have an object for it, I can make a request again.
     // https://golang.org/pkg/net/http/#Client.Do
     // response, _ := client.Do(newRequest)
+
+    // I never knew that HTTP transactions can also be represented as an object.
+    // https://golang.org/pkg/net/http/#RoundTripper
 }
