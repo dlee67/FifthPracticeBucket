@@ -1,1 +1,0 @@
-/usr/bin/g++  -g   CMakeFiles/QPainter.dir/main.cpp.o CMakeFiles/QPainter.dir/mainwindow.cpp.o CMakeFiles/QPainter.dir/QPainter_autogen/mocs_compilation.cpp.o  -o QPainter -Wl,-rpath,/home/Qt/5.12.0/gcc_64/lib /home/Qt/5.12.0/gcc_64/lib/libQt5Widgets.so.5.12.0 /home/Qt/5.12.0/gcc_64/lib/libQt5Gui.so.5.12.0 /home/Qt/5.12.0/gcc_64/lib/libQt5Core.so.5.12.0 
