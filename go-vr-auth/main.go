@@ -56,7 +56,10 @@ func main() {
 		  if !checkAud {
 			  return token, errors.New("Invalid audience.")
 		  }
-		  // The value assigned to options.Authority should be inserted here.
+          // The value assigned to options.Authority should be inserted here.
+          // https://auth0.com/docs/tokens/refresh-tokens/get-refresh-tokens
+          // Notice how there is nothing about refresh token in this program?
+          // I must set the appropriate flag by following the above link. 
 		  iss := {{options.Authority}}
 		  checkIss := token.Claims.(jwt.MapClaims).VerifyIssuer(iss, false)
 		  if !checkIss {
