@@ -57,6 +57,8 @@ export const Auth0Provider = ({
     setUser(user);
   };
   return (
+    // The beauty of AuthO is that it grabs the access_token/refresh_token and other operations all for me fron the client side,
+    // like, storing things in React session.
     <Auth0Context.Provider
       value={{
         isAuthenticated,
