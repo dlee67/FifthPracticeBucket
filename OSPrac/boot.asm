@@ -1,3 +1,5 @@
+; https://en.wikipedia.org/wiki/BIOS_interrupt_call
+
 mov ah, 0x0e ; tty mode
 mov al, 'H'
 int 0x10
