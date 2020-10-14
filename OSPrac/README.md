@@ -1,0 +1,6 @@
+### For installing i386-elf-binutils <br/>
+
+https://stackoverflow.com/questions/40655204/cant-brew-install-gcci386-elf-gcc <br/>
+https://forum.osdev.org/viewtopic.php?f=1&t=33517 <br/><br/>
+
+Requires brew (linux has their own brew called linux brew).
