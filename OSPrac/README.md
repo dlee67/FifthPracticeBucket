@@ -4,3 +4,7 @@ https://stackoverflow.com/questions/40655204/cant-brew-install-gcci386-elf-gcc <
 https://forum.osdev.org/viewtopic.php?f=1&t=33517 <br/><br/>
 
 Requires brew (linux has their own brew called linux brew).
+
+# Currently following tutorials like:
+https://github.com/cfenollosa/os-tutorial/tree/master/02-bootsector-print
+https://wiki.osdev.org/Tutorials
