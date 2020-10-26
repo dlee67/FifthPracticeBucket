@@ -4,7 +4,7 @@ HEADERS = $(wildcard kernel/*.h drivers/*.h)
 OBJ = ${C_SOURCES:.c=.o}
 
 # Change this if your cross-compiler is somewhere else
-CC = /usr/local/i386elfgcc/bin/i386-elf-gcc
+CC = /home/linuxbrew/.linuxbrew/bin/i386-elf-gcc
 GDB = /usr/local/i386elfgcc/bin/i386-elf-gdb
 # -g: Use debugging symbols in gcc
 CFLAGS = -g
@@ -15,10 +15,14 @@ os-image.bin: boot/bootsect.bin kernel.bin
 
 # '--oformat binary' deletes all symbols as a collateral, so we don't need
 # to 'strip' them manually on this case
+# Notive how 0x1000 is being passed, the same address is being used in bootsect.asm.
+# -Ttext sets the address of .text location.
 kernel.bin: boot/kernel_entry.o ${OBJ}
 	i386-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
 
 # Used for debugging purposes
+# Notive how 0x1000 is being passed, the same address is being used in bootsect.asm.
+# -Ttext sets the address of .text location.
 kernel.elf: boot/kernel_entry.o ${OBJ}
 	i386-elf-ld -o $@ -Ttext 0x1000 $^ 
 
