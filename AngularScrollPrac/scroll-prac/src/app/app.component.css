@@ -1,0 +1,10 @@
+.some-nav {
+    overflow-x: auto;
+    overflow-y:hidden;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+li {
+    width: 300px;
+}
