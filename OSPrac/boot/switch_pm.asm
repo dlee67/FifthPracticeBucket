@@ -9,7 +9,7 @@ switch_to_pm:
 
 [bits 32]
 init_pm: ; we are now using 32-bit instructions
-    mov ax, DATA_SEG ; 5. update the segment registers
+    mov ax, DATA_SEG ; 5. update the segment registers. This is needed because I need my own global descriptor table once in the protected mode.
     mov ds, ax
     mov ss, ax
     mov es, ax
