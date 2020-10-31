@@ -2,21 +2,15 @@ package main
 
 	
 import (
-    "os"
+    "fmt"
+    "log"
     "os/exec"
 )
 
 func main() {
-    cmd := exec.Command("echo", "Hello, World!")
-    testFile, err := os.Create("text.txt")
+    out, err := exec.Command("echo", "Hello, World!").Output()
     if err != nil {
-        panic(err)
+        log.Fatal(err)
     }
-    cmd.Stdout = testFile
-
-    err = cmd.Start();
-    if err != nil {
-        panic(err)
-    }
-    cmd.Wait()
+    fmt.Printf("%s", out)
 }
