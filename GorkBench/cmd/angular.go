@@ -24,6 +24,9 @@ var addCmd = &cobra.Command{
 }
 
 func angular() {
+
+	fmt.Println("Starting a regular installation")
+
 	out, err := exec.Command("apt", "update").Output()
 	if err != nil {
 		fmt.Println(err)
@@ -42,6 +45,9 @@ func angular() {
 }
 
 func angularAll() {
+
+	fmt.Println("Installing with all")
+
 	out, err := exec.Command("apt", "update").Output()
 	if err != nil {
 		fmt.Println(err)
