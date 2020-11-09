@@ -12,6 +12,7 @@ var addCmd = &cobra.Command{
 	Long: `Installs npm and ng cli upon being executed. This command can be executed along with the option --all
 			to also installs the ngrx, electron, and ngbootstrap.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		angular()
 	},
 }
 
@@ -21,12 +22,12 @@ func angular() {
 		fmt.Println(err)
 	} 
 	fmt.Printf("%s\n", out)
-	out, err = exec.Command("apt", "install nodejs").Output()
+	out, err = exec.Command("apt", "install", "npm").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Printf("%s\n", out)
-	out, err = exec.Command("apt", "install npm").Output()
+	out, err = exec.Command("apt", "install", "nodejs").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
