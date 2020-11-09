@@ -12,7 +12,14 @@ var addCmd = &cobra.Command{
 	Long: `Installs npm and ng cli upon being executed. This command can be executed along with the option --all
 			to also installs the ngrx, electron, and ngbootstrap.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		angular()
+		
+		getAll, _ := cmd.Flags().GetBool("all")
+
+		if !getAll {
+			angular()
+		} else {
+			angularAll()
+		}
 	},
 }
 
@@ -34,6 +41,39 @@ func angular() {
 	fmt.Printf("%s\n", out)
 }
 
+func angularAll() {
+	out, err := exec.Command("apt", "update").Output()
+	if err != nil {
+		fmt.Println(err)
+	} 
+	fmt.Printf("%s\n", out)
+
+	out, err = exec.Command("apt", "install", "npm").Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%s\n", out)
+
+	out, err = exec.Command("apt", "install", "nodejs").Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%s\n", out)
+	
+	out, err = exec.Command("ng", "add", "@ngrx/store@latest").Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%s\n", out)
+
+	out, err = exec.Command("npm", "install", "electron", "--save-dev").Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%s\n", out)
+}
+
 func init() {
 	rootCmd.AddCommand(addCmd)
+	addCmd.Flags().BoolP("all", "a",  false, "Install all the utilities I've usually use for Angular.")
 }
