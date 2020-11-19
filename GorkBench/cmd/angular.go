@@ -27,27 +27,37 @@ func angular() {
 
 	fmt.Println("Starting a regular installation")
 
+	fmt.Println("Apt updating")
 	out, err := exec.Command("apt", "update").Output()
 	if err != nil {
+		fmt.Println("Failed to apt update")
 		fmt.Println(err)
 	} 
 	fmt.Printf("%s\n", out)
+	
+	fmt.Println("Installing npm")
 	out, err = exec.Command("apt", "install", "npm").Output()
 	if err != nil {
+		fmt.Println("Failed to install npm")
 		fmt.Println(err)
 	}
 	fmt.Printf("%s\n", out)
+	
+	fmt.Println("Installing node")
 	out, err = exec.Command("apt", "install", "nodejs").Output()
 	if err != nil {
+		fmt.Println("Failed to install node")
 		fmt.Println(err)
 	}
 	fmt.Printf("%s\n", out)
 
-	nvmOut, err := exec.Command("curl", "-o-", "https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh").Output()
+	fmt.Println("Installing ng cli")
+	out, err = exec.Command("npm", "install", "-g", "@angular/cli").Output()
 	if err != nil {
+		fmt.Println("Failed to install ng cli")
 		fmt.Println(err)
 	}
-	fmt.Printf("%s\n", nvmOut)
+	fmt.Printf("%s\n", out)
 }
 
 func angularAll() {
@@ -79,6 +89,18 @@ func angularAll() {
 	fmt.Printf("%s\n", out)
 
 	out, err = exec.Command("npm", "install", "electron", "--save-dev").Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%s\n", out)
+
+	nvmOut, err := exec.Command("curl", "-o-", "https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh").Output()
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%s\n", nvmOut)
+
+	out, err = exec.Command("snap", "install", "postman").Output()
 	if err != nil {
 		fmt.Println(err)
 	}
