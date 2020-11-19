@@ -5,6 +5,17 @@
     white-space: nowrap;
 }
 
+.some-nav::after {
+    content: '';
+    height: 15%;
+    width: 25%;
+    display: block;
+    position: absolute;
+    right: 0;
+    background: var(--gradient);
+    pointer-events: none;
+}
+
 li {
     width: 300px;
 }
