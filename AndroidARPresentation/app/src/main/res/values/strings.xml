@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidARPresentation</string>
+    <string name="quit">Quit</string>
+    <string name="photo">Take Photo</string>
+</resources>
