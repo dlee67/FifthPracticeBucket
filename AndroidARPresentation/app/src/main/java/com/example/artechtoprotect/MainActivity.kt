@@ -38,10 +38,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var imageView: ImageView = ImageView(this);
-        imageView.setImageDrawable(getDrawable(R.drawable.extraction_diagram))
+
         future = ViewRenderable.builder()
-            .setView(this, imageView)
+            .setView(this, R.layout.text_view)
             .build()
 
         quit.setOnClickListener {
@@ -82,9 +81,11 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this,
                 arrayOf(Manifest.permission.CAMERA),
                 ENABLE_CAMERA)
-        } else {
-            // Permission has already been granted.
+            // Grant permission and return
+            return
         }
+        // Permission has already been granted, fall through
+        return
     }
 
 
@@ -122,8 +123,6 @@ class MainActivity : AppCompatActivity() {
         arFragment.setOnTapArPlaneListener {
                 hitResult: HitResult, plane: Plane, motionEvent: MotionEvent ->
             if(plane.getAnchors().isEmpty()) {
-
-                Log.i("dhl", "Within the if of initAR.");
                 future?.thenAccept{ renderable -> viewRenderable = renderable }
 
                 // Create the Anchor.
@@ -142,7 +141,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
             } else {
-                Log.i("dhl", "Within the else of initAR.");
                 var anchors: Collection<Anchor> = plane.anchors;
 
                 for (anchor in anchors) {
