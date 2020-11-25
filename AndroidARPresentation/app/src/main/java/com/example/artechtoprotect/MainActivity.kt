@@ -1,18 +1,14 @@
 package com.example.androidarpresentation
 
 import android.Manifest
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.provider.MediaStore
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import android.widget.ImageView
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -22,7 +18,6 @@ import com.google.ar.core.HitResult
 import com.google.ar.core.Plane
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException
 import com.google.ar.sceneform.AnchorNode
-import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.rendering.ViewRenderable
 import com.google.ar.sceneform.ux.ArFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,12 +30,15 @@ class MainActivity : AppCompatActivity() {
     var viewRenderable: ViewRenderable? = null;
     var future: CompletableFuture<ViewRenderable>? = null;
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // It seems like I will have to create a custom View here
+        // and attach the click listeners programmatically.
         future = ViewRenderable.builder()
-            .setView(this, R.layout.text_view)
+            .setView(this, R.layout.sound_view)
             .build()
 
         quit.setOnClickListener {
