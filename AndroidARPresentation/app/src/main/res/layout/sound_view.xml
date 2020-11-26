@@ -18,7 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:background="@null"/>
 
         <Button
             android:id="@+id/buttonTwo"
@@ -27,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/buttonOne"
             android:text="2"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="@null"/>
 
         <Button
             android:id="@+id/buttonThree"
@@ -36,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/buttonTwo"
             android:text="3"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="@null"/>
 
     </LinearLayout>
 

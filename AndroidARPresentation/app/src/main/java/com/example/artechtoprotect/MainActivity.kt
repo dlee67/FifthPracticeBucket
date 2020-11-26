@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
@@ -35,10 +36,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // It seems like I will have to create a custom View here
-        // and attach the click listeners programmatically.
         future = ViewRenderable.builder()
-            .setView(this, R.layout.sound_view)
+            .setView(this, createSoundView())
             .build()
 
         quit.setOnClickListener {
@@ -149,5 +148,19 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    fun createSoundView(): View {
+        var view = LayoutInflater.from(this).inflate(R.layout.sound_view, null)
+        view.findViewById<Button>(R.id.buttonOne).setOnClickListener {
+            Log.i("dhl", "Scream 1")
+        }
+        view.findViewById<Button>(R.id.buttonTwo).setOnClickListener {
+            Log.i("dhl", "Scream 2")
+        }
+        view.findViewById<Button>(R.id.buttonThree).setOnClickListener {
+            Log.i("dhl", "Scream 3")
+        }
+        return view
     }
 }
