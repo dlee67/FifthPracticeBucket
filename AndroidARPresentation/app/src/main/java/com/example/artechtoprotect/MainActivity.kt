@@ -2,6 +2,7 @@ package com.example.androidarpresentation
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -31,10 +32,13 @@ class MainActivity : AppCompatActivity() {
     var viewRenderable: ViewRenderable? = null;
     var future: CompletableFuture<ViewRenderable>? = null;
 
+    var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        this.mediaPlayer = MediaPlayer()
 
         future = ViewRenderable.builder()
             .setView(this, createSoundView())
@@ -154,12 +158,26 @@ class MainActivity : AppCompatActivity() {
         var view = LayoutInflater.from(this).inflate(R.layout.sound_view, null)
         view.findViewById<Button>(R.id.buttonOne).setOnClickListener {
             Log.i("dhl", "Scream 1")
+            if (mediaPlayer?.isPlaying!!) {
+                mediaPlayer?.stop()
+            }
+            mediaPlayer = MediaPlayer.create(applicationContext, R.raw.armored_core_gb_shining)
+            mediaPlayer?.start()
         }
         view.findViewById<Button>(R.id.buttonTwo).setOnClickListener {
-            Log.i("dhl", "Scream 2")
+            if (mediaPlayer?.isPlaying!!) {
+                mediaPlayer?.stop()
+            }
+            mediaPlayer = MediaPlayer.create(applicationContext, R.raw.megaman_x5_character_select)
+            mediaPlayer?.start()
         }
         view.findViewById<Button>(R.id.buttonThree).setOnClickListener {
             Log.i("dhl", "Scream 3")
+            if (mediaPlayer?.isPlaying!!) {
+                mediaPlayer?.stop()
+            }
+            mediaPlayer = MediaPlayer.create(applicationContext, R.raw.metal_wolf_good_feather)
+            mediaPlayer?.start()
         }
         return view
     }
