@@ -1,0 +1,16 @@
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\bin\Debug\net5.0\C#Prac.exe
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\bin\Debug\net5.0\C#Prac.deps.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\bin\Debug\net5.0\C#Prac.runtimeconfig.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\bin\Debug\net5.0\C#Prac.runtimeconfig.dev.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\bin\Debug\net5.0\C#Prac.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\bin\Debug\net5.0\ref\C#Prac.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\bin\Debug\net5.0\C#Prac.pdb
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.csprojAssemblyReference.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.AssemblyInfoInputs.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.AssemblyInfo.cs
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.csproj.CoreCompileInputs.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\ref\C#Prac.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.pdb
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\C#Prac\obj\Debug\net5.0\C#Prac.genruntimeconfig.cache

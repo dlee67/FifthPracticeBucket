@@ -1,31 +1,22 @@
-﻿using System;
-using SomeName; // In the world of C#, you don't import classes, you import the namespaces.
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using System;
+using System.Threading;
 
-namespace C_Prac
+namespace selenium
 {
     class Program
     {
+        static void Main(string[] args) {
+            FirefoxBinary binary = new FirefoxBinary();
+            FirefoxOptions options = new FirefoxOptions();//optional
+            options.BrowserExecutableLocation = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+            IWebDriver driver = new FirefoxDriver("C:/Users/lenovo/Documents/Webdriver", options);
 
-        static void Main(string[] args)
-        {
-            SomeClass.SomeStruct someVar; // Declaring is enough for structs?
-            someVar.someStructString = "lol";
-            Console.WriteLine(someVar.someStructString);
-            Console.WriteLine(SomeName.SomeClass.getString()); // You don't need to put SomeName, but did it anyway for the verbosity sake.
-            Console.WriteLine("Hello World!");
-            string part1 = "the ultimate question"; // If the variable is not declared nullable, they cannot be null.
-            string part2 = "of something";
-            int theAnswer = 2;
-            int? andAnotherThing = null; // This is how you use nullability.
-            // Just like Kotlin, string nonNullableReferenceFromLegacyComponent = referenceFromLegacyComponent!; // Non-null asserts also there.
-
-            Console.WriteLine(part1 + " " + part2 + ": " + theAnswer);
-            // Console.WriteLine(andAnotherThing); // This will crash the app without the nullable.
-
-            string[] someList = {"lol", "meme", "funny", "haha"};
-            foreach (string stuff in someList) { // C# has a dedicated keyword for foreach loops.
-                Console.WriteLine(stuff);
-            }  
+            driver.Navigate().GoToUrl("https://www.google.com");
+            driver.FindElement(By.Name("q")).SendKeys("Fleek It solutions"+ Keys.Return);
+            Thread.Sleep(2000);
+            driver.Quit();
         }
     }
 }
