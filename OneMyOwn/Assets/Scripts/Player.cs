@@ -6,35 +6,39 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float rotateSpeed = 75f;
-
+    public float jumpForce = 2.0f;
+    public bool isGrounded;
     private float vInput;
     private float hInput;
 
-    private Rigidbody _rb;
+    private Rigidbody rb;
+    public Vector3 jump;
 
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+    }
+
+    void OnCollisionStay()
+    {
+        isGrounded = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+     
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+
         vInput = Input.GetAxis("Vertical") * moveSpeed;
         hInput = Input.GetAxis("Horizontal") * rotateSpeed;
 
         this.transform.Translate(Vector3.forward*vInput*Time.deltaTime);
         this.transform.Rotate(Vector3.up*hInput*Time.deltaTime);
-    }
-
-    void FixUpdate() {
-        Vector3 rotation = Vector3.up * hInput;
-
-        Quaternion angleRot = Quaternion.Euler(rotation * Time.fixedDeltaTime);
-
-        _rb.MovePosition(this.transform.position + this.transform.forward * vInput * Time.fixedDeltaTime);
-
-        _rb.MoveRotation(_rb.rotation * angleRot);
     }
 }
