@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float rotateSpeed = 75f;
-    public float jumpForce = 2.0f;
+    public float jumpForce = 100.0f;
     public bool isGrounded;
     private float vInput;
     private float hInput;
@@ -18,12 +18,28 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 2.0f, 0.0f);
+        jump = new Vector3(0.0f, 10.0f, 0.0f);
     }
 
     void OnCollisionStay()
     {
         isGrounded = true;
+    }
+
+    void OnTriggerEnter(Collider other) {
+        Debug.Log("Player collided with an object");
+        if (other.gameObject.layer.Equals("Platform")) {
+            Debug.Log("Collided with a Platform layer");
+            this.transform.parent = other.gameObject.transform;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Leaving an object");
+        // if (other.gameObject.layer.Equals("Platform")) {
+        this.transform.parent = null;
+        // }
     }
 
     // Update is called once per frame
