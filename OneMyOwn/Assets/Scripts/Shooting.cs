@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public Transform spawnPoint;
+    public GameObject laser;
 
     public float fireRate = 1;
     private float lastFireTime = 0;
@@ -12,17 +13,17 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnPoint = transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= lastFireTime + fireRate)
+        if (Input.GetKeyDown(KeyCode.X) && (Time.time >= lastFireTime + fireRate))
         {
             //Spawn a projectile and mark the time we did it:
             lastFireTime = Time.time;
-            Instantiate((GameObject)Resources.Load("../Prefabs/Laser", typeof(GameObject)), spawnPoint.position,spawnPoint.rotation);
+            Instantiate(laser, spawnPoint.position,spawnPoint.rotation);
         }
     }
 }

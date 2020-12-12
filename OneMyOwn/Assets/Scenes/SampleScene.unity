@@ -607,6 +607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1899947023}
+  - component: {fileID: 1899947024}
   m_Layer: 0
   m_Name: LaserSpawnPoint
   m_TagString: Untagged
@@ -622,12 +623,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899947022}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 18.223886, y: -16.468458, z: -0.30712098}
+  m_LocalPosition: {x: -9, y: 0.2, z: 0.5}
   m_LocalScale: {x: 1.2499996, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 839135489}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899947024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899947022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3ea014fd4b3de46b0f026822170fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  laser: {fileID: 3037825170996563175, guid: d6ef4467cbd891944b0a84a6dcec5d4e, type: 3}
+  fireRate: 1
 --- !u!1001 &163680258224772335
 PrefabInstance:
   m_ObjectHideFlags: 0
