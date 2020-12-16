@@ -7,10 +7,8 @@ public class Shooting : MonoBehaviour
     public Transform spawnPoint;
     public GameObject laser; // Defined in the Unity inspector
 
-    public Vector3 forceVector = new Vector3(1, 0, 0);
-
-    public float fireRate = 1;
-    private float lastFireTime = 0;
+    public GameObject bullet;
+    public float bulletSpeed = 100f;
     
     // Start is called before the first frame update
     void Start()
@@ -21,12 +19,16 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && (Time.time >= lastFireTime + fireRate))
+        if (Input.GetMouseButtonDown(0))
         {
             //Spawn a projectile and mark the time we did it:
-            lastFireTime = Time.time;
-            laser.GetComponent<Rigidbody>().velocity = forceVector * 100000000 * 10000000;
-            Instantiate(laser, spawnPoint.position,spawnPoint.rotation);
+            GameObject allyProjectile = Instantiate(laser,
+                this.transform.position + new Vector3(1, 0, 0),    
+                   this.transform.rotation) as GameObject;
+
+            Rigidbody bulletRB = allyProjectile.GetComponent<Rigidbody>();
+
+            bulletRB.velocity = this.transform.forward * bulletSpeed;
         }
     }
 }
