@@ -23,12 +23,12 @@ public class Shooting : MonoBehaviour
         {
             //Spawn a projectile and mark the time we did it:
             GameObject allyProjectile = Instantiate(laser,
-                this.transform.position + new Vector3(1, 0, 0),    
+                this.transform.position + new Vector3(0, 0, 0),    
                    this.transform.rotation) as GameObject;
 
             Rigidbody bulletRB = allyProjectile.GetComponent<Rigidbody>();
 
-            bulletRB.velocity = this.transform.forward * bulletSpeed;
+            bulletRB.velocity = this.transform.forward * bulletSpeed * -1;
         }
     }
 }

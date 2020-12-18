@@ -623,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899947022}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -13, y: 0.2, z: 0.5}
+  m_LocalPosition: {x: -13, y: 0.2, z: 0.02}
   m_LocalScale: {x: 1.2499996, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 839135489}
@@ -643,7 +643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   laser: {fileID: 3037825170996563175, guid: d6ef4467cbd891944b0a84a6dcec5d4e, type: 3}
-  fireRate: 1
+  bullet: {fileID: 0}
+  bulletSpeed: 100
 --- !u!1001 &163680258224772335
 PrefabInstance:
   m_ObjectHideFlags: 0
