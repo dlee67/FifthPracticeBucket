@@ -18,14 +18,17 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 10.0f, 0.0f);
+        jump = new Vector3(0.0f, 15.0f, 0.0f);
     }
 
+    // https://stackoverflow.com/questions/23681719/oncollisionstay-vs-oncollisionenter
     void OnCollisionEnter()
     {
         isGrounded = true;
     }
 
+    // When a game object collides with a gameobject, this is called.
+    // So, checking the "Is Trigger" will disable all the physics of the subjected objact like rigid body, I read this somewhere in the Unity documentations. 
     void OnTriggerEnter(Collider other) {
         Debug.Log("Player collided with an object");
         if (other.gameObject.layer.Equals("Platform")) {

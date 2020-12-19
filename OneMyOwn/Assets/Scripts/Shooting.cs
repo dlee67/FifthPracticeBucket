@@ -15,6 +15,11 @@ public class Shooting : MonoBehaviour
     {
         spawnPoint = transform;
     }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
