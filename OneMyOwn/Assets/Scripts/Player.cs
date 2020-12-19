@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
         jump = new Vector3(0.0f, 10.0f, 0.0f);
     }
 
-    void OnCollisionStay()
+    void OnCollisionEnter()
     {
         isGrounded = true;
     }
@@ -37,16 +37,13 @@ public class Player : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         Debug.Log("Leaving an object");
-        // if (other.gameObject.layer.Equals("Platform")) {
         this.transform.parent = null;
-        // }
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
-     
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
