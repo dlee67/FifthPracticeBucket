@@ -29,19 +29,19 @@ public class Player : MonoBehaviour
 
     // When a game object collides with a gameobject, this is called.
     // So, checking the "Is Trigger" will disable all the physics of the subjected objact like rigid body, I read this somewhere in the Unity documentations. 
-    void OnTriggerEnter(Collider other) {
-        Debug.Log("Player collided with an object");
-        if (other.gameObject.layer.Equals("Platform")) {
-            Debug.Log("Collided with a Platform layer");
-            this.transform.parent = other.gameObject.transform;
-        }
-    }
+    // void OnTriggerEnter(Collider other) {
+    //     Debug.Log("Player collided with an object");
+    //     if (other.gameObject.layer.Equals("Platform")) {
+    //         Debug.Log("Collided with a Platform layer");
+    //         this.transform.parent = other.gameObject.transform;
+    //     }
+    // }
 
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Leaving an object");
-        this.transform.parent = null;
-    }
+    // void OnTriggerExit(Collider other)
+    // {
+    //     Debug.Log("Leaving an object");
+    //     this.transform.parent = null;
+    // }
 
     // Update is called once per frame
     void Update()
