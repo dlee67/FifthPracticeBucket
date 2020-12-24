@@ -5,3 +5,7 @@
 <button (click)="decrement()">Decrement</button>
 
 <button (click)="reset()">Reset Counter</button>
+
+<div>{{ name$ | async }}</div>
+
+<button (click)="changeName()">Change name</button>
