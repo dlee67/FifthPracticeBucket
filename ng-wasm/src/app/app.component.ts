@@ -12,20 +12,10 @@ export class AppComponent {
     getLengthResult: number;
 
     multiply(a: number, b: number): void {
-        this.multiplyResult = Module.ccall(
-            'multiply', // function name
-            'number', // return type
-            ['number', 'number'], // argument types
-            [a, b] // parameters
-        );
+        this.multiplyResult = Module.multiply(a, b);
     }
 
     getLength(s: string): void {
-        this.getLengthResult = Module.ccall(
-            'get_length', // function name
-            'number', // return type
-            ['string'], // argument type
-            [s] // parameter
-        );
+        this.getLengthResult = Module.get_length(s);
     }
 }

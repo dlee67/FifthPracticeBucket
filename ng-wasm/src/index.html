@@ -12,6 +12,10 @@
 </body>
 <script>
   var Module = {
+    onRuntimeInitialized: function() {
+        console.log('lerp result: ' + Module.lerp(1, 2, 0.5));
+    },
+    // Turns out, I don't need the below.
     locateFile: function(s) {
       return 'cpp/' + s;
     }
