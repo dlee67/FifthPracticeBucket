@@ -12,10 +12,10 @@ export class AppComponent {
     getLengthResult: number;
 
     multiply(a: number, b: number): void {
-        // this.multiplyResult = Module.multiply(a, b);
+        this.multiplyResult = Module.multiply(a, b);
     }
 
     getLength(s: string): void {
-        // this.getLengthResult = Module.get_length(s);
+        this.getLengthResult = Module.get_length(s);
     }
 }

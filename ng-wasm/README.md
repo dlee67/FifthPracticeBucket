@@ -2,5 +2,5 @@ Huge thanks to: https://componenthouse.com/2018/02/15/how-to-make-angular-and-we
 
 and the comment section that made everything work. <br/><br/>
 
-Currently use: ```emcc --bind -s WASM=1 -o webassembly.js main.cc``` <br/>
+Currently use: ```em++ --bind ./main.cc -s WASM=1 -s "EXPORTED_FUNCTIONS=['_sum_up']" -s "EXPORTED_RUNTIME_METHODS=['ccall','cwrap']" -o .\webassembly.js``` <br/>
 to generate the WASM file.
