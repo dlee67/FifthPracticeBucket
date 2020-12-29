@@ -1,3 +1,3 @@
-import { createAction } from "@ngrx/store";
+import { createAction, props } from "@ngrx/store";
 
-export const saveName = createAction("Save name");
+export const saveName = createAction("Save name", props<{Name}>()); 

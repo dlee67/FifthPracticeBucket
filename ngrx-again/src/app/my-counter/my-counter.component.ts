@@ -32,6 +32,6 @@ export class MyCounterComponent {
   }
 
   changeName() {
-    this.nameStore.dispatch(saveName());
+    this.nameStore.dispatch(saveName({Name: "Some Name"}));
   }
 }
