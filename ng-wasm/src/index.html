@@ -13,7 +13,15 @@
 <script>
   var Module = {
     onRuntimeInitialized: function() {
-        console.log('lerp result: ' + Module.lerp(1, 2, 0.5));
+      console.log('lerp: ' + Module.lerp(5, 5, 5));
+      var retVector = Module['returnVectorData']();
+      var vectorSize = retVector.size();
+
+      retVector.set(vectorSize - 1, 11);
+      retVector.push_back(12);
+      for (var i = 0; i < retVector.size(); i++) {
+        console.log("Vector Value: ", retVector.get(i));
+      }
     },
     // Turns out, I don't need the below.
     locateFile: function(s) {
