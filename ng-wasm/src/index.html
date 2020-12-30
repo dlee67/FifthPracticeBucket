@@ -18,13 +18,21 @@
       var vectorSize = retVector.size();
       var wasmSumUp = Module.cwrap('sum_up', 'number', ['array', 'number'])
 
+      // This is actually pointless, where this Stackoverflow post
+      // explains why this is: https://stackoverflow.com/questions/41875728/pass-a-javascript-array-as-argument-to-a-webassembly-function
+      var becauseWasm = new Uint8Array(3);
+      becauseWasm[0] = 1;
+      becauseWasm[1] = 2;
+      becauseWasm[3] = 3;
+
       retVector.set(vectorSize - 1, 11);
       retVector.push_back(12);
       for (var i = 0; i < retVector.size(); i++) {
         console.log("Vector Value: ", retVector.get(i));
       }
       console.log(
-        wasmSumUp([1, 2, 3], 3)
+        // The below will return some giberish.
+        wasmSumUp(becauseWasm, 3)
       );
     },
     // Turns out, I don't need the below.
