@@ -32,6 +32,7 @@ export class MyCounterComponent {
   }
 
   changeName() {
-    this.nameStore.dispatch(saveName({Name: "Some Name"}));
+    // Notice how the object {name: "Some Name"} matches the props in name.actions.
+    this.nameStore.dispatch(saveName({name: "Some Name"}));
   }
 }
