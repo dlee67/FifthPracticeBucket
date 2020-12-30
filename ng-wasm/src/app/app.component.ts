@@ -16,6 +16,8 @@ export class AppComponent {
     }
 
     getLength(s: string): void {
+        console.log('WASM gave me string: ' + Module.getHello());
+        console.log('WASM bool: ' + Module.flipBool(false));
         this.getLengthResult = Module.get_length(s);
     }
 }
