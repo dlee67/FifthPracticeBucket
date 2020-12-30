@@ -14,12 +14,15 @@
   var Module = {
     onRuntimeInitialized: function() {
       console.log('lerp: ' + Module.lerp(5.0, 5.0, 5.0));
+      console.log('WASM gave me string: ' + Module.getHello());
       var retVector = Module['returnVectorData']();
       var vectorSize = retVector.size();
       var wasmSumUp = Module.cwrap('sum_up', 'number', ['array', 'number'])
 
-      // This is actually pointless, where this Stackoverflow post
-      // explains why this is: https://stackoverflow.com/questions/41875728/pass-a-javascript-array-as-argument-to-a-webassembly-function
+      // This is actually pointless, where these Stackoverflow post
+      // explains why this is: 
+      // https://stackoverflow.com/questions/41875728/pass-a-javascript-array-as-argument-to-a-webassembly-function
+      // https://stackoverflow.com/questions/41353389/how-can-i-return-a-javascript-string-from-a-webassembly-function
       var becauseWasm = new Uint8Array(3);
       becauseWasm[0] = 1;
       becauseWasm[1] = 2;

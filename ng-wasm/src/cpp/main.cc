@@ -17,6 +17,10 @@ int get_length(std::string text) {
     return text.length();
 }
 
+std::string getHello() {
+  return "Hello, WASM ...";
+}
+
 extern "C" {
   int sum_up(int vals[], int size);
 }
@@ -54,6 +58,10 @@ EMSCRIPTEN_BINDINGS(multiply_module) {
 
 EMSCRIPTEN_BINDINGS(get_length_module) {
     emscripten::function("get_length", &get_length);
+}
+
+EMSCRIPTEN_BINDINGS(get_string_module) {
+    emscripten::function("getHello", &getHello);
 }
 
 // If I am using a cwrap for sum_up, this becomes pointless.
