@@ -3,6 +3,9 @@
 #include <string>
 #include <vector>
 
+//https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#built-in-type-conversions
+//Has a complete list of types that I can use.
+
 using namespace emscripten;
 
 double multiply(double a, double b) {
@@ -15,6 +18,10 @@ float lerp(float a, float b, float t) {
 
 int get_length(std::string text) {
     return text.length();
+}
+
+bool flipBool(bool someBool) {
+  return !someBool;
 }
 
 std::string getHello() {
@@ -64,6 +71,9 @@ EMSCRIPTEN_BINDINGS(get_string_module) {
     emscripten::function("getHello", &getHello);
 }
 
+EMSCRIPTEN_BINDINGS(bool_module) {
+  emscripten::function("flipBool", flipBool);
+}
 // If I am using a cwrap for sum_up, this becomes pointless.
 // Besides: https://stackoverflow.com/questions/20355880/emscripten-how-can-i-solve-unboundtypeerror
 // It won't work anyway.

@@ -15,6 +15,7 @@
     onRuntimeInitialized: function() {
       console.log('lerp: ' + Module.lerp(5.0, 5.0, 5.0));
       console.log('WASM gave me string: ' + Module.getHello());
+      console.log('WASM bool: ' + Module.flipBool(false));
       var retVector = Module['returnVectorData']();
       var vectorSize = retVector.size();
       var wasmSumUp = Module.cwrap('sum_up', 'number', ['array', 'number'])
