@@ -1,16 +1,22 @@
 package com.example.bunkerbeacon
 
-import android.Manifest
-import android.content.pm.PackageManager
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context.ALARM_SERVICE
+import android.content.Context.NOTIFICATION_SERVICE
+import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
-import android.telephony.SmsManager
+import android.os.SystemClock
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,6 +34,12 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    val NOTIFICATION_ID = 0
+    val PRIMARY_CHANNEL_ID = "primary_notification_channel"
+    val testWaitInterval: Long = 60 * 1000;
+
+    lateinit var notificationManager: NotificationManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,17 +51,53 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val homeFragment = inflater.inflate(R.layout.fragment_home, container, false)
+
+        notificationManager = context?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+//        var sendButton = homeFragment.findViewById<Button>(R.id.sendButton)
+        var notifyIntent = Intent(context, AlarmReceiver::class.java)
+        var pendingIntent = PendingIntent.getBroadcast(context, NOTIFICATION_ID, notifyIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT)
+        var alarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
+        var toastMessage = "Is this a bug?"
+
         homeFragment.findViewById<Button>(R.id.sendButton).setOnClickListener {
             Log.i("dhl", "Sending message")
-            val phoneNumber = "0123456789"
-            val message = "Hello World! Now we are going to demonstrate " +
-                    "how to send a message with more than 160 characters from your Android application."
-            val smsManager: SmsManager = SmsManager.getDefault()
-            smsManager.sendTextMessage(phoneNumber,
-                null, message, null, null)
+
+            var triggerTime = SystemClock.elapsedRealtime()
+
+            if (alarmManager != null) {
+                alarmManager?.setInexactRepeating(
+                        AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                        triggerTime,
+                        testWaitInterval,
+                        pendingIntent)
+            }
+
+            Toast.makeText(context, "Test set", Toast.LENGTH_SHORT).show();
         }
+        createNotificationChannel()
+
         // Inflate the layout for this fragment
         return homeFragment
+    }
+
+    fun createNotificationChannel() {
+        notificationManager = context?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >=
+                Build.VERSION_CODES.O) {
+
+            // Create the NotificationChannel with all the parameters.
+            val notificationChannel = NotificationChannel(PRIMARY_CHANNEL_ID,
+                    "Stand up notification",
+                    NotificationManager.IMPORTANCE_HIGH)
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.RED
+            notificationChannel.enableVibration(true)
+            notificationChannel.description = "Notification test description"
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
     }
 
     companion object {

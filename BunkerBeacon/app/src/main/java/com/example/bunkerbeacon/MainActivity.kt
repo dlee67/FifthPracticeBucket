@@ -1,10 +1,13 @@
 package com.example.bunkerbeacon
 
 import android.Manifest
+import android.app.NotificationManager
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -16,10 +19,10 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var navigationView: NavigationView;
     lateinit var drawerLayout: DrawerLayout;
+    lateinit var navigationView: NavigationView;
 
-    private var ENABLE_SMS: Int = 111;
+    val ENABLE_SMS = 111;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -9,7 +9,8 @@
         android:id="@+id/sendButton"
         android:layout_width="300px"
         android:layout_height="250px"
-        android:text="Test">
+        android:text="Check-in"
+        android:layout_gravity="center">
     </Button>
 
 </FrameLayout>
