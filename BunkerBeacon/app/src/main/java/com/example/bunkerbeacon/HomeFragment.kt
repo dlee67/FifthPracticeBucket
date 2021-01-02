@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
 
     val NOTIFICATION_ID = 0
     val PRIMARY_CHANNEL_ID = "primary_notification_channel"
-    val testWaitInterval: Long = 60 * 1000;
+    val testWaitInterval: Long = 60 * 1000
 
     lateinit var notificationManager: NotificationManager
 
@@ -54,23 +54,19 @@ class HomeFragment : Fragment() {
 
         notificationManager = context?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-//        var sendButton = homeFragment.findViewById<Button>(R.id.sendButton)
         var notifyIntent = Intent(context, AlarmReceiver::class.java)
         var pendingIntent = PendingIntent.getBroadcast(context, NOTIFICATION_ID, notifyIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT)
         var alarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
-        var toastMessage = "Is this a bug?"
 
         homeFragment.findViewById<Button>(R.id.sendButton).setOnClickListener {
             Log.i("dhl", "Sending message")
 
-            var triggerTime = SystemClock.elapsedRealtime()
-
             if (alarmManager != null) {
-                alarmManager?.setInexactRepeating(
+                alarmManager?.setExactAndAllowWhileIdle(
                         AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                        triggerTime,
-                        testWaitInterval,
+                        // elapsedRealtime() is required to actually a minute pass ...
+                        SystemClock.elapsedRealtime() + testWaitInterval,
                         pendingIntent)
             }
 
