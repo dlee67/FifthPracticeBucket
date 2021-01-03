@@ -5,12 +5,48 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <Button
-        android:id="@+id/sendButton"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check-in"
         android:layout_gravity="center">
-    </Button>
 
+        <EditText
+            android:id="@+id/first_phone_number"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="phone number #1"
+            android:inputType="text"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/second_phone_number"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="phone number #2"
+            android:inputType="text"
+            android:layout_below="@id/first_phone_number"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check-in"
+            android:layout_below="@id/second_phone_number"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50px"
+            android:layout_marginBottom="50px">
+        </Button>
+
+        <EditText
+            android:id="@+id/amt_of_days_before_panic"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="number"
+            android:hint="The amount of days before panic goes off"
+            android:layout_below="@id/sendButton"
+            android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
 </FrameLayout>

@@ -16,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
@@ -39,6 +40,7 @@ class HomeFragment : Fragment() {
     val testWaitInterval: Long = 60 * 1000
 
     lateinit var notificationManager: NotificationManager
+    lateinit var firstNumberView: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,13 +56,18 @@ class HomeFragment : Fragment() {
 
         notificationManager = context?.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
-        var notifyIntent = Intent(context, AlarmReceiver::class.java)
-        var pendingIntent = PendingIntent.getBroadcast(context, NOTIFICATION_ID, notifyIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT)
         var alarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
+        firstNumberView = homeFragment.findViewById(R.id.first_phone_number)
 
         homeFragment.findViewById<Button>(R.id.sendButton).setOnClickListener {
             Log.i("dhl", "Sending message")
+
+            var firstNumber = firstNumberView.text
+            Log.i("dhl", "first number at: " + firstNumber)
+            var notifyIntent = Intent(context, AlarmReceiver::class.java)
+            notifyIntent.putExtra("firstNumber", firstNumber.toString())
+            var pendingIntent = PendingIntent.getBroadcast(context, NOTIFICATION_ID, notifyIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT)
 
             if (alarmManager != null) {
                 alarmManager?.setExactAndAllowWhileIdle(
