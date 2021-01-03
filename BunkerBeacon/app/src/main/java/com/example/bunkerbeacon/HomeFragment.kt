@@ -19,6 +19,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import java.util.concurrent.TimeUnit
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,10 +38,10 @@ class HomeFragment : Fragment() {
 
     val NOTIFICATION_ID = 0
     val PRIMARY_CHANNEL_ID = "primary_notification_channel"
-    val testWaitInterval: Long = 60 * 1000
 
     lateinit var notificationManager: NotificationManager
     lateinit var firstNumberView: EditText
+    lateinit var secondNumberView: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,22 +59,29 @@ class HomeFragment : Fragment() {
 
         var alarmManager = context?.getSystemService(ALARM_SERVICE) as AlarmManager
         firstNumberView = homeFragment.findViewById(R.id.first_phone_number)
+        secondNumberView = homeFragment.findViewById(R.id.second_phone_number)
 
         homeFragment.findViewById<Button>(R.id.sendButton).setOnClickListener {
             Log.i("dhl", "Sending message")
 
             var firstNumber = firstNumberView.text
+            var secondNumber = secondNumberView.text
             Log.i("dhl", "first number at: " + firstNumber)
             var notifyIntent = Intent(context, AlarmReceiver::class.java)
             notifyIntent.putExtra("firstNumber", firstNumber.toString())
+            notifyIntent.putExtra("secondNumber", secondNumber.toString())
             var pendingIntent = PendingIntent.getBroadcast(context, NOTIFICATION_ID, notifyIntent,
                     PendingIntent.FLAG_UPDATE_CURRENT)
+            var amountOfDays = Integer(homeFragment.findViewById<EditText>(R.id.second_phone_number)
+                    .text.toString());
+
+            var waitInterval = TimeUnit.DAYS.toMillis(amountOfDays.toLong());
 
             if (alarmManager != null) {
                 alarmManager?.setExactAndAllowWhileIdle(
                         AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                        // elapsedRealtime() is required to actually a minute pass ...
-                        SystemClock.elapsedRealtime() + testWaitInterval,
+                        // elapsedRealtime() is required to actually the correct amount of pass.
+                        SystemClock.elapsedRealtime() + waitInterval,
                         pendingIntent)
             }
 

@@ -9,6 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello, blank about fragment" />
+        android:layout_gravity="center"
+        android:text="@string/about_intro"
+        android:layout_margin="50px"/>
 
 </FrameLayout>

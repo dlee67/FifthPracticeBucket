@@ -4,4 +4,21 @@
     <string name="close">close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="panic_message">
+        Please give this number a call. This is an automated message,
+        and the sender\'s life could be in serious condition.
+    </string>
+    <string name="about_intro">
+        I am going live alone for the rest of my life (at least, that\'s the plan for now),\n
+        where I am a person who enjoys solitude; however,\n
+        I want folks to know that there is something wrong going on in my life if there is one.\n
+        \n
+        That\'s why I started writing this app.\n
+        \n
+        It wants the user to input two phone numbers, and the amount of days before it panics.\n
+        When the user presses the check-in button,\n
+        it refreshes to the amount the user initially inputted for the panic.\n
+        \n
+        Hope you also find use in this app.
+    </string>
 </resources>

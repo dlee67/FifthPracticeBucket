@@ -19,13 +19,27 @@ class AlarmReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         notificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE)
                 as NotificationManager
-          val phoneNumber = intent?.extras?.getString("firstNumber")
-          Log.i("dhl", "In the receiver, phone number at: " + phoneNumber)
-          val message = "Panic"
-          val smsManager: SmsManager = SmsManager.getDefault()
-          smsManager.sendTextMessage(phoneNumber,
-                  null, message, null, null)
-        deliverNotification(context)
+
+            val firstPhoneNumber = intent?.extras?.getString("firstNumber")
+            Log.i("dhl", "In the receiver, first phone number at: " + firstPhoneNumber)
+
+            val secondPhoneNumber = intent?.extras?.getString("secondNumber")
+            Log.i("dhl", "In the receiver, second phone number at: " + secondPhoneNumber)
+
+            val panicMessage = context.getString(R.string.panic_message)
+
+            val smsManager: SmsManager = SmsManager.getDefault()
+            if (firstPhoneNumber != "") {
+                Log.i("dhl","Sending message to the first phone number")
+                smsManager.sendTextMessage(firstPhoneNumber, null,
+                        panicMessage, null, null)
+            }
+            if(secondPhoneNumber != "") {
+                Log.i("dhl","Sending message to the second phone number")
+                smsManager.sendTextMessage(secondPhoneNumber, null,
+                        panicMessage, null, null)
+            }
+            deliverNotification(context)
     }
 
     fun deliverNotification(context: Context?) {
