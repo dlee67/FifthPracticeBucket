@@ -14,7 +14,13 @@ type Student struct {
     Name   string   `bson:"name"`
 	Alias  string   `bson:"alias"`
 	SpecialInterest string `bson:"specialization"`
-	Note   string `bson:"note"`
+    Note   string `bson:"note"`
+    Interview []QnA `json:"QnAs"`
+}
+
+type QnA struct {
+    Question string `json:"question"`
+    Answer string `json:"answer"`
 }
 
 func main() {
@@ -41,12 +47,24 @@ func main() {
     filter := bson.M{"name": "Economic", "specialization": "None"}
     result := collection.FindOne(context.TODO(), filter)
     err = result.Decode(queryResult)
-    
     if err != nil {
 		log.Fatal(err)
 	}
-
     fmt.Println("Note: ", queryResult.Note)
+    for i := 0; i < len(queryResult.Interview); i++{
+        fmt.Println("question: ", queryResult.Interview[i].Question);
+        fmt.Println("answer", queryResult.Interview[i].Answer);
+    }
+
+    queryResult = &Student{}
+    filter = bson.M{"alias": "Pythonista", "specialization": "None"}
+    result = collection.FindOne(context.TODO(), filter)
+    err = result.Decode(queryResult)
+    if err != nil {
+		log.Fatal(err)
+	}
+    fmt.Println("Note: ", queryResult.Note)
+    
     err = client.Disconnect(context.TODO())
 	if err != nil {
 		panic(err)
