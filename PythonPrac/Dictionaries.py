@@ -20,4 +20,5 @@ graph[0].append(2)
 print(graph)
 
 # https://docs.python.org/3/tutorial/datastructures.html
-newSet = set()
+newSet = set(states)
+print(states)
