@@ -7,6 +7,8 @@ from selenium.webdriver.chrome.options import Options
 # an object represents a page.
 class YouTube(object):
 
+    # Here in the constructor, the tutorial is recommending that I should also 
+    # pass in value and by.
     def __init__(self, driver):
         self.driver = driver
         self.driver.get('https://www.youtube.com/')
