@@ -1,3 +1,5 @@
+import collections
+
 states = {
     'Oregon': 'OR',
     'Florida': 'FL',
@@ -22,3 +24,8 @@ print(graph)
 # https://docs.python.org/3/tutorial/datastructures.html
 newSet = set(states)
 print(states)
+
+# https://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work
+count = collections.defaultdict(int)
+print(len(count))
+
