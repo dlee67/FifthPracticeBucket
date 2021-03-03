@@ -1,0 +1,16 @@
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\SeleniumSeeSharp.exe
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\SeleniumSeeSharp.deps.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\SeleniumSeeSharp.runtimeconfig.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\SeleniumSeeSharp.runtimeconfig.dev.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\SeleniumSeeSharp.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\SeleniumSeeSharp.pdb
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\bin\Debug\netcoreapp3.1\WebDriver.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.csprojAssemblyReference.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.AssemblyInfoInputs.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.AssemblyInfo.cs
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.csproj.CoreCompileInputs.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.csproj.CopyComplete
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.pdb
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\SeleniumSeeSharp\SeleniumSeeSharp\obj\Debug\netcoreapp3.1\SeleniumSeeSharp.genruntimeconfig.cache
