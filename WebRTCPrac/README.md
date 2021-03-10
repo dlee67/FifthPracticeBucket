@@ -1,3 +1,6 @@
 Got it from here <br>
 
-https://codelabs.developers.google.com/codelabs/webrtc-web/#7
+https://webrtc.org/getting-started/firebase-rtc-codelab <br>
+
+The only thing that's different about this example is the <br>
+tutorial is deployable.
