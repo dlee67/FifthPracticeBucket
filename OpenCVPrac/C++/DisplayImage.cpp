@@ -11,18 +11,18 @@ using namespace std;
 
 int main(int argc, char** argv )
 {
-    Mat color = imread("./mist.jpg");
+    Mat color = imread("./yisunshinportrait.jpg");
     // https://github.com/NVIDIA/DALI/issues/443
     // The below doesn't work anymore.
-    // Mat gray = imread("./mist.jpg", CV_LOAD_IMAGE_GRAYSCALE);
-    Mat gray = imread("./mist.jpg", cv::IMREAD_GRAYSCALE);
+    // Mat gray = imread("./somepicture.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    Mat gray = imread("./yisunshinportrait.jpg", cv::IMREAD_GRAYSCALE);
 
     if (!color.data) {
         cout << "Could not open or find the image" << std::endl;
         return -1;
     }
 
-    imwrite("./mistGray.jpg", gray);
+    imwrite("./yisunshinportraitGray.jpg", gray);
 
     int myRow = color.cols - 1;
     int myCol = color.rows - 1;
@@ -30,8 +30,8 @@ int main(int argc, char** argv )
     cout << "Pixel value (B,G,R): (" << (int)pixel[0] << "," << (int)pixel[1] << "," << (int)pixel[2] << ")" << endl; 
 
     // show images 
-    imshow("Mist BGR", color); 
-    imshow("Mist gray", gray); 
+    imshow("BGR", color); 
+    imshow("gray", gray); 
     // wait for any key press 
     waitKey(0);
 
