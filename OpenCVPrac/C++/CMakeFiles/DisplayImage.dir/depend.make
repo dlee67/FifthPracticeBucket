@@ -81,6 +81,7 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/openc
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/opencv2/highgui/highgui.hpp
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/opencv2/imgcodecs.hpp
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/opencv2/imgproc.hpp
+CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/opencv2/imgproc/imgproc.hpp
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/opencv2/ml.hpp
 CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp
