@@ -28,8 +28,7 @@ int main(int argc, char** argv )
         return 0;
     }
 
-    imshow("Output Image", image);
-    namedWindow("Original Image");
+    imshow("Original Image", image);
     setMouseCallback("Original Image", onMouse, reinterpret_cast<void*>(&image));    
 
     waitKey(0);
