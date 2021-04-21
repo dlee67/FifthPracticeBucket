@@ -29,6 +29,7 @@ int main(int argc, char** argv )
     }
 
     imshow("Original Image", image);
+    // https://docs.opencv.org/3.4/d7/dfc/group__highgui.html#ga89e7806b0a616f6f1d502bd8c183ad3e
     setMouseCallback("Original Image", onMouse, reinterpret_cast<void*>(&image));    
 
     waitKey(0);
