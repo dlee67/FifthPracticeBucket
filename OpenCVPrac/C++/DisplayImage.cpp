@@ -28,9 +28,16 @@ int main(int argc, char** argv )
         return 0;
     }
 
+    circle(image, Point(155, 100), 65, 0, 3);
+    putText(image, "Mist", Point(40, 200), FONT_HERSHEY_PLAIN, 2.0, 255, 2);
+
     imshow("Original Image", image);
     // https://docs.opencv.org/3.4/d7/dfc/group__highgui.html#ga89e7806b0a616f6f1d502bd8c183ad3e
     setMouseCallback("Original Image", onMouse, reinterpret_cast<void*>(&image));    
+
+    // These two must come before the imshow.
+    // circle(image, Point(155, 100), 65, 0, 3);
+    // putText(image, "Mist", Point(40, 200), FONT_HERSHEY_PLAIN, 2.0, 255, 2);
 
     waitKey(0);
     
