@@ -8,7 +8,6 @@ using namespace cv;
 using namespace std;
 
 Mat getImage() {
-
    // create image
    cv::Mat ima(500,500,CV_8U,50);
    // return it
