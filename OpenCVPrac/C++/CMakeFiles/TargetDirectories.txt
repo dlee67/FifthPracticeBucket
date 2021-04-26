@@ -1,0 +1,3 @@
+/home/bob/Desktop/FifthPracticeBucket/OpenCVPrac/C++/CMakeFiles/rebuild_cache.dir
+/home/bob/Desktop/FifthPracticeBucket/OpenCVPrac/C++/CMakeFiles/edit_cache.dir
+/home/bob/Desktop/FifthPracticeBucket/OpenCVPrac/C++/CMakeFiles/DisplayImage.dir
