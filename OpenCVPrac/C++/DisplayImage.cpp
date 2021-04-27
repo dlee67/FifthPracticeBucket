@@ -31,6 +31,18 @@ int main(int argc, char** argv )
     Mat image;
     image = imread("mist.jpg", IMREAD_GRAYSCALE);
 
+    Mat logo = imread("logo.png");
+
+    Mat regionOfInterest(image, Rect(
+        image.cols-logo.cols,
+        image.rows-logo.rows,
+        logo.cols,
+        logo.rows
+    ));
+
+    Mat imageRegionOfInterest(image, regionOfInterest);
+    logo.copyTo(imageRegionOfInterest);
+
     if (image.empty()) {
         return 0;
     }
@@ -45,34 +57,6 @@ int main(int argc, char** argv )
     // These two must come before the imshow.
     // circle(image, Point(155, 100), 65, 0, 3);
     // putText(image, "Mist", Point(40, 200), FONT_HERSHEY_PLAIN, 2.0, 255, 2);
-
-    waitKey(0);
-    
-    // create a new image made of 240 rows and 320 columns 
-    // after all, all images are also considered Mat.
-    Mat image1(240, 320, CV_8U, 100);
-    imshow("Image", image1);
-
-    waitKey(0);
-
-    image1.create(200,200,CV_8U);
-	image1 = 200;
-
-    imshow("Image", image1);
-    waitKey(0);
-
-    Mat gray = getImage();
-
-    imshow("Image", gray);
-    waitKey(0);
-
-    // Since, RGB has a range of (255, 255, 255),
-    // Scalar is an excellent way to encapsulate that.
-    Mat image2(240, 320, CV_8UC3, Scalar(0,0,255));
-
-    image1 = imread("mist.jpg", IMREAD_GRAYSCALE);
-    image1.convertTo(image2, CV_32F, 1/255.0, 0.0);
-    imshow("Image", image2);
 
     waitKey(0);
 
