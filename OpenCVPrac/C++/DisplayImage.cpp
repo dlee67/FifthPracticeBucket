@@ -17,13 +17,14 @@ int main(int argc, char** argv )
         return 0;
     }
 
-    Mat logo = imread("logo.png");
+    Mat smallLogo = imread("logo.png");
 
+    // Gotta figure this dash operator.
     Mat regionOfInterest(image, Rect(
-        image.cols-logo.cols,
-        image.rows-logo.rows,
-        logo.cols,
-        logo.rows
+        image.cols-smallLogo.cols,
+        image.rows-smallLogo.rows,
+        smallLogo.cols,
+        smallLogo.rows
     ));
 
     logo.copyTo(regionOfInterest);
