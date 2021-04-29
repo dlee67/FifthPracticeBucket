@@ -19,7 +19,8 @@ int main(int argc, char** argv )
 
     Mat smallLogo = imread("logo.png");
 
-    // Gotta figure this dash operator.
+    // 04/28/21 Gotta figure this dash operator.
+    // 04/29/21 I am an idiot, that's a minus sign.
     Mat regionOfInterest(image, Rect(
         image.cols-smallLogo.cols,
         image.rows-smallLogo.rows,
