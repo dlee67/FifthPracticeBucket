@@ -9,25 +9,27 @@ using namespace std;
 
 int main(int argc, char** argv )
 {
-    Mat image;
-    image = imread("mist.jpg");
-    resize(image, image, Size(), 0.75, 0.75);
+    namedWindow("Image");
 
-    if (image.empty()) {
+    Mat image = imread("mist.jpg");
+    Mat smallLogo = imread("logo.png");
+    Mat mask(smallLogo);
+
+    if (image.empty() || smallLogo.empty()) {
         return 0;
     }
+    
+    resize(image, image, Size(), 0.75, 0.75);
 
-    Mat smallLogo = imread("logo.png");
-
-    // Gotta figure this dash operator.
+    // 04/28/21 Gotta figure this dash operator.
+    // 04/29/21 I am an idiot, that's a minus sign.
     Mat regionOfInterest(image, Rect(
         image.cols-smallLogo.cols,
         image.rows-smallLogo.rows,
         smallLogo.cols,
         smallLogo.rows
     ));
-
-    logo.copyTo(regionOfInterest);
+    smallLogo.copyTo(regionOfInterest, mask);
 
     imshow("Image", image);
 
