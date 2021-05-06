@@ -9,6 +9,8 @@ using namespace std;
 
 class SomeClass {
     public:
+        SomeClass(int digit);
+
         void setNum(int digit);
 
         int getNum();
