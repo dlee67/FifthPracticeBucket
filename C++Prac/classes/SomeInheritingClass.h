@@ -13,9 +13,11 @@ class SomeInheritingClass : public SomeClass
         SomeInheritingClass(int digit, string someString);
         string getSomeString();
         void setSomeString(string name);
+        int getNum();
 
     private:
         string someString;
+        int num;
 };
 
 #endif

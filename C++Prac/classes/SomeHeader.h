@@ -13,7 +13,8 @@ class SomeClass {
 
         void setNum(int digit);
 
-        int getNum();
+        // This pure virtual function is what enables the polymorphism.
+        virtual int getNum() = 0;
 
     private:
         int num;

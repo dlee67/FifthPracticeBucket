@@ -14,3 +14,7 @@ string SomeInheritingClass::getSomeString() {
 void SomeInheritingClass::setSomeString(string name) {
     this->someString = name;
 }
+
+int SomeInheritingClass::getNum() {
+    return this->num;
+}

@@ -9,7 +9,3 @@ SomeClass::SomeClass(int digit) {
 void SomeClass::setNum(int digit) {
     this->num = digit;
 }
-
-int SomeClass::getNum() {
-    return this->num;
-}
