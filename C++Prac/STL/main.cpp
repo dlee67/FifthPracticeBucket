@@ -11,8 +11,8 @@ using namespace std;
 void printDeque(deque<int> deck);
 
 void fillVector(vector<int>& myVector);
-void printVector(const vector<int>& myVector);
-void countFives(const vector<int>& myVector);
+void printVector(vector<int>& myVector);
+void countFives(vector<int>& myVector);
 
 int main() {
     deque<int> myDeck;
@@ -20,8 +20,6 @@ int main() {
     myDeck.push_back(1);
     myDeck.push_back(2);
     myDeck.push_back(10);
-    printDeque(myDeck);
-
     myDeck.push_front(20);
     myDeck.push_front(30);
     printDeque(myDeck);
@@ -30,6 +28,9 @@ int main() {
     threeKingdoms["Liu"] = "Bei";
     threeKingdoms["Cao"] = "Cao";
 
+    // https://en.cppreference.com/w/cpp/utility/pair
+    // https://www.cplusplus.com/reference/map/map/
+    // Map uses pair type
     for (pair<string, string> element : threeKingdoms) {
         cout << element.first << " " << element.second << endl;
     } 
@@ -39,12 +40,12 @@ int main() {
     fillVector(myVector);
     printVector(myVector);
 
-
     countFives(myVector);
 
     cout << "Replacing 5s with 99s" << endl;
 
     // https://www.cplusplus.com/reference/algorithm/replace/
+    // Essentially, all fives here becomes 99.
     replace(myVector.begin(), myVector.end(), 5, 99);
 
     countFives(myVector);
@@ -68,7 +69,7 @@ void printDeque(deque<int> deck) {
 }
 
 void fillVector(vector<int>& myVector) {
-    srand(tm(nullptr));
+    srand(time(nullptr));
     int temp;
     for (int i = 0; i < 20; i++) {
         temp = rand() % 5 + 1;
