@@ -28,7 +28,7 @@ int main(int argc, char** argv )
         smallLogo.rows
     ));
 
-    logo.copyTo(regionOfInterest);
+    smallLogo.copyTo(regionOfInterest);
 
     imshow("Image", image);
 
