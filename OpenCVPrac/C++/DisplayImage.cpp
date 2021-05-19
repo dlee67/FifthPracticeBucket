@@ -9,6 +9,8 @@ using namespace cv;
 using namespace std;
 
 void salt(Mat image, int n) {
+	// http://www.cplusplus.com/reference/random/uniform_int_distribution/uniform_int_distribution/
+	// This works because images of OpenCV are treated like a matrix.
     default_random_engine generator;
 	uniform_int_distribution<int> randomRow(0, image.rows - 1);
 	uniform_int_distribution<int> randomCol(0, image.cols - 1);
@@ -16,20 +18,37 @@ void salt(Mat image, int n) {
 	int i,j;
 	for (int k=0; k<n; k++) {
 		// random image coordinate
-		i= randomCol(generator);
-		j= randomRow(generator);
-		if (image.type() == CV_8UC1) { // gray-level image
-			// single-channel 8-bit image
-			image.at<uchar>(j,i)= 255; 
-		} else if (image.type() == CV_8UC3) { // color image
-			// 3-channel image
-			image.at<Vec3b>(j,i)[0]= 255; 
-			image.at<Vec3b>(j,i)[1]= 255; 
-			image.at<Vec3b>(j,i)[2]= 255; 
-			// or simply:
-			// image.at<cv::Vec3b>(j, i) = cv::Vec3b(255, 255, 255);
-		}
+		i = randomCol(generator);
+		j = randomRow(generator); 
+		
+		// Assumes the image is colored (CV_8UC3).
+		// Unlike Java or Python, type must be know for everything in C++.
+		//R
+		image.at<Vec3b>(j,i)[0]= 255;
+		//G 
+		image.at<Vec3b>(j,i)[1]= 255;
+		//B
+		image.at<Vec3b>(j,i)[2]= 255;
+		// https://stackoverflow.com/questions/32190494/what-is-the-vec3b-type/32197304
+		// When it comes to interacting with colored images in OpenCV,
+		// Vec3b appears a lot because that's how RGB is interacted with. 
 	}
+}
+
+void colorReduce(Mat image, int div=64) {
+      int nl = image.rows; // number of lines
+	  // The second answer.
+	  // https://answers.opencv.org/question/7585/meaning-of-channels/#:~:text=2%20answers&text=Channels%20are%20different%20dimensions%20of,value%20for%20a%20single%20pixel.
+	  // total number of pixels per line.
+	  // https://stackoverflow.com/questions/28324125/opencv-number-of-pixels-vs-rowscolumns
+      // The above is the reason why image.col in itself isn't enough to grab all the pixels.
+	  int nc = image.cols * image.channels();
+      for (int j=0; j<nl; j++) {
+          uchar* data= image.ptr<uchar>(j);
+          for (int i=0; i<nc; i++) {
+            data[i]= data[i]/div*div + div/2;
+          }
+      }
 }
 
 int main(int argc, char** argv )
@@ -41,7 +60,8 @@ int main(int argc, char** argv )
         return 0;
     }
 
-    salt(image, 3000);
+    // salt(image, 3000);
+	colorReduce(image, 64);
 
     namedWindow("Image");
     imshow("Image", image);
