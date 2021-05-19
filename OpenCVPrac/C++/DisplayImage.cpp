@@ -44,9 +44,11 @@ void colorReduce(Mat image, int div=64) {
       // The above is the reason why image.col in itself isn't enough to grab all the pixels.
 	  int nc = image.cols * image.channels();
       for (int j=0; j<nl; j++) {
-          uchar* data= image.ptr<uchar>(j);
+		  // uchar is a data type specific to OpenCV.
+          uchar* data= image.ptr<uchar>(j); // Points at the beginning of a row.
           for (int i=0; i<nc; i++) {
-            data[i]= data[i]/div*div + div/2;
+            data[i]= data[i]/div * div + div/2; // I mean, we are just essentially changing the colors here.
+												// THe book states it as, "reducing the color."
           }
       }
 }
