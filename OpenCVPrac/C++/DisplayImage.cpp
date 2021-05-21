@@ -53,6 +53,13 @@ void colorReduce(Mat image, int div=64) {
       }
 }
 
+void combineImages(Mat imageOne, Mat imageTwo) {
+	Mat result;
+	addWeighted(imageOne, 0.7, imageTwo, 0.9, 0.0, result);
+	namedWindow("result");
+	imshow("result", result);
+}
+
 int main()
 {
     // https://docs.opencv.org/3.4/d8/d6a/group__imgcodecs__flags.html#gga61d9b0126a3e57d9277ac48327799c80af660544735200cbe942eea09232eb822
@@ -63,18 +70,12 @@ int main()
 	Mat resizedRain;
 	resize(rain, resizedRain, mist.size());
 
-	Mat result;
-	addWeighted(mist, 0.7, resizedRain, 0.5, 0.5, result);
-
-	namedWindow("result");
-	imshow("result", result); 
-
     // salt(mist, 3000);
 	// colorReduce(mist, 64);
 
     // namedWindow("mist");
     // imshow("mist", mist);
-	// combineImages(mist);
+	combineImages(mist, resizedRain);
 
     waitKey(0);
 
