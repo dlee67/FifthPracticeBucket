@@ -53,11 +53,32 @@ void colorReduce(Mat image, int div=64) {
       }
 }
 
-void combineImages(Mat imageOne, Mat imageTwo) {
+void combineImages(Mat image1, Mat image2) {
 	Mat result;
-	addWeighted(imageOne, 0.7, imageTwo, 0.9, 0.0, result);
+	addWeighted(image1, 0.7, image2, 0.9, 0.0, result);
 	namedWindow("result");
 	imshow("result", result);
+	
+	waitKey(0);
+
+	result= 0.7*image1+0.9*image2;
+	namedWindow("result with operators");
+	imshow("result with operators",result);
+
+	waitKey(0);
+
+	image2 = imread("rain.jpg", 0);
+	resize(image2, image2, image1.size());
+
+	vector<Mat> planes;
+	split(image1,planes);
+	planes[0]+= image2;
+	merge(planes,result);
+
+	namedWindow("Result on blue channel");
+	imshow("Result on blue channel",result);
+
+	waitKey(0);
 }
 
 int main()
@@ -67,6 +88,7 @@ int main()
     Mat mist = imread("mist.jpg");
 	Mat rain = imread("rain.jpg");	
 	
+	// addWeighted won't work unless two images are the same size.
 	Mat resizedRain;
 	resize(rain, resizedRain, mist.size());
 
@@ -76,8 +98,6 @@ int main()
     // namedWindow("mist");
     // imshow("mist", mist);
 	combineImages(mist, resizedRain);
-
-    waitKey(0);
 
     return 0;
 }
