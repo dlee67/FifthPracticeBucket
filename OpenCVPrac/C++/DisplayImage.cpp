@@ -61,19 +61,25 @@ void combineImages(Mat image1, Mat image2) {
 	
 	waitKey(0);
 
-	result= 0.7*image1+0.9*image2;
-	namedWindow("result with operators");
-	imshow("result with operators",result);
+	// result = 0.7 * image1 + 0.9 * image2;
+	// namedWindow("result with operators");
+	// imshow("result with operators",result);
 
-	waitKey(0);
+	// waitKey(0);
 
+	// cv::IMREAD_GRAYSCALE = 0
+	// In order to merge images, all colors must be removed.
 	image2 = imread("rain.jpg", 0);
 	resize(image2, image2, image1.size());
 
+	// https://www.pyimagesearch.com/2021/01/23/splitting-and-merging-channels-with-opencv/
+	// The above article explains split and merge in more depth.
 	vector<Mat> planes;
-	split(image1,planes);
-	planes[0]+= image2;
-	merge(planes,result);
+	split(image1, planes);
+	// Channles in OpenCV aren't arranged in RGB, but in BGR.
+	// Meaning, planes[2] would have the red channel, where we get a seg-fault if we try to go beyond that.
+	planes[0] += image2; // Remember, this works because all images are represented in mathematical matrix.
+	merge(planes, result);
 
 	namedWindow("Result on blue channel");
 	imshow("Result on blue channel",result);
