@@ -87,6 +87,40 @@ void combineImages(Mat image1, Mat image2) {
 	waitKey(0);
 }
 
+void histogramPrac(Mat src) {
+	vector<Mat> bgr_planes;
+	split(src, bgr_planes);
+
+	int histSize = 256;
+
+	float range[] = {0, 256};
+	const float* histRange = { range };
+
+	bool uniform = true; 
+	bool accumulate = false;
+
+    Mat b_hist;
+	// Blue
+    calcHist( &bgr_planes[0], 1, 0, Mat(), b_hist, 1, &histSize, &histRange, uniform, accumulate );
+
+    int hist_w = 512; 
+	int hist_h = 400;
+    int bin_w = cvRound( (double) hist_w/histSize );
+    Mat histImage( hist_h, hist_w, CV_8UC3, Scalar( 0,0,0) );
+    normalize(b_hist, b_hist, 0, histImage.rows, NORM_MINMAX, -1, Mat() );
+    
+	for( int i = 1; i < histSize; i++ )
+    {
+        line( histImage, Point( bin_w*(i-1), hist_h - cvRound(b_hist.at<float>(i-1)) ),
+              Point( bin_w*(i), hist_h - cvRound(b_hist.at<float>(i)) ),
+              Scalar( 255, 0, 0), 2, 8, 0  );
+    }
+
+    imshow("Source image", src );
+    imshow("calcHist Demo", histImage );
+    waitKey();
+}
+
 int main()
 {
     // https://docs.opencv.org/3.4/d8/d6a/group__imgcodecs__flags.html#gga61d9b0126a3e57d9277ac48327799c80af660544735200cbe942eea09232eb822
@@ -103,7 +137,8 @@ int main()
 
     // namedWindow("mist");
     // imshow("mist", mist);
-	combineImages(mist, resizedRain);
+	// combineImages(mist, resizedRain);
+	histogramPrac(mist);
 
     return 0;
 }
