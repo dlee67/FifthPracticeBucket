@@ -87,33 +87,40 @@ void combineImages(Mat image1, Mat image2) {
 	waitKey(0);
 }
 
+// https://www.khanacademy.org/math/statistics-probability/displaying-describing-data/quantitative-data-graphs/a/histograms-review#:~:text=A%20histogram%20displays%20numerical%20data,%22%2C%20or%20%22buckets%22.
+// https://hub.packtpub.com/basics-image-histograms-opencv/#:~:text=The%20data%2C%20in%20this%20case,counts%20along%20the%20y%20axis.
 void histogramPrac(Mat src) {
 	vector<Mat> bgr_planes;
 	split(src, bgr_planes);
 
 	int histSize = 256;
-
 	float range[] = {0, 256};
 	const float* histRange = { range };
 
-	bool uniform = true; 
-	bool accumulate = false;
-
     Mat b_hist;
-	// Blue
-    calcHist( &bgr_planes[0], 1, 0, Mat(), b_hist, 1, &histSize, &histRange, uniform, accumulate );
+	// https://docs.opencv.org/3.4/d6/dc7/group__imgproc__hist.html#ga4b2b5fd75503ff9e6844cc4dcdaed35d
+	// histSize dictates the number of histogram bins to use for each channel.
+	// histRange is literally the range, the maximum y-axis. 
+    calcHist( &bgr_planes[0], 1, 0, Mat(), 
+		b_hist, // The output. 
+		1, &histSize, &histRange);
 
     int hist_w = 512; 
 	int hist_h = 400;
-    int bin_w = cvRound( (double) hist_w/histSize );
+	// https://docs.opencv.org/3.4/db/de0/group__core__utils.html#ga085eca238176984a0b72df2818598d85
+    int bin_w = cvRound( (double) hist_w/histSize ); // Literally, cvRound "floors" the value.
+	
     Mat histImage( hist_h, hist_w, CV_8UC3, Scalar( 0,0,0) );
+	// This I don't get.
     normalize(b_hist, b_hist, 0, histImage.rows, NORM_MINMAX, -1, Mat() );
     
 	for( int i = 1; i < histSize; i++ )
     {
-        line( histImage, Point( bin_w*(i-1), hist_h - cvRound(b_hist.at<float>(i-1)) ),
-              Point( bin_w*(i), hist_h - cvRound(b_hist.at<float>(i)) ),
-              Scalar( 255, 0, 0), 2, 8, 0  );
+		// https://docs.opencv.org/master/d6/d6e/group__imgproc__draw.html#ga7078a9fae8c7e7d13d24dac2520ae4a2
+        line(histImage, 
+			Point(bin_w*(i-1), hist_h - cvRound(b_hist.at<float>(i-1))), // First point of the line segment.
+            Point(bin_w*(i), hist_h - cvRound(b_hist.at<float>(i))), // The second.
+            Scalar(255, 0, 0));
     }
 
     imshow("Source image", src );
