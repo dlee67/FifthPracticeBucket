@@ -9,6 +9,8 @@
 /home/bob/Desktop/FifthPracticeBucket/OpenCVPrac/C++/DisplayImage.cpp
 iostream
 -
+random
+-
 opencv2/core.hpp
 -
 opencv2/highgui.hpp
