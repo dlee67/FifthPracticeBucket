@@ -11,7 +11,19 @@ waitforbuttonpress;
 
 img = imread('CrayOne.jpg');
 imshow(img);
+
+% Notice how it prints out three numbers
+% The first two are the eight and width
+% the third one is the number of color planes and channels in the image.
 disp("CrayOne image size: " + size(img));
+
+waitforbuttonpress;
+
+img_red = img(:, :, 1);
+% Portions with higher red values will be displayed brighter.
+imshow(img_red);
+% This in itself is a channel.
+disp(size(img_red))
 
 waitforbuttonpress;
 
