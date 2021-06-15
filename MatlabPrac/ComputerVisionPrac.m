@@ -9,7 +9,7 @@ disp(img(101:103, 201:203));
 
 waitforbuttonpress;
 
-img = imread('CrayOne.jpg');
+img = imread('CrayOne.png');
 imshow(img);
 
 % Notice how it prints out three numbers
@@ -32,3 +32,14 @@ imshow(cropped);
 % Notice how the height and width are one off from the ranges we've
 % selected, that is because ranges are inclusive in Matlab.
 disp("CrayOne's cropped image size: " + size(cropped));
+
+img = imread('Ramen.png');
+imgResz = imresize(img, [500, 500]);
+img2 = imread('CrayOne.png');
+img2Resz = imresize(img2, [500, 500]);
+
+% Notice how this is a classic matrix addition.
+summedImage = imgResz + img2Resz;
+
+imshow(summedImage);
+waitforbuttonpress;
