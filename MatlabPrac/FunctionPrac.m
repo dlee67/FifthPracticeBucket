@@ -12,6 +12,9 @@ crayResized = imresize(cray, [500, 500]);
 result = blend(ramenResized, crayResized, 0.5);
 imshow(result);
 
+% One row Five columns
+some_number = randn([1 5]);
+
 function result = scale(img, value)
     result = value .* img; % .* ensures an element-wise multiplecation
     % meaning, a regular scalar multiplecation.

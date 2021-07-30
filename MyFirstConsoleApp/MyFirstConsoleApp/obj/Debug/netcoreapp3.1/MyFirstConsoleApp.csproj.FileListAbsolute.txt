@@ -1,0 +1,13 @@
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\bin\Debug\netcoreapp3.1\MyFirstConsoleApp.exe
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\bin\Debug\netcoreapp3.1\MyFirstConsoleApp.deps.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\bin\Debug\netcoreapp3.1\MyFirstConsoleApp.runtimeconfig.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\bin\Debug\netcoreapp3.1\MyFirstConsoleApp.runtimeconfig.dev.json
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\bin\Debug\netcoreapp3.1\MyFirstConsoleApp.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\bin\Debug\netcoreapp3.1\MyFirstConsoleApp.pdb
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\obj\Debug\netcoreapp3.1\MyFirstConsoleApp.csprojAssemblyReference.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\obj\Debug\netcoreapp3.1\MyFirstConsoleApp.AssemblyInfoInputs.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\obj\Debug\netcoreapp3.1\MyFirstConsoleApp.AssemblyInfo.cs
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\obj\Debug\netcoreapp3.1\MyFirstConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\obj\Debug\netcoreapp3.1\MyFirstConsoleApp.dll
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\obj\Debug\netcoreapp3.1\MyFirstConsoleApp.pdb
+C:\Users\keybo\OneDrive\Desktop\FifthPracticeBucket\MyFirstConsoleApp\MyFirstConsoleApp\obj\Debug\netcoreapp3.1\MyFirstConsoleApp.genruntimeconfig.cache

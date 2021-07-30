@@ -1,3 +1,5 @@
+from functools import cmp_to_key
+
 unsortedList = [7, 2, 3, 1, 0, 9, 10]
 x = lambda a : a + 10
 
@@ -24,3 +26,13 @@ https://docs.python.org/3/howto/sorting.html
 
 This is super trippy.
 '''
+
+def comparator(a, b):
+    print("Comparing a: ", a, " with b: ", b)
+    if a + b < b + a:
+        return 1
+    else:
+        return -1
+
+unsortedList = [7, 2, 3, 1, 0, 9, 10]
+sorted_nums = sorted(unsortedList, key=cmp_to_key(comparator))
