@@ -10,6 +10,7 @@ joinButton.addEventListener("click", function() {
     if (roomInput.value == "") {
         alert("Please enter a room name")
     } else {
+        // https://socket.io/docs/v4/emitting-events/
         socket.emit("join", roomInput.value)
         navigator.getUserMedia(
             {
