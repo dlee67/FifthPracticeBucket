@@ -24,13 +24,35 @@ io.on("connection", function(socket) {
         if (room == undefined) {
             // https://socket.io/docs/v3/rooms/index.html
             socket.join(roomName)
-            console.log("Room created")
+            // https://socket.io/docs/v4/emitting-events/
+            socket.emit("created")
         } else if (room.size == 1) {
             socket.join(roomName)
-            console.log("Room joined")
+            socket.emit("joined")
         } else {
-            console.log("Room Full for now")
+            socket.emit("full")
         }
         console.log(rooms)
+    })
+
+    // Following the pattern of creating signaling server.
+    socket.on("ready", function (roomName) {
+        console.log("Ready")
+        socket.broadcast.to(roomName).emit("ready")
+    })
+
+    socket.on("candidate", function(candidate, roomName) {
+        console.log("candidate")
+        socket.broadcast.to(roomName).emit("candidate", candidate)
+    })
+    
+    socket.on("offer", function (offer, roomName) {
+        console.log("offer")
+        socket.broadcast.to(roomName).emit("offer", offer)
+    })
+
+    socket.on("answer", function (candidate, roomName) {
+        console.log("answer")
+        socket.broadcast.to(roomName).emit("answer", candidate)
     })
 })
