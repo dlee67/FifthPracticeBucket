@@ -7,6 +7,14 @@ var peerVideo = document.getElementById("peer-video");
 var roomInput = document.getElementById("roomName");
 var roomName = roomInput.value
 var creator = false
+var rtcPeerConnection
+
+var iceServers = {
+    iceServers: [
+        { urls: "stun:stun.services.mozilla.com"},
+        { urls: "stun1.l.google.com:19302"}
+    ],
+}
 
 joinButton.addEventListener("click", function() {
     if (roomInput.value == "") {
@@ -27,12 +35,7 @@ socket.on("created", function(){
         video: true,
     })
     .then(function (stream){
-        userStream = stream
         divVideoChatLobby.style = "display:none"
-        userVideo.srcObject = stream;
-        userVideo.onloadedmetadata = function(e) {
-            userVideo.play()
-        };
     })
     .catch(function(err) {
         alert("Couldn't Access User Media")
@@ -63,7 +66,26 @@ socket.on("joined", function(){
 socket.on("full", function(){
     alert("Room is full, can't join")
 })
-socket.on("ready", function(){})
+socket.on("ready", function(){
+    if(creator) {
+        rtcPeerConnection = new RTCPeerConnection(iceServers)
+        rtcPeerConnection.onicecandidate = OnIceCandidateFunction
+        rtcPeerConnection.ontrack = OnTrackFunction
+    }
+})
 socket.on("candidate", function(){})
 socket.on("offer", function(){})
 socket.on("answer", function(){})
+
+function OnIceCandidateFunction(event) {
+    if(event.candidate) {
+        socket.emit("candidate", event.candidate, roomName)
+    }
+}
+
+function OnTrackFunction(event) {
+    peerVideo.srcObject = event.streams[0];
+    peerVideo.onloadedmetadata = function(e) {
+        peerVideo.play()
+    };
+}
