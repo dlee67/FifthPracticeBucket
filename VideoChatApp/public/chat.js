@@ -19,44 +19,47 @@ joinButton.addEventListener("click", function() {
 // Only the user that initially created the room will emit this signal.
 socket.on("created", function(){
     creator = true
-    navigator.getUserMedia(
-        {
-            // In all obviousness, when the audio: false, then, you don't get any sounds during the video chat.
-            audio: true,
-            video: true,
-        },
-        function(stream) {
-            divVideoChatLobby.style = "display:none"
-            userVideo.srcObject = stream;
-            userVideo.onloadedmetadata = function(e) {
-                userVideo.play()
-            };
-        },
-        function() {
-            alert("Couldn't Access User Media")
-        }
-    )
+
+    navigator.mediaDevices
+    .getUserMedia({
+        // In all obviousness, when the audio: false, then, you don't get any sounds during the video chat.
+        audio: true,
+        video: true,
+    })
+    .then(function (stream){
+        userStream = stream
+        divVideoChatLobby.style = "display:none"
+        userVideo.srcObject = stream;
+        userVideo.onloadedmetadata = function(e) {
+            userVideo.play()
+        };
+    })
+    .catch(function(err) {
+        alert("Couldn't Access User Media")
+    })
 })
+
 socket.on("joined", function(){
     creator = false
-    navigator.getUserMedia(
-        {
-            // In all obviousness, when the audio: false, then, you don't get any sounds during the video chat.
-            audio: true,
-            video: true,
-        },
-        function(stream) {
-            divVideoChatLobby.style = "display:none"
-            userVideo.srcObject = stream;
-            userVideo.onloadedmetadata = function(e) {
-                userVideo.play()
-            };
-        },
-        function() {
-            alert("Couldn't Access User Media")
-        }
-    )
+    navigator.mediaDevices
+    .getUserMedia({
+        // In all obviousness, when the audio: false, then, you don't get any sounds during the video chat.
+        audio: true,
+        video: true,
+    })
+    .then(function(stream) {
+        userStream = stream
+        divVideoChatLobby.style = "display:none"
+        userVideo.srcObject = stream;
+        userVideo.onloadedmetadata = function(e) {
+            userVideo.play()
+        };
+    })
+    .catch(function(err) {
+        alert("Couldn't Access User Media")
+    });
 })
+
 socket.on("full", function(){
     alert("Room is full, can't join")
 })
