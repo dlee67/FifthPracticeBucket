@@ -8,11 +8,12 @@ var roomInput = document.getElementById("roomName");
 var roomName = roomInput.value
 var creator = false
 var rtcPeerConnection
+var userStream
 
 var iceServers = {
     iceServers: [
         { urls: "stun:stun.services.mozilla.com"},
-        { urls: "stun1.l.google.com:19302"}
+        { urls: "stun:stun1.l.google.com:19302"}
     ],
 }
 
@@ -35,7 +36,12 @@ socket.on("created", function(){
         video: true,
     })
     .then(function (stream){
+        userStream = stream
         divVideoChatLobby.style = "display:none"
+        userVideo.srcObject = stream;
+        userVideo.onloadedmetadata = function(e) {
+            userVideo.play()
+        };
     })
     .catch(function(err) {
         alert("Couldn't Access User Media")
@@ -71,11 +77,45 @@ socket.on("ready", function(){
         rtcPeerConnection = new RTCPeerConnection(iceServers)
         rtcPeerConnection.onicecandidate = OnIceCandidateFunction
         rtcPeerConnection.ontrack = OnTrackFunction
+        rtcPeerConnection.addTrack(userStream.getTracks()[0], userStream)
+        rtcPeerConnection.addTrack(userStream.getTracks()[1], userStream)
+        // https://webrtc.org/getting-started/peer-connections-advanced
+        rtcPeerConnection.createOffer().then(offer => {
+            rtcPeerConnection.setLocalDescription(offer)
+            socket.emit("offer", offer, roomName)
+        });
+        // The below is used in the tutorial, but the function is deprecated.
+        // rtcPeerConnection.createOffer(function(offer){
+        //     socket.emit("offer", offer, roomName)
+        // }, function(error){
+        //     console.log(error)
+        // })
     }
 })
-socket.on("candidate", function(){})
-socket.on("offer", function(){})
-socket.on("answer", function(){})
+socket.on("candidate", function(candidate){
+    var icecandidate = new RTCPeerConnection(candidate)
+    rtcPeerConnection.addIceCandidate(icecandidate)
+})
+
+socket.on("offer", function(offer){
+    if(!creator) {
+        rtcPeerConnection = new RTCPeerConnection(iceServers)
+        rtcPeerConnection.onicecandidate = OnIceCandidateFunction
+        rtcPeerConnection.ontrack = OnTrackFunction
+        rtcPeerConnection.addTrack(userStream.getTracks()[0], userStream)
+        rtcPeerConnection.addTrack(userStream.getTracks()[1], userStream)
+        rtcPeerConnection.setRemoteDescription(offer);
+        // https://webrtc.org/getting-started/peer-connections-advanced
+        rtcPeerConnection.createAnswer().then(answer => {
+            rtcPeerConnection.setLocalDescription(answer)
+            socket.emit("answer", answer, roomName)
+        });
+    }
+})
+socket.on("answer", function(answer, roomName){
+    rtcPeerConnection.setRemoteDescription(answer);  
+    socket.broadcast.to(roomName).emit("answer", answer)
+})
 
 function OnIceCandidateFunction(event) {
     if(event.candidate) {
