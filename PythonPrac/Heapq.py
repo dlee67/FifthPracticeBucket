@@ -8,5 +8,13 @@ print(collection)
 print(heapq.heappop(collection))
 # Returns 3
 
-# Python doesn't have a max=heap, I have to use this thing called PriorityQueue.
+# Python doesn't have a max heap, I have to something funky with it.
 # https://stackoverflow.com/questions/48255849/how-to-get-the-max-heap-in-python
+
+'''
+Considering how I need to do something like the below,
+I think it's just better to use PriorityQueue if I need a max heap. 
+'''
+# heap = []
+# for num, c in count.items():
+#   heap.append((-c, num))
