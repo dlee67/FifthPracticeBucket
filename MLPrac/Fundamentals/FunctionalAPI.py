@@ -13,8 +13,9 @@ x = layers.Conv2D(filters=32, kernel_size=3, activation="relu")(inputs)
 # https://www.quora.com/What-is-max-pooling-in-convolutional-neural-networks
 # This is something that even some PhD students are having hard time completely understanding it.
 x = layers.MaxPooling2D(pool_size=2)(x)
+# The app will not work is Flatten is not called on the layers.
 x = layers.Flatten()(x)
-# FOr some strange reasons, this app will not work if the units is less than 10 (the first argument).
+# For some strange reasons, this app will not work if the units is less than 10 (the first argument).
 outputs = layers.Dense(10, activation="softmax")(x)
 model = keras.Model(inputs=inputs, outputs=outputs)
 
