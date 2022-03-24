@@ -10,11 +10,20 @@ export class AppComponent {
   title = 'myHighChartsApp';
   highcharts = Highcharts;
   // https://stackblitz.com/edit/highcharts-angular-basic-line-dpqftl
+  // https://www.highcharts.com/forum/viewtopic.php?t=35278
+  // In order to embedd a button inside a highchart, you have to "workaround it."
+  // https://www.highcharts.com/docs/stock/stock-tools
+  // Highchart has something called stock.
+  // https://shop.highcharts.com/?_ga=2.12476148.1790198598.1648109225-758429516.1648109225
+  // Uhh ... is this something you have to pay?
   data1 = [500, 700, 555, 444, 777, 877, 944, 567, 666, 789, 456, 654];
   data2 = [677, 455, 677, 877, 455, 778, 888, 567, 785, 488, 567, 654];
   name1= "ItSolutionStuff.com";
 
   chartOptions: Highcharts.Options = {
+    chart: {
+      zoomType: 'xy'
+    },
     title: {
       text: "Monthly Site Visitor"
     },
