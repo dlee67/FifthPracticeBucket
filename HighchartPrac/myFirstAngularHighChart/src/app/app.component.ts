@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
+// These four lines are what's creating the hamburger dropdown.
+import HC_exporting from 'highcharts/modules/exporting';
+import HC_FullScreen from 'highcharts/modules/full-screen';
+HC_exporting(Highcharts);
+HC_FullScreen(Highcharts);
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
