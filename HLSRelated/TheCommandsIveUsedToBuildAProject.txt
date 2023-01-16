@@ -1,3 +1,6 @@
+There is this weird problem where environmental variables don't get set propery if you just run the script; 
+thus, you have cat them (or just copy from the file) and excute the script line by line. 
+
 The options of the v++ are all here:
 https://docs.xilinx.com/r/en-US/ug1393-vitis-application-acceleration/v-Command
 
