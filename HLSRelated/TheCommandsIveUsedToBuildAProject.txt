@@ -1,0 +1,51 @@
+The options of the v++ are all here:
+https://docs.xilinx.com/r/en-US/ug1393-vitis-application-acceleration/v-Command
+
+# Makes an .xo file.
+# -c stands for --compile
+# -k in all obviousness, -k stands for kernel.
+# -I stands for --include
+# -o stands for --output
+v++ --target hw --platform xilinx_u50_gen3x16_xdma_5_202210_1 -c -k vadd \
+-I'./src' -o'vadd.hw.xo' ./src/vadd.cpp
+
+So the verbose form of the command directly above would be: 
+v++ --target hw --platform xilinx_u50_gen3x16_xdma_5_202210_1 --compile --kernel vadd \
+--include './src' --output 'vadd.hw.xo' ./src/vadd.cpp
+
+# --save-temps directs the v++ command to save intermediate files/directories created during the compilation and link process. 
+# Use the --temp_dir option to specify a location to write the intermediate files to.
+# Meaning, you don't need to use the --save-temps.
+v++ -t hw --platform xilinx_u50_gen3x16_xdma_5_202210_1 --save-temps -c -k vadd -I'src' -o'./vadd.xo' 'src/vadd.cpp'
+
+# -l stands for --link
+v++ -t hw --platform xilinx_u50_gen3x16_xdma_5_202210_1 --save-temps -l -o'./vadd.link.xclbin' ./vadd.xo
+
+# --package.out_dir
+# Where <arg> specifies the absolute or relative path to the output directory of the --package command. 
+# The default output directory is the directory from which the Vitis compiler is launched.
+# Once again, this is something that's not required.
+# -p | --package
+# Specify options for the Vitis compiler to package your design for either running emulation or running on hardware. See --package Options for more information.
+v++ -p ./vadd.link.xclbin -t hw --platform xilinx_u50_gen3x16_xdma_5_202210_1 --save-temps --package.out_dir ./package.hw -o ./vadd.xclbin
+
+# The "-l" in front of the options explained:
+# https://stackoverflow.com/questions/36539871/difference-between-lstdc-and-lstdc11
+# Explanation of the -pthread option is here.
+# https://stackoverflow.com/questions/2679885/using-pthread-in-c
+# -lOpenCL <- As expected, it enables us to use the OpenCL library; however, looks like I don't need to use it to use the hello_world_xrt tutorial.
+# https://ulhpc-tutorials.readthedocs.io/en/latest/gpu/opencl/
+# -lrt
+# https://stackoverflow.com/questions/36551848/what-is-purpose-of-lrt-option
+# This command is quite unclear.
+# -lstdc++
+# Links the C++ standard library.
+# -luuid
+# https://www.boost.org/doc/libs/1_73_0/libs/uuid/doc/uuid.html
+# I believe the UUID being mentioned here is what's being used.
+# -lxrt_coreutil
+# Self explanatory.
+g++ -o hello_world_xrt /home/lee2/Vitis_Accel_Examples/common/includes/cmdparser/cmdlineparser.cpp \
+/home/lee2/Vitis_Accel_Examples/common/includes/logger/logger.cpp src/host.cpp -I/opt/xilinx/xrt/include -I/tools/Xilinx/Vivado/2022.1/include \
+-Wall -O0 -g -std=c++1y -I/home/lee2/Vitis_Accel_Examples/common/includes/cmdparser -I/home/lee2/Vitis_Accel_Examples/common/includes/logger \
+-fmessage-length=0 -L/opt/xilinx/xrt/lib -pthread -lOpenCL -lrt -lstdc++  -luuid -lxrt_coreutil
