@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ng-deployment-example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simple-ng
+      environment: test
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: simple-ng
+        environment: test
+    spec:
+      containers:
+      - name: simple-ng
+        image: username719/getting-started:latest
+        ports:
+        - containerPort: 80

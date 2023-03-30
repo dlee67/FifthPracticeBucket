@@ -38,19 +38,36 @@ func main() {
 	pod := getPodObject()
 
 	// now create the pod in kubernetes cluster using the clientset
+	// https://pkg.go.dev/context
+	// I am guessing context is like a semaphor?
+	// https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1
 	pod, err = clientset.CoreV1().Pods(pod.Namespace).Create(context.TODO(), pod, metav1.CreateOptions{})
 	if err != nil {
 		panic(err)
 	}
 	fmt.Println("Pod created successfully...")
 
-	err = clientset.CoreV1().Pods(pod.Namespace).Delete(context.TODO(), pod.Name, metav1.DeleteOptions{})
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("Pod delete successfully...")
+	// err = clientset.CoreV1().Pods(pod.Namespace).Delete(context.TODO(), pod.Name, metav1.DeleteOptions{})
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Println("Pod delete successfully...")
 }
 
+// Referring the book: "Kubernetes Programming with Go: Programming Kubernetes Clients and Operators Using Go and the Kubernetes API"
+// The ObjectMeta structure is defined as follows (deprecated fields as well as internal fields have been removed):
+// Type ObjectMeta {
+//     Name                string
+//     GenerateName        string
+//     Namespace           string
+//     UID                 types.UID
+//     ResourceVersion     string
+//     Generation          int64
+//     Labels              map[string]string
+//     Annotations         map[string]string
+//     OwnerReferences     []OwnerReference
+//     [...]
+// }
 func getPodObject() *core.Pod {
 	return &core.Pod{
 		ObjectMeta: metav1.ObjectMeta{
@@ -63,13 +80,9 @@ func getPodObject() *core.Pod {
 		Spec: core.PodSpec{
 			Containers: []core.Container{
 				{
-					Name:            "busybox",
-					Image:           "busybox",
+					Name: "your-cave",
+					Image: "nginx",
 					ImagePullPolicy: core.PullIfNotPresent,
-					Command: []string{
-						"sleep",
-						"3600",
-					},
 				},
 			},
 		},
