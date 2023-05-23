@@ -13,31 +13,34 @@
 <script>
   var Module = {
     onRuntimeInitialized: function() {
-      console.log('lerp: ' + Module.lerp(5.0, 5.0, 5.0));
-      console.log('WASM gave me string: ' + Module.getHello());
-      console.log('WASM bool: ' + Module.flipBool(false));
-      var retVector = Module['returnVectorData']();
-      var vectorSize = retVector.size();
-      var wasmSumUp = Module.cwrap('sum_up', 'number', ['array', 'number'])
-
+      // var wasmSumUp = Module.cwrap('sum_up', 'number', ['array', 'number'])
+      var wasmSumUp = Module.cwrap('sum_up', 'number', ['array'])
+      
       // This is actually pointless, where these Stackoverflow post
       // explains why this is: 
       // https://stackoverflow.com/questions/41875728/pass-a-javascript-array-as-argument-to-a-webassembly-function
       // https://stackoverflow.com/questions/41353389/how-can-i-return-a-javascript-string-from-a-webassembly-function
-      var becauseWasm = new Uint8Array(3);
-      becauseWasm[0] = 1;
-      becauseWasm[1] = 2;
-      becauseWasm[3] = 3;
+      // var becauseWasm = new Uint8Array(3);
+      // becauseWasm[0] = 1;
+      // becauseWasm[1] = 2;
+      // becauseWasm[3] = 3;
+      
+      var arr = Uint8Array.from({ length: 1000 }, () => 1);
 
-      retVector.set(vectorSize - 1, 11);
-      retVector.push_back(12);
-      for (var i = 0; i < retVector.size(); i++) {
-        console.log("Vector Value: ", retVector.get(i));
-      }
+      // console.time()
+      // console.log(
+        // The below will return some giberish.
+      //   wasmSumUp(becauseWasm, 3)
+      // );
+      // console.time()
+
+      console.time()
       console.log(
         // The below will return some giberish.
-        wasmSumUp(becauseWasm, 3)
+        wasmSumUp(arr)
       );
+      console.timeEnd()
+      clearTimeout('default');
     },
     // Turns out, I don't need the below.
     locateFile: function(s) {

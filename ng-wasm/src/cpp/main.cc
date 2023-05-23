@@ -36,13 +36,15 @@ std::string getHello() {
 }
 
 extern "C" {
-  int sum_up(int vals[], int size);
+  int sum_up(int vals[]);
 }
-int EMSCRIPTEN_KEEPALIVE sum_up(int vals[], int size) {
+int EMSCRIPTEN_KEEPALIVE sum_up(int vals[]) {
+
   int res = 0;
-  for(int i=0; i<size; i++) {
-    res += vals[i];
+  for(int i=0; i<10000000; i++) {
+    res += 1;
   }
+
   return res;
 }
 
@@ -62,6 +64,7 @@ EMSCRIPTEN_BINDINGS(module) {
   emscripten::register_vector<int>("vector<int>");
 }
 
+<<<<<<< HEAD
 EMSCRIPTEN_BINDINGS(lerp_module) {
     emscripten::function("lerp", &lerp);
 }
