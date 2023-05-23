@@ -21,7 +21,7 @@ export class AppComponent {
         this.getLengthResult = Module.get_length(s);
     }
 
-    sumOneMill(): void {
+    sumOneMillJS(): void {
         console.time()
         let res = 0;
         for (let i = 0; i < 10000000; i++) {
@@ -31,6 +31,8 @@ export class AppComponent {
     }
 
     sumOneMillWASM(): void {
-        Module.sumOneMillCpp();
+        console.time()
+        Module.sumonemill();
+        console.timeEnd()
     }
 }

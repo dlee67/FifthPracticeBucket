@@ -12,6 +12,13 @@ double multiply(double a, double b) {
     return a * b;
 }
 
+void sumonemill(){
+  int res = 0;
+  for (int i = 0; i < 10000000; i++) {
+      res += 1;
+  }
+}
+
 float lerp(float a, float b, float t) {
     return (1 - t) * a + t * b;
 }
@@ -61,6 +68,10 @@ EMSCRIPTEN_BINDINGS(lerp_module) {
 
 EMSCRIPTEN_BINDINGS(multiply_module) {
     emscripten::function("multiply", &multiply);
+}
+
+EMSCRIPTEN_BINDINGS(sumonemill_module) {
+    emscripten::function("sumonemill", &sumonemill);
 }
 
 EMSCRIPTEN_BINDINGS(get_length_module) {
