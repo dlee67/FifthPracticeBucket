@@ -20,4 +20,17 @@ export class AppComponent {
         console.log('WASM bool: ' + Module.flipBool(false));
         this.getLengthResult = Module.get_length(s);
     }
+
+    sumOneMill(): void {
+        console.time()
+        let res = 0;
+        for (let i = 0; i < 10000000; i++) {
+            res += 1
+        }
+        console.timeEnd();
+    }
+
+    sumOneMillWASM(): void {
+        Module.sumOneMillCpp();
+    }
 }
