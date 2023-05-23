@@ -8,34 +8,16 @@
 
 using namespace emscripten;
 
-double multiply(double a, double b) {
-    return a * b;
-}
-
-float lerp(float a, float b, float t) {
-    return (1 - t) * a + t * b;
-}
-
-int get_length(std::string text) {
-    return text.length();
-}
-
-bool flipBool(bool someBool) {
-  return !someBool;
-}
-
-std::string getHello() {
-  return "Hello, WASM ...";
-}
-
 extern "C" {
-  int sum_up(int vals[], int size);
+  int sum_up(int vals[]);
 }
-int EMSCRIPTEN_KEEPALIVE sum_up(int vals[], int size) {
+int EMSCRIPTEN_KEEPALIVE sum_up(int vals[]) {
+
   int res = 0;
-  for(int i=0; i<size; i++) {
-    res += vals[i];
+  for(int i=0; i<10000000; i++) {
+    res += 1;
   }
+
   return res;
 }
 
@@ -55,25 +37,6 @@ EMSCRIPTEN_BINDINGS(module) {
   emscripten::register_vector<int>("vector<int>");
 }
 
-EMSCRIPTEN_BINDINGS(lerp_module) {
-    emscripten::function("lerp", &lerp);
-}
-
-EMSCRIPTEN_BINDINGS(multiply_module) {
-    emscripten::function("multiply", &multiply);
-}
-
-EMSCRIPTEN_BINDINGS(get_length_module) {
-    emscripten::function("get_length", &get_length);
-}
-
-EMSCRIPTEN_BINDINGS(get_string_module) {
-    emscripten::function("getHello", &getHello);
-}
-
-EMSCRIPTEN_BINDINGS(bool_module) {
-  emscripten::function("flipBool", flipBool);
-}
 // If I am using a cwrap for sum_up, this becomes pointless.
 // Besides: https://stackoverflow.com/questions/20355880/emscripten-how-can-i-solve-unboundtypeerror
 // It won't work anyway.
