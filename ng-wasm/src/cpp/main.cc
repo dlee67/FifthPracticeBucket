@@ -64,7 +64,6 @@ EMSCRIPTEN_BINDINGS(module) {
   emscripten::register_vector<int>("vector<int>");
 }
 
-<<<<<<< HEAD
 EMSCRIPTEN_BINDINGS(lerp_module) {
     emscripten::function("lerp", &lerp);
 }
