@@ -9,18 +9,18 @@ declare var Module: any;
 })
 export class AppComponent {
     public arr = Uint8Array.from({ length: 1000 }, () => 1);
-    // multiplyResult: number;
-    // getLengthResult: number;
+    multiplyResult: number;
+    getLengthResult: number;
 
-    // multiply(a: number, b: number): void {
-    //     this.multiplyResult = Module.multiply(a, b);
-    // }
+    multiply(a: number, b: number): void {
+        this.multiplyResult = Module.multiply(a, b);
+    }
 
-    // getLength(s: string): void {
-    //     console.log('WASM gave me string: ' + Module.getHello());
-    //     console.log('WASM bool: ' + Module.flipBool(false));
-    //     this.getLengthResult = Module.get_length(s);
-    // }
+    getLength(s: string): void {
+        console.log('WASM gave me string: ' + Module.getHello());
+        console.log('WASM bool: ' + Module.flipBool(false));
+        this.getLengthResult = Module.get_length(s);
+    }
 
     sum_up_js(): number {
         console.time()
