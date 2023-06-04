@@ -1,0 +1,6 @@
+apiVersion: "small.example.com/v1"
+kind: Mock
+metadata:
+  name: my-new-mock-object
+spec:
+  foo: "abc"

@@ -17,9 +17,11 @@ spec:
         openAPIV3Schema:
           type: object
           properties:
-            foo:
-              type: string
-              pattern: "abc"
+            spec:
+              type: object
+              properties:
+                foo:
+                  type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:
