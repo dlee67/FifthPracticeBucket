@@ -1,12 +1,19 @@
 #include <emscripten.h>
 #include <emscripten/bind.h>
+#include <emscripten/emscripten.h>
 #include <string>
 #include <vector>
+#include <iostream>
+
+struct StringNNumber {
+    std::string label;
+    int num;
+};
+
+std::map<int, std::string> m;
 
 //https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#built-in-type-conversions
 //Has a complete list of types that I can use.
-#include <iostream>
-#include <vector>
 
 double multiply(double a, double b) {
     return a * b;
@@ -29,6 +36,12 @@ float findLargestFloat(const std::vector<float>& array) {
     return largest;
 }
 
+std::map<int, std::string> returnMapData (int number, std::string someString) {
+  std::map<int, std::string> m;
+  m.insert(std::pair<int, std::string>(number, someString));
+  return m;
+}
+
 EMSCRIPTEN_BINDINGS(floatmax_wrappers) {
     emscripten::register_vector<float>("VectorFloat");
     emscripten::function("findLargestFloat", &findLargestFloat);
@@ -40,4 +53,9 @@ EMSCRIPTEN_BINDINGS(multiply_module) {
 
 EMSCRIPTEN_BINDINGS(sumonemill_module) {
     emscripten::function("sumonemill", &sumonemill);
+}
+
+EMSCRIPTEN_BINDINGS(interface_mock) {
+    emscripten::function("returnMapData", &returnMapData);
+    emscripten::register_map<int, std::string>("map<int, string>");
 }
