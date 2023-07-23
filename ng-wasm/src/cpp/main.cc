@@ -12,6 +12,122 @@ struct StringNNumber {
 
 std::map<int, std::string> m;
 
+const int size = 560;
+float myFloatArray[size] = {
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+    1.1f, 2.2f, 3.3f, 4.4f, 5.5f,
+};
+
 //https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#built-in-type-conversions
 //Has a complete list of types that I can use.
 
@@ -26,11 +142,11 @@ void sumonemill(){
   }
 }
 
-float findLargestFloat(const std::vector<float>& array) {
-    float largest = array[0];
-    for (size_t i = 1; i < array.size(); ++i) {
-        if (array[i] > largest) {
-            largest = array[i];
+float findLargestFloat() {
+    float largest = myFloatArray[0];
+    for (size_t i = 1; i < size; ++i) {
+        if (myFloatArray[i] > largest) {
+            largest = myFloatArray[i];
         }
     }
     return largest;
@@ -43,8 +159,7 @@ std::map<int, std::string> returnMapData (int number, std::string someString) {
 }
 
 EMSCRIPTEN_BINDINGS(floatmax_wrappers) {
-    emscripten::register_vector<float>("VectorFloat");
-    emscripten::function("findLargestFloat", &findLargestFloat);
+    emscripten::function("findLargestFloat", &findLargestFloat, emscripten::allow_raw_pointer<float>());
 }
 
 EMSCRIPTEN_BINDINGS(multiply_module) {
