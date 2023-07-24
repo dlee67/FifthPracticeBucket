@@ -188,8 +188,7 @@ export class AppComponent {
     //     console.log("lol", someNum);
     // }
 
-    populateMap(): void {
-        let someVar = Module.returnMapData(1, 'one');
-        console.log(someVar.get(1));
+    populate(): void {
+        Module.populate();
     }
 }
