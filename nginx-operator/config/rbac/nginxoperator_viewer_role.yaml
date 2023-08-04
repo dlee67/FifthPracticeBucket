@@ -1,0 +1,27 @@
+# permissions for end users to view nginxoperators.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: nginxoperator-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: nginx-operator
+    app.kubernetes.io/part-of: nginx-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: nginxoperator-viewer-role
+rules:
+- apiGroups:
+  - operator.example.com
+  resources:
+  - nginxoperators
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - operator.example.com
+  resources:
+  - nginxoperators/status
+  verbs:
+  - get
