@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 	"flag"
 	"log"
+	"net/http"
 	"fmt"
 	"k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -76,7 +77,31 @@ func main() {
 		switch event.Type{
 
 		case watch.Added:
-						log.Printf(" Pod %s added \n",pod.Name)
+			log.Printf(" Pod %s added \n",pod.Name)
+
+			// serviceName := "nginx-service"
+			// servicePort := 80
+			// service, err := api.Services(_namespace).Get(context.TODO(), serviceName, metav1.GetOptions{})
+			// if err != nil {
+			// 	log.Fatal(err)
+			// }
+			// serviceIP := service.Spec.ClusterIPss
+			// Use something like this: minikube service nginx-service --url
+			// to grab the IP.
+			serviceIP := "The IP grabbed via Minikube goes here."	
+			servicePort := 123214 
+
+			// Construct the URL for the GET request
+			url := fmt.Sprintf("http://%s:%d", serviceIP, servicePort)
+
+			// Send the GET request
+			response, err := http.Get(url)
+			if err != nil {
+				log.Printf("Error making GET request: %v\n", err)
+			} else {
+				defer response.Body.Close()
+				log.Printf("GET request to %s returned status code: %d\n", url, response.StatusCode)
+			}
 
 		case watch.Deleted:
 						log.Printf(" Pod %s deleted \n",pod.Name)
