@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:  # This is where you define the selector that matches your Pods
+    matchLabels:
+      app: nginx  # Make sure this matches the labels in the template section
+  template:
+    metadata:
+      labels:
+        app: nginx  # Labels that identify your Pods
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          volumeMounts:
+            - name: nginx-config-volume
+              mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: nginx-config-volume
+          configMap:
+            name: nginx-custom-config

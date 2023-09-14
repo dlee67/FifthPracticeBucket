@@ -88,8 +88,8 @@ func main() {
 			// serviceIP := service.Spec.ClusterIPss
 			// Use something like this: minikube service nginx-service --url
 			// to grab the IP.
-			serviceIP := "The IP grabbed via Minikube goes here."	
-			servicePort := 123214 
+			serviceIP := "Your Minikube IP goes here."	
+			servicePort := 1234 
 
 			// Construct the URL for the GET request
 			url := fmt.Sprintf("http://%s:%d", serviceIP, servicePort)
@@ -101,6 +101,9 @@ func main() {
 			} else {
 				defer response.Body.Close()
 				log.Printf("GET request to %s returned status code: %d\n", url, response.StatusCode)
+				if response.StatusCode == 500 {
+					log.Printf("Got 500")
+				}
 			}
 
 		case watch.Deleted:
