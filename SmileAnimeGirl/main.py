@@ -18,7 +18,7 @@ print('Validation set:', len(celeba_valid_dataset))
 print('Test set:', len(celeba_test_dataset))
 
 
-get_smile = lambda attr: attr[18]
+get_smile = lambda attr: attr[18] # Grabs the value in the 18th column, which is the value that indicates if the person is smiling or not. 
  
 transform_train = transforms.Compose([
     transforms.RandomCrop([178, 178]),
@@ -87,14 +87,8 @@ model.add_module('pool3', nn.MaxPool2d(kernel_size=2))
 model.add_module('conv4', nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, padding=1))
 model.add_module('relu4', nn.ReLU())  
 
-
-
-
 x = torch.ones((4, 3, 64, 64))
 model(x).shape
-
-
-
 
 model.add_module('pool4', nn.AvgPool2d(kernel_size=8)) 
 model.add_module('flatten', nn.Flatten()) 
@@ -102,14 +96,8 @@ model.add_module('flatten', nn.Flatten())
 x = torch.ones((4, 3, 64, 64))
 model(x).shape
 
-
-
-
 model.add_module('fc', nn.Linear(256, 1)) 
 model.add_module('sigmoid', nn.Sigmoid()) 
-
-
-
 
 x = torch.ones((4, 3, 64, 64))
 model(x).shape
