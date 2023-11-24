@@ -5,12 +5,16 @@ import (
 	"flag"
 	"fmt"
 	"path/filepath"
+	"os"
+	"log"
 
-	core "k8s.io/api/core/v1"
+	// core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/api/apps/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/util/homedir"
+	"k8s.io/apimachinery/pkg/watch"
 )
 
 func main() {
@@ -34,57 +38,25 @@ func main() {
 		panic(err)
 	}
 
-	// build the pod defination we want to deploy
-	pod := getPodObject()
-
-	// now create the pod in kubernetes cluster using the clientset
-	// https://pkg.go.dev/context
-	// I am guessing context is like a semaphor?
-	// https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1
-	pod, err = clientset.CoreV1().Pods(pod.Namespace).Create(context.TODO(), pod, metav1.CreateOptions{})
+	listOptions := metav1.ListOptions{}
+	deploymentsWatcher, err := clientset.AppsV1().Deployments("").Watch(context.Background(), listOptions)
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error getting deployments: %v\n", err)
+		os.Exit(1)
 	}
-	fmt.Println("Pod created successfully...")
+	
+	deploymentChannel := deploymentsWatcher.ResultChan()
 
-	// err = clientset.CoreV1().Pods(pod.Namespace).Delete(context.TODO(), pod.Name, metav1.DeleteOptions{})
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// fmt.Println("Pod delete successfully...")
-}
-
-// Referring the book: "Kubernetes Programming with Go: Programming Kubernetes Clients and Operators Using Go and the Kubernetes API"
-// The ObjectMeta structure is defined as follows (deprecated fields as well as internal fields have been removed):
-// Type ObjectMeta {
-//     Name                string
-//     GenerateName        string
-//     Namespace           string
-//     UID                 types.UID
-//     ResourceVersion     string
-//     Generation          int64
-//     Labels              map[string]string
-//     Annotations         map[string]string
-//     OwnerReferences     []OwnerReference
-//     [...]
-// }
-func getPodObject() *core.Pod {
-	return &core.Pod{
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      "my-test-pod",
-			Namespace: "default",
-			Labels: map[string]string{
-				"app": "demo",
-			},
-		},
-		Spec: core.PodSpec{
-			Containers: []core.Container{
-				{
-					Name: "your-cave",
-					Image: "nginx",
-					ImagePullPolicy: core.PullIfNotPresent,
-				},
-			},
-		},
+	for event := range deploymentChannel {
+		deployment, ok := event.Object.(*v1.Deployment)
+		if (!ok) { 
+			log.Fatal(err)
+		}
+		switch event.Type{
+			case watch.Added:
+				log.Printf("Deployment %s added \n", deployment.Name)
+			case watch.Deleted:
+				log.Printf("Deployment %s deleted \n", deployment.Name)
+		}
 	}
 }
