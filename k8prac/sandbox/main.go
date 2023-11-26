@@ -6,7 +6,9 @@ import (
 	"fmt"
 	"path/filepath"
 	"os"
+	"os/exec"
 	"log"
+	"time"
 
 	// core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -26,6 +28,8 @@ func main() {
 		kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
 	}
 	flag.Parse()
+
+	fmt.Printf("Kubeconfig at: ", *kubeconfig)
 
 	// build configuration from the config file.
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
@@ -55,8 +59,25 @@ func main() {
 		switch event.Type{
 			case watch.Added:
 				log.Printf("Deployment %s added \n", deployment.Name)
+				checkAddedStatus(deployment)
 			case watch.Deleted:
 				log.Printf("Deployment %s deleted \n", deployment.Name)
+			case watch.Modified:
+				log.Printf("Deployment %s modified \n", deployment.Name)
+				if deployment.Status.ReadyReplicas == 0 {
+					fmt.Printf("Deployment %s has 0 number of ready replicas, waiting to see if it'll spawn\n", deployment.Name)
+					cmd := exec.Command("kubectl", "rollout", "undo", "deployment", deployment.Name)
+					err := cmd.Run()
+					if err != nil {
+						fmt.Printf("Error executing command: %v\n", err)
+						return
+					}
+					time.Sleep(20 * time.Second)
+				}
 		}
 	}
+}
+
+func checkAddedStatus(deployment *v1.Deployment) {
+	fmt.Printf("Number of replicas: %d\n", deployment.Status.ReadyReplicas)
 }
