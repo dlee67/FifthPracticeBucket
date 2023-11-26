@@ -8,7 +8,7 @@ import (
 	"os"
 	"os/exec"
 	"log"
-	"time"
+	"slices"
 
 	// core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -18,6 +18,8 @@ import (
 	"k8s.io/client-go/util/homedir"
 	"k8s.io/apimachinery/pkg/watch"
 )
+
+var deploymentWatchList = []string{"your-app-deployment", ""}
 
 func main() {
 	var kubeconfig *string
@@ -64,15 +66,8 @@ func main() {
 				log.Printf("Deployment %s deleted \n", deployment.Name)
 			case watch.Modified:
 				log.Printf("Deployment %s modified \n", deployment.Name)
-				if deployment.Status.ReadyReplicas == 0 {
-					fmt.Printf("Deployment %s has 0 number of ready replicas, waiting to see if it'll spawn\n", deployment.Name)
-					cmd := exec.Command("kubectl", "rollout", "undo", "deployment", deployment.Name)
-					err := cmd.Run()
-					if err != nil {
-						fmt.Printf("Error executing command: %v\n", err)
-						return
-					}
-					time.Sleep(20 * time.Second)
+				if slices.Contains(deploymentWatchList, deployment.Name) {
+					checkModifiedStatus(deployment)
 				}
 		}
 	}
@@ -80,4 +75,19 @@ func main() {
 
 func checkAddedStatus(deployment *v1.Deployment) {
 	fmt.Printf("Number of replicas: %d\n", deployment.Status.ReadyReplicas)
+}
+
+func checkModifiedStatus(deployment *v1.Deployment) {
+	fmt.Printf("Deployment %s has 0 number of ready replicas, waiting to see if it'll spawn\n", deployment.Name)
+	if deployment.Status.ReadyReplicas == 0 {
+		cmd := exec.Command("kubectl", "rollout", "undo", "deployment", deployment.Name)
+		err := cmd.Run()
+		if err != nil {
+			fmt.Printf("Error executing command: %v\n", err)
+			return
+		}
+		fmt.Printf("Rollback finished\n")
+		return
+	}
+	fmt.Printf("Deployment %s successfully spawn a replica.\n", deployment.Name)
 }
