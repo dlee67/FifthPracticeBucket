@@ -10,9 +10,9 @@ import (
 	"log"
 	"slices"
 
-	// core "k8s.io/api/core/v1"
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/api/apps/v1"
+	apps "k8s.io/api/apps/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/util/homedir"
@@ -30,9 +30,7 @@ func main() {
 		kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
 	}
 	flag.Parse()
-
 	fmt.Printf("Kubeconfig at: ", *kubeconfig)
-
 	// build configuration from the config file.
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
@@ -45,23 +43,43 @@ func main() {
 	}
 
 	listOptions := metav1.ListOptions{}
-	deploymentsWatcher, err := clientset.AppsV1().Deployments("").Watch(context.Background(), listOptions)
+	
+	nodesWatcher, err := clientset.CoreV1().Nodes().Watch(context.Background(), listOptions)
 	if err != nil {
 		fmt.Printf("Error getting deployments: %v\n", err)
 		os.Exit(1)
 	}
-	
-	deploymentChannel := deploymentsWatcher.ResultChan()
+	nodesChannel := nodesWatcher.ResultChan()
+	for event := range nodesChannel {
+		node, ok := event.Object.(*core.Node)
+		if (!ok) { 
+			log.Fatal(err)
+		}
+		switch event.Type{
+			case watch.Added:
+				log.Printf("Node %s added \n", node.Name)
+				checkNodeHealth(node)
+			case watch.Deleted:
+				log.Printf("Node %s deleted \n", node.Name)
+			case watch.Modified:
+				log.Printf("Node %s modified \n", node.Name)
+		}
+	}
 
+	deploymentsWatcher, err := clientset.AppsV1().Deployments("").Watch(context.Background(), listOptions)
+	if err != nil {
+		fmt.Printf("Error getting deployments: %v\n", err)
+		os.Exit(1)
+	}	
+	deploymentChannel := deploymentsWatcher.ResultChan()
 	for event := range deploymentChannel {
-		deployment, ok := event.Object.(*v1.Deployment)
+		deployment, ok := event.Object.(*apps.Deployment)
 		if (!ok) { 
 			log.Fatal(err)
 		}
 		switch event.Type{
 			case watch.Added:
 				log.Printf("Deployment %s added \n", deployment.Name)
-				checkAddedStatus(deployment)
 			case watch.Deleted:
 				log.Printf("Deployment %s deleted \n", deployment.Name)
 			case watch.Modified:
@@ -73,11 +91,14 @@ func main() {
 	}
 }
 
-func checkAddedStatus(deployment *v1.Deployment) {
-	fmt.Printf("Number of replicas: %d\n", deployment.Status.ReadyReplicas)
+func checkNodeHealth(node *core.Node) {
+	log.Printf("Printing Node conditions\n");
+	for _, condition := range node.Status.Conditions {
+        fmt.Printf("\t%s: %s\n", condition.Type, condition.Status)
+    }
 }
 
-func checkModifiedStatus(deployment *v1.Deployment) {
+func checkModifiedStatus(deployment *apps.Deployment) {
 	fmt.Printf("Deployment %s has 0 number of ready replicas, waiting to see if it'll spawn\n", deployment.Name)
 	if deployment.Status.ReadyReplicas == 0 {
 		cmd := exec.Command("kubectl", "rollout", "undo", "deployment", deployment.Name)
