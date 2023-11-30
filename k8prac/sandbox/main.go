@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"path/filepath"
 	"os"
-	"os/exec"
 	"log"
 	"slices"
 
@@ -19,7 +18,12 @@ import (
 	"k8s.io/apimachinery/pkg/watch"
 )
 
-var deploymentWatchList = []string{"your-app-deployment", ""}
+var (
+	deploymentWatchList = []string{"your-app-deployment", ""}
+	healthyNodes        = []string{}
+	clientset           *kubernetes.Clientset // Declare clientset at the package level
+	listOptions 		= metav1.ListOptions{}
+)
 
 func main() {
 	var kubeconfig *string
@@ -37,12 +41,10 @@ func main() {
 		panic(err)
 	}
 	// create kubernetes clientset. this clientset can be used to create,delete,patch,list etc for the kubernetes resources
-	clientset, err := kubernetes.NewForConfig(config)
+	clientset, err = kubernetes.NewForConfig(config)
 	if err != nil {
 		panic(err)
 	}
-
-	listOptions := metav1.ListOptions{}
 	
 	nodesWatcher, err := clientset.CoreV1().Nodes().Watch(context.Background(), listOptions)
 	if err != nil {
@@ -58,7 +60,6 @@ func main() {
 		switch event.Type{
 			case watch.Added:
 				log.Printf("Node %s added \n", node.Name)
-				checkNodeHealth(node)
 			case watch.Deleted:
 				log.Printf("Node %s deleted \n", node.Name)
 			case watch.Modified:
@@ -91,24 +92,22 @@ func main() {
 	}
 }
 
-func checkNodeHealth(node *core.Node) {
-	log.Printf("Printing Node conditions\n");
-	for _, condition := range node.Status.Conditions {
-        fmt.Printf("\t%s: %s\n", condition.Type, condition.Status)
-    }
-}
-
 func checkModifiedStatus(deployment *apps.Deployment) {
-	fmt.Printf("Deployment %s has 0 number of ready replicas, waiting to see if it'll spawn\n", deployment.Name)
 	if deployment.Status.ReadyReplicas == 0 {
-		cmd := exec.Command("kubectl", "rollout", "undo", "deployment", deployment.Name)
-		err := cmd.Run()
+		fmt.Printf("Deployment %s has 0 number of ready replicas\n", deployment.Name)
+		
+		nodes, err := clientset.CoreV1().Nodes().List(context.Background(), listOptions)
 		if err != nil {
-			fmt.Printf("Error executing command: %v\n", err)
+			fmt.Printf("Error getting nodes: %v\n", err)
 			return
 		}
-		fmt.Printf("Rollback finished\n")
+
+		for _, node := range nodes.Items {
+			fmt.Printf("Node %s conditions:\n", node.Name)
+			for _, condition := range node.Status.Conditions {
+				fmt.Printf("\t%s: %s\n", condition.Type, condition.Status)
+			}
+		}
 		return
 	}
-	fmt.Printf("Deployment %s successfully spawn a replica.\n", deployment.Name)
 }
