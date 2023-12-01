@@ -103,7 +103,14 @@ func checkModifiedStatus(deployment *apps.Deployment) {
 		}
 
 		for _, node := range nodes.Items {
-			fmt.Printf("Node %s conditions:\n", node.Name)
+			nodeName := node.Name
+			ramCapacity := node.Status.Capacity.Memory().String()
+			osImage := node.Status.NodeInfo.OSImage
+			fmt.Printf("Node %s:\n", nodeName)
+			fmt.Printf("RAM Capacity: %s\n", ramCapacity)
+			fmt.Printf("Operating System: %s\n", osImage)
+			// https://stackoverflow.com/questions/57343326/using-kubernetes-client-go-how-to-check-programatically-if-node-is-ready
+			// This is actually the best practice that the community recommands.
 			for _, condition := range node.Status.Conditions {
 				fmt.Printf("\t%s: %s\n", condition.Type, condition.Status)
 			}
