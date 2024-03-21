@@ -1,13 +1,14 @@
 package main
 
 import (
+	"os"
 	"context"
 	"path/filepath"
 	"flag"
 	"log"
-	"net/http"
+	// "net/http"
 	"fmt"
-	"k8s.io/api/core/v1"
+	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
@@ -15,12 +16,12 @@ import (
 	 "k8s.io/client-go/util/homedir"
 )
 
-func main() {
-	var _namespace,
-	 	_labelSelector,
-		_fieldSelector string
+var (
+	clientset           *kubernetes.Clientset // Declare clientset at the package level
+	listOptions 		= metav1.ListOptions{}
+)
 
-	//Define kubeconfig file
+func main() {
 	var kubeconfig *string
 	if home := homedir.HomeDir(); home != "" { // check if machine has home directory.
 		// read kubeconfig flag. if not provided use config file $HOME/.kube/config
@@ -28,87 +29,37 @@ func main() {
 	} else {
 		kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
 	}
-
-
-	//Load kubernetes config
+	flag.Parse()
+	fmt.Printf("Kubeconfig at: ", *kubeconfig)
+	// build configuration from the config file.
 	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-
-	//Create a client set to use k8s apis
-	clientset, err := kubernetes.NewForConfig(config)
+	// create kubernetes clientset. this clientset can be used to create,delete,patch,list etc for the kubernetes resources
+	clientset, err = kubernetes.NewForConfig(config)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-
-	//create an api object
-	api := clientset.CoreV1()
-
-	// Read namesapce from command line
-	flag.StringVar(&_namespace, "n", "default", " namespace")
-	flag.StringVar(&_labelSelector, "l", "", "Label selector ")
-	flag.StringVar(&_fieldSelector, "f", "", "Field selector ")
-	flag.Parse()
-
-	opts := metav1.ListOptions{
-		LabelSelector: _labelSelector,
-		FieldSelector: _fieldSelector,
-	}
-
-	//Create a watcher on pods
-	fmt.Printf("Starting a Pod watcher in namespace [%s]\n",_namespace)
-
-	podWatcher, err := api.Pods(_namespace).Watch(context.TODO(), opts)
+	
+	nodesWatcher, err := clientset.CoreV1().Nodes().Watch(context.Background(), listOptions)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Printf("Error getting deployments: %v\n", err)
+		os.Exit(1)
 	}
-
-
-    //Watch loop 
-
-	podChannel := podWatcher.ResultChan()
-
-	for event := range podChannel {
-		pod,ok  :=event.Object.(*v1.Pod)
-		if (! ok ) { log. Fatal(err )
+	nodesChannel := nodesWatcher.ResultChan()
+	for event := range nodesChannel {
+		node, ok := event.Object.(*core.Node)
+		if (!ok) { 
+			log.Fatal(err)
 		}
-
 		switch event.Type{
-
-		case watch.Added:
-			log.Printf(" Pod %s added \n",pod.Name)
-
-			// serviceName := "nginx-service"
-			// servicePort := 80
-			// service, err := api.Services(_namespace).Get(context.TODO(), serviceName, metav1.GetOptions{})
-			// if err != nil {
-			// 	log.Fatal(err)
-			// }
-			// serviceIP := service.Spec.ClusterIPss
-			// Use something like this: minikube service nginx-service --url
-			// to grab the IP.
-			serviceIP := "The IP grabbed via Minikube goes here."	
-			servicePort := 123214 
-
-			// Construct the URL for the GET request
-			url := fmt.Sprintf("http://%s:%d", serviceIP, servicePort)
-
-			// Send the GET request
-			response, err := http.Get(url)
-			if err != nil {
-				log.Printf("Error making GET request: %v\n", err)
-			} else {
-				defer response.Body.Close()
-				log.Printf("GET request to %s returned status code: %d\n", url, response.StatusCode)
-			}
-
-		case watch.Deleted:
-						log.Printf(" Pod %s deleted \n",pod.Name)
-
+			case watch.Added:
+				log.Printf("Node %s added \n", node.Name)
+			case watch.Deleted:
+				log.Printf("Node %s deleted \n", node.Name)
+			case watch.Modified:
+				log.Printf("Node %s modified \n", node.Name)
 		}
 	}
-
-
-
 }
