@@ -25,7 +25,8 @@ func main() {
 	var kubeconfig *string
 	if home := homedir.HomeDir(); home != "" { // check if machine has home directory.
 		// read kubeconfig flag. if not provided use config file $HOME/.kube/config
-		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
+		kubeconfig = flag.String("kubeconfig", filepath.Join(home, ".kube", "config"), 
+									"(optional) absolute path to the kubeconfig file")
 	} else {
 		kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
 	}
