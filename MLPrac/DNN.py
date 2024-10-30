@@ -23,159 +23,132 @@ def convert(imgf, labelf, outf, n):
     o.close()
     l.close()
 
-convert("C:\\Users\\talla\\DL_Projects\\archive\\train-images.idx3-ubyte", "C:\\Users\\talla\\DL_Projects\\archive\\train-labels.idx1-ubyte",
+# Convert the MNIST dataset to CSV format
+convert("C:\\Users\\talla\\DL_Projects\\archive\\train-images.idx3-ubyte",
+        "C:\\Users\\talla\\DL_Projects\\archive\\train-labels.idx1-ubyte",
         "C:\\Users\\talla\\DL_Projects\\archive\\mnist_train.csv", 60000)
-convert("C:\\Users\\talla\\DL_Projects\\archive\\t10k-images.idx3-ubyte", "C:\\Users\\talla\\DL_Projects\\archive\\t10k-labels.idx1-ubyte",
+convert("C:\\Users\\talla\\DL_Projects\\archive\\t10k-images.idx3-ubyte",
+        "C:\\Users\\talla\\DL_Projects\\archive\\t10k-labels.idx1-ubyte",
         "C:\\Users\\talla\\DL_Projects\\archive\\mnist_test.csv", 10000)
 
+# Load the training and test data
 train_file = open("C:\\Users\\talla\\DL_Projects\\archive\\mnist_train.csv", 'r')
 train_list = train_file.readlines()
 train_file.close()
+
 test_file = open("C:\\Users\\talla\\DL_Projects\\archive\\mnist_test.csv", 'r')
 test_list = test_file.readlines()
 test_file.close()
 
-all_values = train_list[100].split(',')
-# image_array = np.asfarray(all_values[1:]).reshape((28,28)) # take the data from a record, rearrange it into a 28*28 array and plot it as an image
-# matplotlib.pyplot.imshow(image_array, cmap='Greys', interpolation='None')
-# scaled_input_train = (np.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
-
 class DNN:
-    # 784 nodes (28 x 28) as the input layer.
-    # 128 nodes for the 1st hidden layer and ... 
-    # 64 nodes for the 2nd hidden layer.
-    # 10 nodes for the output layer.
+    # Neural network with 784 input nodes, two hidden layers (128 and 64 nodes), and 10 output nodes
     def __init__(self, sizes=[784, 128, 64, 10], epochs=10, lr=0.001):
         self.sizes = sizes
-        self.epochs=epochs
-        self.lr=lr
-        input_layer=sizes[0]
-        hidden_1=sizes[1]
-        hidden_2=sizes[2]
-        output_layer=sizes[3]
-        # The below values don't really matter what they are set to as long as they match the number of paths
-        # required for each layers to be interconnected. 
+        self.epochs = epochs
+        self.lr = lr
+        input_layer = sizes[0]
+        hidden_1 = sizes[1]
+        hidden_2 = sizes[2]
+        output_layer = sizes[3]
+        # Initialize weights and biases
         self.params = {
             'W1': np.random.randn(hidden_1, input_layer) * np.sqrt(1. / hidden_1),
-            'b1': np.zeros((hidden_1)),  # Initialize bias for the first hidden layer
+            'b1': np.zeros((hidden_1)),
             'W2': np.random.randn(hidden_2, hidden_1) * np.sqrt(1. / hidden_2),
-            'b2': np.zeros((hidden_2)),  # Initialize bias for the second hidden layer
+            'b2': np.zeros((hidden_2)),
             'W3': np.random.randn(output_layer, hidden_2) * np.sqrt(1. / output_layer),
-            'b3': np.zeros((output_layer))  # Initialize bias for the output layer
+            'b3': np.zeros((output_layer))
         }
 
     def sigmoid(self, x, derivative=False):
+        sig = 1 / (1 + np.exp(-x))
         if derivative:
-            return (np.exp(-x))/((np.exp(-x)+1)**2)
-        return 1/(1 + np.exp(-x))
-    
+            return sig * (1 - sig)
+        return sig
+
     def softmax(self, x, derivative=False):
-        # Numerically stable with large exponentials
-        exps = np.exp(x - x.max())
+        exps = np.exp(x - np.max(x))
+        softmax = exps / np.sum(exps)
         if derivative:
-            return exps / np.sum(exps, axis=0) * (1 - exps / np.sum(exps, axis=0))
-        return exps / np.sum(exps, axis=0)
-        
+            return softmax * (1 - softmax)
+        return softmax
+
     def forward_pass(self, x_train):
         params = self.params
-        # The identifiers 'A0', 'Z1', 'A1', 'A2', 'Z2', 'Z3', and 'A3' are arbitrary.
-        # 'A' is for activation, and 'Z' is for the weighted sum.    
-        # input layer activations becomes sample
+        # Input layer activations become the sample
         params['A0'] = x_train
-        # input layer to hidden layer 1
-        params['Z1'] = np.dot(params["W1"], params['A0']) + params['b1']
-        # print("Shape of Z1:", params['Z1'].shape)
+        # Input layer to first hidden layer
+        params['Z1'] = np.dot(params['W1'], params['A0']) + params['b1']
         params['A1'] = self.sigmoid(params['Z1'])
-        # print("Shape of A1:", params['A1'].shape)
-        # hidden layer 1 to hidden layer 2
-        params['Z2'] = np.dot(params["W2"], params['A1']) + params['b2']
-        # print("Shape of Z2:", params['Z2'].shape)
+        # First hidden layer to second hidden layer
+        params['Z2'] = np.dot(params['W2'], params['A1']) + params['b2']
         params['A2'] = self.sigmoid(params['Z2'])
-        # print("Shape of A2:", params['A2'].shape)
-        # hidden layer 2 to output layer
-        params['Z3'] = np.dot(params["W3"], params['A2']) + params['b3']
-        # print("Shape of Z3:", params['Z3'].shape)
+        # Second hidden layer to output layer
+        params['Z3'] = np.dot(params['W3'], params['A2']) + params['b3']
         params['A3'] = self.softmax(params['Z3'])
-        # print("Shape of A3:", params['A3'].shape)
         return params['A3']
-        
+
     def backward_pass(self, y_train, output):
         params = self.params
         change_w = {}
-        m = output.shape[0]
+        m = 1  # Processing one sample at a time
 
-        # Calculate W3 update
-        dZ3 = output - y_train
-        change_w['W3'] = np.dot(dZ3[:, None], params['A2'].T[None, :]) / m
-        change_w['b3'] = np.sum(dZ3, keepdims=True) / m
+        # Calculate the gradient for W3 and b3
+        dZ3 = output - y_train  # Shape: (10,)
+        change_w['W3'] = np.dot(dZ3[:, None], params['A2'][None, :])  # Shape: (10, 64)
+        change_w['b3'] = dZ3  # Shape: (10,)
 
-        # Calculate gradients for second hidden layer
-        dZ2 = np.dot(params['W3'].T, dZ3) * (1 - np.power(params['A2'], 2))
-        change_w['W2'] = np.dot(dZ2[:, None], params['A1'].T[None, :]) / m
-        change_w['b2'] = np.sum(dZ2, keepdims=True) / m
-        
-        # Calculate gradients for the second hidden layer
-        dZ1 = np.dot(params['W2'].T, dZ2) * (1 - np.power(params['A1'], 2))
-        change_w['W1'] = np.dot(dZ1[:, None], params['A0'].T[None, :]) / m
-        change_w['b1'] = np.sum(dZ1, keepdims=True) / m
+        # Calculate the gradient for W2 and b2
+        dA2 = np.dot(params['W3'].T, dZ3)
+        dZ2 = dA2 * self.sigmoid(params['Z2'], derivative=True)  # Sigmoid derivative
+        change_w['W2'] = np.dot(dZ2[:, None], params['A1'][None, :])  # Shape: (64, 128)
+        change_w['b2'] = dZ2  # Shape: (64,)
+
+        # Calculate the gradient for W1 and b1
+        dA1 = np.dot(params['W2'].T, dZ2)
+        dZ1 = dA1 * self.sigmoid(params['Z1'], derivative=True)  # Sigmoid derivative
+        change_w['W1'] = np.dot(dZ1[:, None], params['A0'][None, :])  # Shape: (128, 784)
+        change_w['b1'] = dZ1  # Shape: (128,)
 
         return change_w
 
+    def update_network_parameters(self, changes_to_w):
+        # Update network parameters using gradient descent
+        for key in self.params.keys():
+            self.params[key] -= self.lr * changes_to_w[key]
+
+    def compute_accuracy(self, test_data, output_nodes):
+        # Compute accuracy on the test data
+        predictions = []
+
+        for x in test_data:
+            all_values = x.strip().split(',')
+            inputs = (np.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
+            correct_label = int(all_values[0])
+            output = self.forward_pass(inputs)
+            pred = np.argmax(output)
+            predictions.append(pred == correct_label)
+
+        return np.mean(predictions)
+
     def train(self, train_list, test_list, output_nodes):
-        # For MNIST training, no matter what, output_nodes will always be 10.
-        # After all, if there are 10 digits that can be classifed, then, that's 10 output nodes (still one layer).
+        # Training the neural network
         start_time = time.time()
         for iteration in range(self.epochs):
             for anImage in train_list:
-                all_values = anImage.split(',')
+                all_values = anImage.strip().split(',')
                 inputs = (np.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
                 targets = np.zeros(output_nodes) + 0.01
                 targets[int(all_values[0])] = 0.99
                 output = self.forward_pass(inputs)
                 changes_to_w = self.backward_pass(targets, output)
                 self.update_network_parameters(changes_to_w)
-          
+
             accuracy = self.compute_accuracy(test_list, output_nodes)
             print('Epoch: {0}, Time Spent: {1:.2f}s, Accuracy: {2:.2f}%'.format(
-                iteration+1, time.time() - start_time, accuracy * 100
+                iteration + 1, time.time() - start_time, accuracy * 100
             ))
 
-    def update_network_parameters(self, changes_to_w):
-        '''
-          Update network parameters according to update rule from
-          Stochastic Gradient Descent.
-
-          θ = θ - η * ∇J(x, y), 
-              theta θ:            a network parameter (e.g. a weight w)
-              eta η:              the learning rate
-              gradient ∇J(x, y):  the gradient of the objective function,
-                                  i.e. the change for a specific theta θ
-        '''
-        for key, value in changes_to_w.items():
-            self.params[key] -= self.lr * value
-    
-    
-    def compute_accuracy(self, test_data, output_nodes):
-        '''
-            This function does a forward pass of x, then checks if the indices
-            of the maximum value in the output equals the indices in the label y. 
-            Then it sums over each prediction and calculates the accuracy.
-        '''
-        predictions = []
-
-        for x in train_list:
-            all_values = x.split(',')
-            # scale and shift the inputs
-            inputs = (np.asfarray(all_values[1:]) / 255.0 * 0.99) + 0.01
-            # create the target output values (all 0.01, except the desired label which is 0.99)
-            targets = np.zeros(output_nodes) + 0.01
-            # all_values[0] is the target label for this record
-            targets[int(all_values[0])] = 0.99
-            output = self.forward_pass(inputs)
-            pred = np.argmax(output)
-            predictions.append(pred == np.argmax(targets))
-      
-        return np.mean(predictions)
-            
+# Initialize and train the neural network
 dnn = DNN(sizes=[784, 128, 64, 10], epochs=50, lr=0.001)
 dnn.train(train_list, test_list, 10)
